@@ -11,7 +11,7 @@
   background-color: transparent;
   z-index: 1000;
   padding: 30px 40px; /* Increased padding */
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
 }
 
 .navigation-menu ul {
@@ -34,11 +34,6 @@
   font-weight: 600; /* Semi-bold weight */
 }
 
-.navigation-menu a:hover {
-  color: #4b4b4b;
-}
-
 .navigation-menu a.active {
   border-bottom: 1px solid black; /* Add a bottom border to the active link */
-  transition: border-bottom 0.3s ease-in-out; /* Add transition for smooth sliding effect */
 }
