@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../assets/logo-francauto-locadora.svg";
+import Logo from "../../assets/logo-francauto-locadora.svg";
 import "./navigation-menu.css"; // Import the CSS file for styling
 
 const NavigationMenu = () => {
