@@ -1,19 +1,33 @@
 import React, { useState } from "react";
-import Logo from "../assets/logo-francauto-locadora.svg";
+import Logo from "../../assets/logo-francauto-locadora.svg";
 import "./navigation-menu.css"; // Import the CSS file for styling
 
 const NavigationMenu = () => {
   const [activeItem, setActiveItem] = useState("#home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleClick = (hash) => {
     setActiveItem(hash);
+    setMenuOpen(false); // Close the menu when an item is clicked
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
     <nav className="navigation-menu">
-      <img src={Logo} alt="Francauto Locadora Logo" width="200" />{" "}
-      {/* Change width here */}
-      <ul>
+      <img
+        src={Logo}
+        alt="Francauto Locadora Logo"
+        width="200"
+        className="logo"
+      />{" "}
+      {/* Added className="logo" */}
+      <button className="menu-toggle" onClick={toggleMenu}>
+        ☰
+      </button>
+      <ul className={menuOpen ? "open" : ""}>
         <li>
           <a
             href="#home"
