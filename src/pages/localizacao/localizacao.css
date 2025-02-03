@@ -7,9 +7,46 @@
 .lottie-player-container {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 6.5%;
+}
+
+.localizacao-label {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  font-family: "Open Sans", sans-serif; /* Use the same font as navigation menu */
+}
+
+.localizacao-address-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.localizacao-address {
+  margin-left: 10px;
+  font-size: 16px;
+  color: black;
+  font-family: "Open Sans", sans-serif; /* Use the same font as navigation menu */
+  text-align: center;
 }
 
 .google-maps-container {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.localizacao-image {
+  width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.localizacao-button {
+  font-family: "Open Sans", sans-serif; /* Use the same font as navigation menu */
 }
