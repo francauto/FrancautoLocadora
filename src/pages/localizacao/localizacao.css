@@ -39,6 +39,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 400px; /* Adjust the width to match the car animation */
+  height: 400px; /* Set the height to match the car animation */
+  margin-right: 20px;
 }
 
 .localizacao-image {
