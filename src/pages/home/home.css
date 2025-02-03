@@ -13,6 +13,24 @@
   .home-background {
     background-size: contain;
   }
+  .info-card {
+    width: 70%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-card {
+    width: 90%;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .info-card {
+    width: 80%;
+    padding: 15px;
+  }
 }
 
 .info-card {

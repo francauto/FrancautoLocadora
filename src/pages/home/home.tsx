@@ -5,7 +5,7 @@ import CardHome from "../card-home"; // Import the new CardHome component
 
 const Home = () => {
   return (
-    <div className="home-background" style={{ height: "100vh" }}>
+    <div className="home-background">
       <CardHome />
     </div>
   );
