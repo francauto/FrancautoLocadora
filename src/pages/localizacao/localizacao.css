@@ -1,0 +1,15 @@
+.localizacao-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lottie-player-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.google-maps-container {
+  flex: 1;
+}
