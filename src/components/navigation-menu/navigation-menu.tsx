@@ -1,14 +1,40 @@
-import React, { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Link as ScrollLink, Events, scrollSpy } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
-import "./navigation-menu.css"; // Import the CSS file for styling
+import "./navigation-menu.css";
 
 const NavigationMenu = () => {
-  const [activeItem, setActiveItem] = useState("#home");
+  const [activeItem, setActiveItem] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleClick = (hash) => {
-    setActiveItem(hash);
-    setMenuOpen(false); // Close the menu when an item is clicked
+  const menuItems = [
+    { id: "home", label: "Home" },
+    { id: "localizacao", label: "Localização" },
+    { id: "planos", label: "Planos" },
+    { id: "contate-nos", label: "Contate-nos" },
+    { id: "duvidas", label: "Dúvidas" },
+  ];
+
+  useEffect(() => {
+    Events.scrollEvent.register("begin", () => {});
+    Events.scrollEvent.register("end", () => {});
+    scrollSpy.update();
+
+    return () => {
+      Events.scrollEvent.remove("begin");
+      Events.scrollEvent.remove("end");
+    };
+  }, []);
+
+  const handleSetActive = (to) => {
+    setActiveItem(to);
+  };
+
+  const handleClick = (to) => {
+    setActiveItem(to);
+    setMenuOpen(false);
   };
 
   const toggleMenu = () => {
@@ -18,61 +44,31 @@ const NavigationMenu = () => {
   return (
     <nav className="navigation-menu">
       <img
-        src={Logo}
+        src={Logo || "/placeholder.svg"}
         alt="Francauto Locadora Logo"
         width="200"
         className="logo"
-      />{" "}
-      {/* Added className="logo" */}
+      />
       <button className="menu-toggle" onClick={toggleMenu}>
         ☰
       </button>
       <ul className={menuOpen ? "open" : ""}>
-        <li>
-          <a
-            href="#home"
-            className={activeItem === "#home" ? "active" : ""}
-            onClick={() => handleClick("#home")}
-          >
-            Home
-          </a>
-        </li>
-        <li>
-          <a
-            href="#localizacao"
-            className={activeItem === "#contatos" ? "active" : ""}
-            onClick={() => handleClick("#contatos")}
-          >
-            Contatos
-          </a>
-        </li>
-        <li>
-          <a
-            href="#planos"
-            className={activeItem === "#planos" ? "active" : ""}
-            onClick={() => handleClick("#planos")}
-          >
-            Planos
-          </a>
-        </li>
-        <li>
-          <a
-            href="#monte-o-seu"
-            className={activeItem === "#monte-o-seu" ? "active" : ""}
-            onClick={() => handleClick("#monte-o-seu")}
-          >
-            Monte o seu
-          </a>
-        </li>
-        <li>
-          <a
-            href="#duvidas"
-            className={activeItem === "#duvidas" ? "active" : ""}
-            onClick={() => handleClick("#duvidas")}
-          >
-            Dúvidas
-          </a>
-        </li>
+        {menuItems.map((item) => (
+          <li key={item.id}>
+            <ScrollLink
+              to={item.id}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              onSetActive={handleSetActive}
+              className={activeItem === item.id ? "active" : ""}
+              onClick={() => handleClick(item.id)}
+            >
+              {item.label}
+            </ScrollLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

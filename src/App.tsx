@@ -13,11 +13,21 @@ function App() {
   return (
     <>
       <NavigationMenu />
-      <Home />
-      <Localizacao />
-      <Planos />
-      <Contatenos />
-      <Duvidas />
+      <div id="home">
+        <Home />
+      </div>
+      <div id="localizacao">
+        <Localizacao />
+      </div>
+      <div id="planos">
+        <Planos />
+      </div>
+      <div id="contate-nos">
+        <Contatenos />
+      </div>
+      <div id="duvidas">
+        <Duvidas />
+      </div>
     </>
   );
 }
