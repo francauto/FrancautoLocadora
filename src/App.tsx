@@ -3,7 +3,7 @@ import "./App.css";
 import Contatenos from "./pages/contate-nos";
 import Duvidas from "./pages/duvidas";
 import Home from "./pages/home/home";
-import Localizacao from "./pages/localizacao";
+import Localizacao from "./pages/localizacao/localizacao";
 import Planos from "./pages/planos";
 import NavigationMenu from "./components/navigation-menu/navigation-menu";
 
@@ -13,11 +13,21 @@ function App() {
   return (
     <>
       <NavigationMenu />
-      <Home />
-      <Localizacao />
-      <Planos />
-      <Contatenos />
-      <Duvidas />
+      <div id="home">
+        <Home />
+      </div>
+      <div id="localizacao">
+        <Localizacao />
+      </div>
+      <div id="planos">
+        <Planos />
+      </div>
+      <div id="contate-nos">
+        <Contatenos />
+      </div>
+      <div id="duvidas">
+        <Duvidas />
+      </div>
     </>
   );
 }
