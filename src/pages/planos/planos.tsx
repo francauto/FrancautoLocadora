@@ -180,9 +180,9 @@ const Planos = () => {
                 <Box
                   sx={{
                     position: "absolute",
-                    bottom: 10,
-                    left: "50%",
-                    transform: "translateX(-50%)",
+                    bottom: 10, // Adjust this value to change the vertical position
+                    left: "50%", // Adjust this value to change the horizontal position
+                    transform: "translateX(-50%) ", // Adjust this value to fine-tune the horizontal position
                     backgroundColor: "#00C853",
                     color: "black",
                     padding: "4px 16px",
@@ -231,6 +231,7 @@ const Planos = () => {
             variant="contained"
             color="primary"
             sx={{ display: "flex", alignItems: "center" }}
+            onClick={() => window.open("https://wa.me/5516999661580", "_blank")}
           >
             Consulte os valores
             <dotlottie-player
@@ -259,5 +260,4 @@ const Planos = () => {
     </div>
   );
 };
-
 export default Planos;
