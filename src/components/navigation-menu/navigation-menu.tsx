@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { Link as ScrollLink, Events, scrollSpy } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
@@ -10,11 +8,11 @@ const NavigationMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const menuItems = [
-    { id: "home", label: "Home" },
-    { id: "localizacao", label: "Localização" },
-    { id: "planos", label: "Planos" },
-    { id: "contate-nos", label: "Contate-nos" },
-    { id: "duvidas", label: "Dúvidas" },
+    { id: "home", label: "Home", offset: -70 },
+    { id: "localizacao", label: "Localização", offset: 0 }, // Ajustado o offset
+    { id: "planos", label: "Planos", offset: -70 },
+    { id: "contate-nos", label: "Contate-nos", offset: -70 },
+    { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
 
   useEffect(() => {
@@ -59,7 +57,7 @@ const NavigationMenu = () => {
               to={item.id}
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={item.offset}
               duration={500}
               onSetActive={handleSetActive}
               className={activeItem === item.id ? "active" : ""}
