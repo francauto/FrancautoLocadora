@@ -6,6 +6,7 @@ import {
   Typography,
   Box,
   IconButton,
+  Button,
 } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -22,21 +23,21 @@ const plans = [
     duration: "8 MESES!",
     image: NovoTCross,
     title: "Novo T-Cross",
-    features: ["Assistência 24h", "Seguro Incluso", "Manutenção Inclusa"],
+    features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
   {
     id: 2,
     duration: "1 ANO!",
     image: PoloTrack,
     title: "Polo Track",
-    features: ["Assistência 24h", "Seguro Incluso", "Manutenção Inclusa"],
+    features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
   {
     id: 3,
     duration: "30 DIAS!",
     image: TiguanAllspace,
     title: "Tiguan Allspace",
-    features: ["Assistência 24h", "Seguro Incluso", "Manutenção Inclusa"],
+    features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
 ];
 
@@ -195,6 +196,52 @@ const Planos = () => {
               </Card>
             );
           })}
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            mt: -13,
+          }}
+        >
+          {plans.map((_, index) => (
+            <Box
+              key={index}
+              sx={{
+                width: 12,
+                height: 12,
+                borderRadius: "50%",
+                backgroundColor: index === activeIndex ? "#000" : "#ccc",
+                margin: "0 4px",
+                cursor: "pointer",
+              }}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            mt: 2,
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ display: "flex", alignItems: "center" }}
+          >
+            Consulte os valores
+            <dotlottie-player
+              src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
+              background="transparent"
+              speed="1"
+              style={{ width: "30px", height: "30px", marginLeft: "8px" }}
+              loop
+              autoplay
+            ></dotlottie-player>
+          </Button>
         </Box>
         <Box
           sx={{
