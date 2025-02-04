@@ -40,10 +40,10 @@ const NavigationMenu = () => {
         <li>
           <a
             href="#localizacao"
-            className={activeItem === "#localizacao" ? "active" : ""}
-            onClick={() => handleClick("#localizacao")}
+            className={activeItem === "#contatos" ? "active" : ""}
+            onClick={() => handleClick("#contatos")}
           >
-            Localização
+            Contatos
           </a>
         </li>
         <li>
@@ -57,11 +57,11 @@ const NavigationMenu = () => {
         </li>
         <li>
           <a
-            href="#contate-nos"
-            className={activeItem === "#contate-nos" ? "active" : ""}
-            onClick={() => handleClick("#contate-nos")}
+            href="#monte-o-seu"
+            className={activeItem === "#monte-o-seu" ? "active" : ""}
+            onClick={() => handleClick("#monte-o-seu")}
           >
-            Contate-nos
+            Monte o seu
           </a>
         </li>
         <li>
