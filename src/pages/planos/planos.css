@@ -2,3 +2,30 @@
   margin-top: 100px;
   border-color: black;
 }
+
+.carousel-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 345px;
+  transition: all 0.5s ease-in-out;
+}
+
+.carousel-item.left {
+  transform: translateX(-130%) scale(0.8) translateZ(-100px); /* Adjust translateX value to change distance */
+  opacity: 0.8;
+}
+
+.carousel-item.center {
+  transform: translateX(-50%) scale(1) translateZ(0);
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-item.right {
+  transform: translateX(30%) scale(0.8) translateZ(-100px); /* Adjust translateX value to change distance */
+  opacity: 0.8;
+}
