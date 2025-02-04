@@ -10,9 +10,11 @@ import {
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "@dotlottie/player-component";
-import NovoTCross from "../../assets/novo-t-cross.svg";
 import "./planos.css";
 import { useState } from "react";
+import NovoTCross from "../../assets/novo-t-cross.svg";
+import PoloTrack from "../../assets/polo-track.svg";
+import TiguanAllspace from "../../assets/tiguan-allspace.svg";
 
 const plans = [
   {
@@ -25,15 +27,15 @@ const plans = [
   {
     id: 2,
     duration: "1 ANO!",
-    image: NovoTCross,
-    title: "Novo T-Cross",
+    image: PoloTrack,
+    title: "Polo Track",
     features: ["Assistência 24h", "Seguro Incluso", "Manutenção Inclusa"],
   },
   {
     id: 3,
     duration: "30 DIAS!",
-    image: NovoTCross,
-    title: "Novo T-Cross",
+    image: TiguanAllspace,
+    title: "Tiguan Allspace",
     features: ["Assistência 24h", "Seguro Incluso", "Manutenção Inclusa"],
   },
 ];
@@ -122,7 +124,14 @@ const Planos = () => {
                   height="200"
                   image={plan.image}
                   alt={plan.title}
-                  sx={{ objectFit: "cover" }}
+                  sx={{
+                    objectFit: "cover",
+                    transform:
+                      plan.title === "Polo Track" ||
+                      plan.title === "Tiguan Allspace"
+                        ? "scaleX(-1)"
+                        : "none",
+                  }}
                 />
                 <CardContent>
                   <Typography
@@ -198,32 +207,7 @@ const Planos = () => {
             zIndex: 2,
             px: 2,
           }}
-        >
-          <IconButton
-            onClick={handlePrev}
-            sx={{
-              backgroundColor: "white",
-              border: "1px solid black",
-              borderRadius: "50%",
-              width: 40,
-              height: 40,
-            }}
-          >
-            <ArrowBackIosIcon />
-          </IconButton>
-          <IconButton
-            onClick={handleNext}
-            sx={{
-              backgroundColor: "white",
-              border: "1px solid black",
-              borderRadius: "50%",
-              width: 40,
-              height: 40,
-            }}
-          >
-            <ArrowForwardIosIcon />
-          </IconButton>
-        </Box>
+        ></Box>
       </Box>
     </div>
   );
