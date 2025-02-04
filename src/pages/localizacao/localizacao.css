@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   margin: 6.5%;
+  margin-top: 0;
 }
 
 .localizacao-label {
@@ -41,7 +42,7 @@
   align-items: center;
   width: 400px; /* Adjust the width to match the car animation */
   height: 400px; /* Set the height to match the car animation */
-  margin-right: 20px;
+  margin-right: 6%;
 }
 
 .localizacao-image {
