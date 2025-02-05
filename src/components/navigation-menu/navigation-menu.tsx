@@ -10,7 +10,7 @@ const NavigationMenu = () => {
   const menuItems = [
     { id: "home", label: "Home", offset: -70 },
     { id: "localizacao", label: "Localização", offset: 0 }, // Ajustado o offset
-    { id: "planos", label: "Planos", offset: 10 },
+    { id: "planos", label: "Planos", offset: 0 },
     { id: "contate-nos", label: "Contate-nos", offset: 0 },
     { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
