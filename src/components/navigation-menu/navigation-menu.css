@@ -38,7 +38,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 50%; /* Changed from auto to 0 */
+  margin-left: 45%; /* Adjusted from 50% to 40% to shift items to the left */
 }
 
 .navigation-menu li {
