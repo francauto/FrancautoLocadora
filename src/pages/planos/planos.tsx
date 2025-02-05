@@ -68,14 +68,14 @@ const Planos = () => {
         }}
       >
         <Typography
-          variant="h3"
+          variant="h4"
           component="h2"
           textAlign="center"
           color="black"
           gutterBottom
-          sx={{ mb: 7 }} // Add bottom margin
+          sx={{ mb: 5 }} // Add bottom margin
         >
-          Planos Disponíveis
+          Planos
         </Typography>
         <Box
           sx={{
