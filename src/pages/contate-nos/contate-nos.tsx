@@ -18,7 +18,7 @@ const Contatenos = () => {
             <div className="contate-nos-item">
               <Button
                 variant="contained"
-                color="secondary"
+                style={{ backgroundColor: "#833AB4", color: "white" }}
                 startIcon={<InstagramIcon />}
                 href="https://www.instagram.com/francautolocadora?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
@@ -30,7 +30,7 @@ const Contatenos = () => {
             <div className="contate-nos-item">
               <Button
                 variant="contained"
-                color="secondary"
+                style={{ backgroundColor: "#3b5998", color: "white" }}
                 startIcon={<FacebookIcon />}
                 href="https://www.facebook.com/francautolocadora1?locale=pt_BR"
                 target="_blank"
@@ -40,6 +40,7 @@ const Contatenos = () => {
               </Button>
             </div>
           </div>
+          <h3 className="subtitulo-contatos">Contatos</h3>
           <div className="contate-nos-row">
             <div className="contate-nos-item">
               <dotlottie-player
@@ -50,7 +51,7 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p>(16) 99999-9999</p>
+              <p className="text">(16) 99999-9999</p>
               <dotlottie-player
                 src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
                 background="transparent"
@@ -59,20 +60,20 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p>(16) 99999-9999</p>
+              <p className="text">(16) 99999-9999</p>
             </div>
           </div>
-          <div className="contate-nos-row">
+          <div className="contate-nos-row email">
             <div className="contate-nos-item">
               <dotlottie-player
-                src="https://lottie.host/d0ac8511-2f03-4b79-bc6b-ef10040209a5/VbxGamgHMB.lottie"
+                src="https://lottie.host/22b0ad59-7153-4e78-a3c6-42d0d7ac45c6/Eup1p4J0nJ.lottie"
                 background="transparent"
                 speed="1"
                 style={{ width: "30px", height: "30px" }}
                 loop
                 autoplay
               ></dotlottie-player>
-              <p>francatolocadora@gmail.com</p>
+              <p className="text">francatolocadora@gmail.com</p>
             </div>
           </div>
         </div>
