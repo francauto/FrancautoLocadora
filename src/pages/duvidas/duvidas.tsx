@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./duvidas.css";
-import whiteCar from "../../assets/yello-car.png";
+
 const faqs = [
   {
     question: "O QUE O SEGURO COBRE?",
