@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -18,14 +14,13 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: transparent; /* Removido o fundo branco */
+  background-color: transparent;
   z-index: 1000;
-  padding: 20px 40px; /* Aumentado o padding para dar mais espaço */
+  padding: 20px 40px;
   font-family: "Open Sans", sans-serif;
-  transition: background-color 0.3s ease; /* Adicionada transição suave para o fundo */
+  transition: background-color 0.3s ease;
 }
 
-/* Adicionado: fundo semi-transparente ao rolar */
 .navigation-menu.scrolled {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -38,7 +33,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 45%; /* Adjusted from 50% to 40% to shift items to the left */
+  margin-left: 45%;
 }
 
 .navigation-menu li {
@@ -47,23 +42,21 @@ body {
 
 .navigation-menu a {
   text-decoration: none;
-  color: rgb(0, 0, 0); /* Alterado para branco para melhor visibilidade */
+  color: rgb(0, 0, 0);
   font-weight: 600;
   cursor: pointer;
   padding: 5px 0;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
+  position: relative;
 }
 
-.navigation-menu.scrolled a {
-  color: black; /* Muda para preto quando o menu tem fundo */
-}
-
+/* Mantenha o border-bottom mas sem animação */
 .navigation-menu a.active {
   border-bottom: 2px solid rgb(0, 0, 0);
 }
 
-.navigation-menu.scrolled a.active {
-  border-bottom: 2px solid black;
+.navigation-menu.scrolled a {
+  color: black;
 }
 
 .menu-toggle {
@@ -88,12 +81,7 @@ body {
 @media (max-width: 768px) {
   .navigation-menu {
     flex-wrap: wrap;
-    background-color: rgba(
-      255,
-      255,
-      255,
-      0.9
-    ); /* Fundo semi-transparente em telas menores */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 10px 20px;
   }
 
@@ -119,7 +107,7 @@ body {
 
   .navigation-menu a,
   .navigation-menu .menu-toggle {
-    color: black; /* Texto preto em telas menores */
+    color: black;
   }
 }
 
@@ -137,12 +125,10 @@ body {
   }
 }
 
-/* Adicione isso ao seu App.css ou crie um novo arquivo de estilo global */
 #home,
 #localizacao,
 #planos,
 #contate-nos,
 #duvidas {
-  min-height: 100vh;
   box-sizing: border-box;
 }
