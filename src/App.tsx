@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Contatenos from "./pages/contate-nos";
+import Contatenos from "./pages/contate-nos/contate-nos";
 import Duvidas from "./pages/duvidas";
 import Home from "./pages/home/home";
 import Localizacao from "./pages/localizacao/localizacao";
