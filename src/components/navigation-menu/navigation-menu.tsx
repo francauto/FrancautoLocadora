@@ -8,11 +8,11 @@ const NavigationMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const menuItems = [
-    { id: "home", label: "Home", offset: -70 },
+    { id: "home", label: "Home", offset: 0 },
     { id: "localizacao", label: "Localização", offset: 0 }, // Ajustado o offset
     { id: "planos", label: "Planos", offset: 0 },
     { id: "contate-nos", label: "Contate-nos", offset: 0 },
-    { id: "duvidas", label: "Dúvidas", offset: -70 },
+    { id: "duvidas", label: "Dúvidas", offset: 0 },
   ];
 
   useEffect(() => {
@@ -28,11 +28,6 @@ const NavigationMenu = () => {
 
   const handleSetActive = (to) => {
     setActiveItem(to);
-  };
-
-  const handleClick = (to) => {
-    setActiveItem(to);
-    setMenuOpen(false);
   };
 
   const toggleMenu = () => {
@@ -61,7 +56,6 @@ const NavigationMenu = () => {
               duration={500}
               onSetActive={handleSetActive}
               className={activeItem === item.id ? "active" : ""}
-              onClick={() => handleClick(item.id)}
             >
               {item.label}
             </ScrollLink>
