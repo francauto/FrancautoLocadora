@@ -63,7 +63,7 @@ const Contatenos = () => {
               <p className="text">(16) 99999-9999</p>
             </div>
           </div>
-          <div className="contate-nos-row email">
+          <div className="contate-nos-row">
             <div className="contate-nos-item">
               <dotlottie-player
                 src="https://lottie.host/22b0ad59-7153-4e78-a3c6-42d0d7ac45c6/Eup1p4J0nJ.lottie"
@@ -73,7 +73,7 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p className="text">francatolocadora@gmail.com</p>
+              <p className="text">francautolocadora@gmail.com</p>
             </div>
           </div>
         </div>
