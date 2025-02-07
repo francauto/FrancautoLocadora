@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Link as ScrollLink, Events, scrollSpy } from "react-scroll";
+import { useState, useEffect, useRef } from "react";
+import { Link as ScrollLink } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
 import "./navigation-menu.css";
 
 const NavigationMenu = () => {
-  const [activeItem, setActiveItem] = useState("");
+  const [activeItem, setActiveItem] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   const menuItems = [
     { id: "home", label: "Home", offset: -70 },
@@ -18,17 +19,9 @@ const NavigationMenu = () => {
     { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
 
-  const handleSetActive = (to) => {
-    setActiveItem(to);
-  };
-
-  const handleClick = (to) => {
+  const handleClick = (to: string) => {
     setActiveItem(to);
     setMenuOpen(false);
-  };
-
-  const isActive = (id) => {
-    return activeItem === id ? "active" : "";
   };
 
   const toggleMenu = () => {
@@ -59,10 +52,8 @@ const NavigationMenu = () => {
               smooth={true}
               offset={item.offset}
               duration={500}
-              onSetActive={handleSetActive}
-              className={isActive(item.id)}
+              className={activeItem === item.id ? "active" : ""}
               onClick={() => handleClick(item.id)}
-              activeClass="active"
             >
               {item.label}
             </ScrollLink>
