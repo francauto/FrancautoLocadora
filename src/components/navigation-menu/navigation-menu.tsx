@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Link as ScrollLink } from "react-scroll";
+import { Link as ScrollLink, Events } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
 import "./navigation-menu.css";
 
@@ -22,11 +22,29 @@ const NavigationMenu = () => {
   const handleClick = (to: string) => {
     setActiveItem(to);
     setMenuOpen(false);
+    sessionStorage.setItem("currentSection", to);
+    console.log(`Current section (click): ${to}`);
   };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    const handleSetActive = (to: string) => {
+      if (to !== activeItem) {
+        setActiveItem(to);
+        sessionStorage.setItem("currentSection", to);
+        console.log(`Current section (scroll): ${to}`);
+      }
+    };
+
+    Events.scrollEvent.register("end", handleSetActive);
+
+    return () => {
+      Events.scrollEvent.remove("end");
+    };
+  }, [activeItem]);
 
   return (
     <nav className={`navigation-menu ${scrolled ? "scrolled" : ""}`}>
