@@ -48,6 +48,7 @@ body {
   padding: 5px 0;
   transition: color 0.3s ease;
   position: relative;
+  border-bottom: none; /* Adicione esta linha */
 }
 
 /* Mantenha o border-bottom mas sem animação */

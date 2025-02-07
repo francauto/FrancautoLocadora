@@ -8,6 +8,7 @@ import Home from "./pages/home/home";
 import Localizacao from "./pages/localizacao/localizacao";
 import Planos from "./pages/planos/planos";
 import NavigationMenu from "./components/navigation-menu/navigation-menu";
+import Footer from "./components/footer/footer"; // Importar o Footer
 
 function App() {
   const [isInDuvidas, setIsInDuvidas] = useState(false);
@@ -48,6 +49,7 @@ function App() {
       <div id="duvidas">
         <Duvidas />
       </div>
+      <Footer /> {/* Adicionar o Footer */}
     </>
   );
 }
