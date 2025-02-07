@@ -23,7 +23,6 @@ body {
 
 .navigation-menu.scrolled {
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navigation-menu ul {
@@ -38,6 +37,7 @@ body {
 
 .navigation-menu li {
   margin: 0 15px;
+  position: relative;
 }
 
 .navigation-menu a {
@@ -48,18 +48,36 @@ body {
   padding: 5px 0;
   transition: color 0.3s ease;
   position: relative;
-  border-bottom: none; /* Adicione esta linha */
+  display: inline-block;
 }
 
-/* Mantenha o border-bottom mas sem animação */
-.navigation-menu a.active {
-  border-bottom: 2px solid rgb(0, 0, 0);
+.navigation-menu a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
 
-.navigation-menu.scrolled a {
-  color: black;
+/* Remove o efeito hover */
+.navigation-menu a:hover::after {
+  transform: scaleX(0);
 }
 
+/* Estilo para links ativos */
+.navigation-menu a.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Remove a barrinha do link Home */
+.navigation-menu a[to="home"]::after,
+.navigation-menu a[to="home"]:hover::after,
 .menu-toggle {
   display: none;
   font-size: 24px;
@@ -67,10 +85,6 @@ body {
   border: none;
   cursor: pointer;
   margin-left: auto;
-  color: white;
-}
-
-.navigation-menu.scrolled .menu-toggle {
   color: black;
 }
 
@@ -80,18 +94,15 @@ body {
 }
 
 @media (max-width: 768px) {
-  .navigation-menu {
-    flex-wrap: wrap;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px 20px;
-  }
-
   .navigation-menu ul {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
     display: none;
-    margin-left: 0;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 0;
   }
 
   .navigation-menu ul.open {
@@ -105,31 +116,4 @@ body {
   .menu-toggle {
     display: block;
   }
-
-  .navigation-menu a,
-  .navigation-menu .menu-toggle {
-    color: black;
-  }
-}
-
-@media (max-width: 480px) {
-  .navigation-menu {
-    padding: 5px 10px;
-  }
-
-  .navigation-menu li {
-    margin: 5px 0;
-  }
-
-  .menu-toggle {
-    font-size: 20px;
-  }
-}
-
-#home,
-#localizacao,
-#planos,
-#contate-nos,
-#duvidas {
-  box-sizing: border-box;
 }
