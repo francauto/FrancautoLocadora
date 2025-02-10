@@ -5,11 +5,8 @@ import {
   CardMedia,
   Typography,
   Box,
-  IconButton,
   Button,
 } from "@mui/material";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "@dotlottie/player-component";
 import "./planos.css";
 import { useState } from "react";
