@@ -1,50 +1,73 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { Link as ScrollLink, Events } from "react-scroll";
+import { useState, useEffect } from "react";
+import { Link as ScrollLink } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
 import "./navigation-menu.css";
 
 const NavigationMenu = () => {
-  const [activeItem, setActiveItem] = useState("home");
+  const [activeItem, setActiveItem] = useState<string>("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   const menuItems = [
     { id: "home", label: "Home", offset: -70 },
-    { id: "localizacao", label: "Localização", offset: 0 },
+    { id: "localizacao", label: "Localização", offset: -70 },
     { id: "planos", label: "Planos", offset: -70 },
     { id: "contate-nos", label: "Contate-nos", offset: -70 },
     { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
 
+  const handleSetActive = (to: string) => {
+    setActiveItem(to);
+  };
+
   const handleClick = (to: string) => {
     setActiveItem(to);
     setMenuOpen(false);
-    sessionStorage.setItem("currentSection", to);
-    console.log(`Current section (click): ${to}`);
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
   };
 
   useEffect(() => {
-    const handleSetActive = (to: string) => {
-      if (to !== activeItem) {
-        setActiveItem(to);
-        sessionStorage.setItem("currentSection", to);
-        console.log(`Current section (scroll): ${to}`);
-      }
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Encontra qual seção está mais visível na tela
+      const sections = menuItems.map((item) => ({
+        id: item.id,
+        element: document.getElementById(item.id),
+      }));
+
+      let maxVisibility = 0;
+      let mostVisibleSection = "home";
+
+      sections.forEach(({ id, element }) => {
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const visibility = Math.min(
+            Math.max(
+              0,
+              Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0)
+            ),
+            window.innerHeight
+          );
+
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility;
+            mostVisibleSection = id;
+          }
+        }
+      });
+
+      setActiveItem(mostVisibleSection);
     };
 
-    Events.scrollEvent.register("end", handleSetActive);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Verificação inicial
 
     return () => {
-      Events.scrollEvent.remove("end");
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeItem]);
+  }, []);
 
   return (
     <nav className={`navigation-menu ${scrolled ? "scrolled" : ""}`}>
@@ -56,22 +79,23 @@ const NavigationMenu = () => {
       />
       <button
         className="menu-toggle"
-        onClick={toggleMenu}
+        onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle menu"
       >
         ☰
       </button>
       <ul className={menuOpen ? "open" : ""}>
-        {menuItems.map((item) => (
-          <li key={item.id}>
+        {menuItems.map((item, index) => (
+          <li key={item.id} style={{ "--i": index } as React.CSSProperties}>
             <ScrollLink
               to={item.id}
-              spy={true}
+              spy={false}
               smooth={true}
               offset={item.offset}
               duration={500}
               className={activeItem === item.id ? "active" : ""}
               onClick={() => handleClick(item.id)}
+              onSetActive={() => handleSetActive(item.id)}
             >
               {item.label}
             </ScrollLink>
