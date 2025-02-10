@@ -54,7 +54,7 @@ const Planos = () => {
   };
 
   return (
-    <div className="carousel">
+    <div className="carousel" style={{ backgroundColor: "black" }}>
       <Box
         sx={{
           maxWidth: "90%",
@@ -66,7 +66,7 @@ const Planos = () => {
           variant="h4"
           component="h2"
           textAlign="center"
-          color="black"
+          color="white" // Change text color to white for better contrast
           gutterBottom
           sx={{ mb: 5 }} // Add bottom margin
         >
