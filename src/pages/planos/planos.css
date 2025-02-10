@@ -29,3 +29,32 @@
   transform: translateX(30%) scale(0.8) translateZ(-100px); /* Adjust translateX value to change distance */
   opacity: 0.8;
 }
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-70%);
+  background-color: transparent; /* Set background to transparent */
+  color: black;
+
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  height: 345px; /* Match the height of the cards */
+  display: flex;
+  align-items: center;
+  outline: none; /* Remove the border on click */
+}
+
+.carousel-arrow.left {
+  left: 10px;
+}
+
+.carousel-arrow.right {
+  right: 10px;
+}
+
+.carousel-arrow:hover {
+  background-color: transparent; /* Ensure background stays transparent on hover */
+  color: black; /* Ensure text color stays black on hover */
+}

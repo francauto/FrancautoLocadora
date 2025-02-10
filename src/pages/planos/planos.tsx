@@ -16,6 +16,8 @@ import { useState } from "react";
 import NovoTCross from "../../assets/novo-t-cross.svg";
 import PoloTrack from "../../assets/polo-track.svg";
 import TiguanAllspace from "../../assets/tiguan-allspace.svg";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const plans = [
   {
@@ -43,10 +45,6 @@ const plans = [
 
 const Planos = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleChange = (index: number) => {
-    setActiveIndex(index);
-  };
 
   const handleNext = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % plans.length);
@@ -196,6 +194,12 @@ const Planos = () => {
               </Card>
             );
           })}
+          <button className="carousel-arrow left" onClick={handleNext}>
+            <ArrowBackIcon />
+          </button>
+          <button className="carousel-arrow right" onClick={handlePrev}>
+            <ArrowForwardIcon />
+          </button>
         </Box>
         <Box
           sx={{
@@ -244,18 +248,6 @@ const Planos = () => {
             ></dotlottie-player>
           </Button>
         </Box>
-        <Box
-          sx={{
-            position: "absolute",
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 2,
-            px: 2,
-          }}
-        ></Box>
       </Box>
     </div>
   );
