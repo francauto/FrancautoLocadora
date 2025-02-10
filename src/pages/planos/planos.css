@@ -1,6 +1,7 @@
 .carousel {
   margin-top: auto;
   border-color: black;
+  background-color: black; /* Set background to black */
 }
 
 .carousel-container {
@@ -35,8 +36,7 @@
   top: 50%;
   transform: translateY(-70%);
   background-color: transparent; /* Set background to transparent */
-  color: black;
-
+  color: white; /* Change arrow color to white */
   padding: 10px;
   cursor: pointer;
   z-index: 2;
@@ -56,5 +56,5 @@
 
 .carousel-arrow:hover {
   background-color: transparent; /* Ensure background stays transparent on hover */
-  color: black; /* Ensure text color stays black on hover */
+  color: white; /* Ensure arrow color stays white on hover */
 }

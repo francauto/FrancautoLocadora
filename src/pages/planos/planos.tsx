@@ -54,7 +54,7 @@ const Planos = () => {
   };
 
   return (
-    <div className="carousel" style={{ backgroundColor: "black" }}>
+    <div className="carousel">
       <Box
         sx={{
           maxWidth: "90%",
@@ -66,7 +66,7 @@ const Planos = () => {
           variant="h4"
           component="h2"
           textAlign="center"
-          color="white" // Change text color to white for better contrast
+          color="white" /* Change text color to white */
           gutterBottom
           sx={{ mb: 5 }} // Add bottom margin
         >
@@ -97,7 +97,7 @@ const Planos = () => {
                 onClick={() => setActiveIndex(index)}
                 className={`carousel-item ${position}`}
                 sx={{
-                  width: 345,
+                  width: 300, // Reduce card width
                   position: "absolute",
                   left: "50%",
 
@@ -111,13 +111,13 @@ const Planos = () => {
                   borderRadius: 2,
                   boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                   border: "1px solid black",
-                  paddingBottom: "40px",
+                  paddingBottom: "30px", // Reduce padding
                   cursor: "pointer",
                 }}
               >
                 <CardMedia
                   component="img"
-                  height="200"
+                  height="180" // Reduce image height
                   image={plan.image}
                   alt={plan.title}
                   sx={{
@@ -132,7 +132,7 @@ const Planos = () => {
                 <CardContent>
                   <Typography
                     gutterBottom
-                    variant="h4"
+                    variant="h5" // Reduce font size
                     component="div"
                     textAlign="center"
                   >
@@ -144,7 +144,7 @@ const Planos = () => {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start", // Align items to the left
-                      ml: 8, // Add left margin
+                      ml: 6, // Reduce left margin
                     }}
                   >
                     {plan.features.map((feature, index) => (
@@ -161,7 +161,7 @@ const Planos = () => {
                           src="https://lottie.host/9e2ed502-0d0e-434d-8d7d-5cef06952f69/FLDafWMshP.lottie"
                           background="transparent"
                           speed="1"
-                          style={{ width: "40px", height: "40px" }}
+                          style={{ width: "30px", height: "30px" }} // Reduce icon size
                           loop
                           autoplay
                         ></dotlottie-player>
@@ -171,23 +171,65 @@ const Planos = () => {
                       </Box>
                     ))}
                   </Box>
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: 10, // Adjust this value to change the vertical position
+                      left: "50%", // Adjust this value to change the horizontal position
+                      transform: "translateX(-50%) ", // Adjust this value to fine-tune the horizontal position
+                      backgroundColor: "#00C853",
+                      color: "black",
+                      padding: "4px 16px",
+                      borderRadius: 1,
+                    }}
+                  >
+                    <Typography variant="subtitle2" fontWeight="bold">
+                      {plan.duration}
+                    </Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: 2,
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        transform: "scale(0.9)", // Reduce initial size
+                        transition: "transform 0.3s ease-in-out", // Smooth transition
+                        "&:hover": {
+                          transform: "scale(1)", // Increase size on hover
+                          backgroundColor: "primary.main", // Maintain blue color on hover
+                        },
+                      }}
+                      onClick={() =>
+                        window.open(
+                          `https://wa.me/5516999661580?text=Olá, gostaria de consultar os valores para o plano ${plan.title} com duração de ${plan.duration}.`,
+                          "_blank"
+                        )
+                      }
+                    >
+                      Consulte os valores
+                      <dotlottie-player
+                        src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
+                        background="transparent"
+                        speed="1"
+                        style={{
+                          width: "25px", // Reduce icon size
+                          height: "25px", // Reduce icon size
+                          marginLeft: "8px",
+                        }}
+                        loop
+                        autoplay
+                      ></dotlottie-player>
+                    </Button>
+                  </Box>
                 </CardContent>
-                <Box
-                  sx={{
-                    position: "absolute",
-                    bottom: 10, // Adjust this value to change the vertical position
-                    left: "50%", // Adjust this value to change the horizontal position
-                    transform: "translateX(-50%) ", // Adjust this value to fine-tune the horizontal position
-                    backgroundColor: "#00C853",
-                    color: "black",
-                    padding: "4px 16px",
-                    borderRadius: 1,
-                  }}
-                >
-                  <Typography variant="subtitle2" fontWeight="bold">
-                    {plan.duration}
-                  </Typography>
-                </Box>
               </Card>
             );
           })}
@@ -203,7 +245,7 @@ const Planos = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            mt: -13,
+            mt: -13, // Move the dots up
           }}
         >
           {plans.map((_, index) => (
@@ -213,37 +255,13 @@ const Planos = () => {
                 width: 12,
                 height: 12,
                 borderRadius: "50%",
-                backgroundColor: index === activeIndex ? "#000" : "#ccc",
+                backgroundColor: index === activeIndex ? "#00C853" : "#ccc",
                 margin: "0 4px",
                 cursor: "pointer",
               }}
               onClick={() => setActiveIndex(index)}
             />
           ))}
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-            mt: 2,
-          }}
-        >
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{ display: "flex", alignItems: "center" }}
-            onClick={() => window.open("https://wa.me/5516999661580", "_blank")}
-          >
-            Consulte os valores
-            <dotlottie-player
-              src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
-              background="transparent"
-              speed="1"
-              style={{ width: "30px", height: "30px", marginLeft: "8px" }}
-              loop
-              autoplay
-            ></dotlottie-player>
-          </Button>
         </Box>
       </Box>
     </div>
