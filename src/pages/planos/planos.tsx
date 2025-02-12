@@ -10,9 +10,10 @@ import {
 import "@dotlottie/player-component";
 import "./planos.css";
 import { useState } from "react";
-import NovoTCross from "../../assets/novo-t-cross.svg";
+import TCross from "../../assets/novo-t-cross.svg";
 import PoloTrack from "../../assets/polo-track.svg";
-import TiguanAllspace from "../../assets/tiguan-allspace.svg";
+import Virtus from "../../assets/virtus.svg";
+import Kwid from "../../assets/kwid.svg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
@@ -20,8 +21,8 @@ const plans = [
   {
     id: 1,
     duration: "8 MESES!",
-    image: NovoTCross,
-    title: "Novo T-Cross",
+    image: TCross,
+    title: "T-Cross",
     features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
   {
@@ -34,8 +35,15 @@ const plans = [
   {
     id: 3,
     duration: "30 DIAS!",
-    image: TiguanAllspace,
-    title: "Tiguan Allspace",
+    image: Virtus,
+    title: "Virtus",
+    features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
+  },
+  {
+    id: 4,
+    duration: "15 DIAS!",
+    image: Kwid,
+    title: "Kwid",
     features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
 ];
@@ -44,14 +52,14 @@ const Planos = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
+
+    setActiveIndex((prevIndex) => (prevIndex - 1 + plans.length) % plans.length);
+  };
+  
+  const handlePrev = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % plans.length);
   };
 
-  const handlePrev = () => {
-    setActiveIndex(
-      (prevIndex) => (prevIndex - 1 + plans.length) % plans.length
-    );
-  };
 
   return (
     <div className="carousel">
@@ -84,12 +92,16 @@ const Planos = () => {
           className="carousel-container"
         >
           {plans.map((plan, index) => {
-            const position =
-              index === activeIndex
-                ? "center"
-                : index === (activeIndex + 1) % plans.length
-                ? "right"
-                : "left";
+            let position;
+            if (index === activeIndex) {
+              position = "center";
+            } else if (index === (activeIndex + 1) % plans.length) {
+              position = "right";
+            } else if (index === (activeIndex - 1 + plans.length) % plans.length) {
+              position = "left";
+            } else {
+              position = "hidden";
+            }
 
             return (
               <Card
@@ -100,19 +112,22 @@ const Planos = () => {
                   width: 300, // Reduce card width
                   position: "absolute",
                   left: "50%",
-
                   transform:
                     position === "center"
                       ? "translate(-50%, -50%) scale(1)"
                       : position === "left"
                       ? "translate(-150%, -50%) scale(0.8)"
-                      : "translate(50%, -50%) scale(0.8)",
+                      : position === "right"
+                      ? "translate(50%, -50%) scale(0.8)"
+                      : "translate(-50%, -50%) scale(0.8)",
                   transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   borderRadius: 2,
                   boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                   border: "1px solid black",
                   paddingBottom: "30px", // Reduce padding
                   cursor: "pointer",
+                  opacity: position === "hidden" ? 0 : 1,
+                  zIndex: position === "hidden" ? -1 : 0,
                 }}
               >
                 <CardMedia
