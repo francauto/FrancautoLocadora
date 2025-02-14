@@ -3,6 +3,9 @@ import "./card-contate-nos.css"
 import WolksvagemIcone from "../../assets/icone-volkswagen.svg"
 import BackgroundFrancautoLocadora from "../../assets/background-card-locadora.svg"
 import BackgroundFrancautoConsorcio from "../../assets/background-card-consorcio.svg"
+import BackgroundFrancautoNovos from "../../assets/background-card-novos.svg"
+import BackgroundFrancautoSemiNovos from "../../assets/background-card-semi-novos.svg"
+import BackgroundFrancautoPecas from "../../assets/background-card-pecas.svg"
 
 const CardContatenos = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null)
@@ -27,20 +30,20 @@ const CardContatenos = () => {
     {
       title: "Francauto Novos",
       description:
-        "Encontre o carro dos seus sonhos na Francauto Novos. Oferecemos uma ampla gama de veículos Volkswagen com as melhores condições do mercado.",
-      background: BackgroundFrancautoLocadora,
+        "Encontre o carro dos seus sonhos na Francauto! Oferecemos uma ampla gama de veículos Volkswagen 0KM com as melhores condições do mercado.",
+      background: BackgroundFrancautoNovos,
     },
     {
-      title: "Francauto Semi-Novos",
+      title: "Francauto Seminovos",
       description:
-        "Na Francauto Semi-Novos, você encontra veículos de qualidade com garantia e procedência, passando por rigorosa inspeção antes da venda.",
-      background: BackgroundFrancautoLocadora,
+        "Na Francauto Seminovos, você encontra veículos de qualidade com garantia e procedência, passando por rigorosa inspeção antes da venda.",
+      background: BackgroundFrancautoSemiNovos,
     },
     {
       title: "Francauto Peças",
       description:
         "A Francauto Peças oferece peças originais Volkswagen com garantia de fábrica, assegurando o melhor desempenho e durabilidade para o seu veículo.",
-      background: BackgroundFrancautoLocadora,
+      background: BackgroundFrancautoPecas,
     },
   ]
 

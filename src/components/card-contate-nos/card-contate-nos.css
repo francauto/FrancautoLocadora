@@ -97,6 +97,7 @@
   transition: opacity var(--transition-timing) ease;
   color: white;
   margin-top: -55%;
+
 }
 
 .card-item:hover .info-card {
@@ -105,13 +106,13 @@
 }
 
 .info-card h2 {
-  font-size: 20px;
+  font-size: 18px; /* Reduced font size */
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Reduced margin-bottom */
 }
 
 .info-card p {
-  font-size: 14px;
+  font-size: 12px; /* Reduced font size */
   line-height: 1.4;
   margin: 0;
 }
