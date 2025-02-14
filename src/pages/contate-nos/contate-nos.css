@@ -20,7 +20,7 @@
   font-size: 2rem;
   margin-bottom: 1rem;
   text-align: left;
-  margin-top: 7rem; /* Ajuste para descer mais o título */
+  margin-top: 1rem; /* Ajuste para descer mais o título */
 }
 
 .subtitulo-contatos {
@@ -56,8 +56,8 @@
 .contate-nos-item {
   display: flex;
   align-items: center;
-  margin-right: 1rem;
-  margin-bottom: 0.5rem; /* Ajuste para aproximar o email do telefone */
+  margin-right: 2rem;
+  margin-bottom: 0rem; /* Ajuste para aproximar o email do telefone */
 }
 
 .contate-nos-item p {
@@ -145,4 +145,8 @@ button {
 
 button:hover {
   background-color: darkviolet;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }

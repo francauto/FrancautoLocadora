@@ -51,7 +51,7 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p className="text">(16) 99999-9999</p>
+              <p className="text no-wrap">(16) 99966-1580</p>
               <dotlottie-player
                 src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
                 background="transparent"
@@ -60,7 +60,7 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p className="text">(16) 99999-9999</p>
+              <p className="text no-wrap">(16) 99966-1580</p>
             </div>
           </div>
           <div className="contate-nos-row">
@@ -73,7 +73,7 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p className="text">francautolocadora@gmail.com</p>
+              <p className="text no-wrap">francautolocadora@gmail.com</p>
             </div>
           </div>
         </div>
