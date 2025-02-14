@@ -139,7 +139,7 @@ button {
   background-color: darkviolet;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 25px; /* Aumenta o arredondamento dos botões */
   cursor: pointer;
 }
 

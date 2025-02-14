@@ -18,7 +18,7 @@ const Contatenos = () => {
             <div className="contate-nos-item">
               <Button
                 variant="contained"
-                style={{ backgroundColor: "#833AB4", color: "white" }}
+                style={{ backgroundColor: "#833AB4", color: "white" ,borderRadius: "10px"}}
                 startIcon={<InstagramIcon />}
                 href="https://www.instagram.com/francautolocadora?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
@@ -30,7 +30,7 @@ const Contatenos = () => {
             <div className="contate-nos-item">
               <Button
                 variant="contained"
-                style={{ backgroundColor: "#3b5998", color: "white" }}
+                style={{ backgroundColor: "#3b5998", color: "white", borderRadius: "10px" }}
                 startIcon={<FacebookIcon />}
                 href="https://www.facebook.com/francautolocadora1?locale=pt_BR"
                 target="_blank"
