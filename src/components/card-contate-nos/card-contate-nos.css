@@ -41,13 +41,9 @@
   inset: 0;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.4);
+  filter: brightness(0.4); /* Always apply the filter */
   z-index: -1;
   transition: var(--transition-timing) ease;
-}
-
-.card-contate-nos-item:hover > .card-contate-nos-background {
-  filter: brightness(1);
 }
 
 .card-contate-nos-content {
@@ -88,6 +84,12 @@
   overflow: hidden;
   margin-bottom: -5px; /* Adjust margin to bring icon closer to the title */
   transition: margin-bottom var(--transition-timing);
+}
+
+.card-contate-nos-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image fits within the circle */
 }
 
 .card-contate-nos-item:hover .card-contate-nos-profile-image {
