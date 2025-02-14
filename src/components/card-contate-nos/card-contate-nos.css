@@ -76,7 +76,7 @@
 .card-contate-nos-profile-image {
   width: 50px;
   height: 50px;
-  border: 1px solid white;
+  border: 1px solid transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +93,7 @@
 }
 
 .card-contate-nos-item:hover .card-contate-nos-profile-image {
-  border-color: rgb(110, 252, 205);
+  border-color: black;
   margin-bottom: 10px; /* Adjust margin to move logo to the top */
 }
 
