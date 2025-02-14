@@ -9,6 +9,7 @@ import Localizacao from "./pages/localizacao/localizacao";
 import Planos from "./pages/planos/planos";
 import NavigationMenu from "./components/navigation-menu/navigation-menu";
 import Footer from "./components/footer/footer"; // Importar o Footer
+import WhatsAppIcon from "./components/whatsApp-icon/whatsApp-icon"; // Import WhatsAppIcon
 
 function App() {
   const [isInDuvidas, setIsInDuvidas] = useState(false);
@@ -50,6 +51,7 @@ function App() {
         <Duvidas />
       </div>
       <Footer /> {/* Adicionar o Footer */}
+      <WhatsAppIcon /> {/* Adicionar o WhatsAppIcon */}
     </>
   );
 }
