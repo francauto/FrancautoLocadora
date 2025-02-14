@@ -48,30 +48,30 @@ const CardContatenos = () => {
   ]
 
   return (
-    <div className="card-body">
-      <div className="card-container">
+    <div className="card-contate-nos-body">
+      <div className="card-contate-nos-container">
         {cardInfo.map((card, index) => (
           <div
             key={index}
-            className={`card-item ${activeCard === index ? "active" : ""}`}
+            className={`card-contate-nos-item ${activeCard === index ? "active" : ""}`}
             onClick={() => handleCardClick(index)}
           >
-            <img className="card-background" src={card.background || "/placeholder.svg"} alt={card.title} />
-            <div className="card-content">
-              <div className="card-profile-image">
+            <img className="card-contate-nos-background" src={card.background || "/placeholder.svg"} alt={card.title} />
+            <div className="card-contate-nos-content">
+              <div className="card-contate-nos-profile-image">
                 <img
                   src={WolksvagemIcone || "/placeholder.svg"}
                   alt="Francauto"
                   style={{ width: "50px", height: "50px" }}
                 />
               </div>
-              <h3 className="card-title">{card.title}</h3>
-              <div className={`info-card acrylic-effect overlay-text `}>
+              <h3 className="card-contate-nos-title">{card.title}</h3>
+              <div className={`card-contate-nos-info-card acrylic-effect overlay-text `}>
                 <h2>{card.title}</h2>
                 <p>{card.description}</p>
               </div>
             </div>
-            <div className="card-backdrop"></div>
+            <div className="card-contate-nos-backdrop"></div>
           </div>
         ))}
       </div>
