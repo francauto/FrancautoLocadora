@@ -6,7 +6,8 @@ const whatsAppIcon = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    window.open('https://wa.me/5516999661580', '_blank');
+    const message = "Olá! tenho interesse em saber mais sobre os serviços da Francauto Locadora.";
+    window.open(`https://wa.me/5516999661580?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
