@@ -1,10 +1,10 @@
 import React from "react";
-import Image from "../../assets/contate-nos-image.svg";
 import "./contate-nos.css";
 import "@dotlottie/player-component";
 import Button from "@mui/material/Button";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import CardContatenos from "../../components/card-contate-nos/card-contate-nos";
 
 const Contatenos = () => {
   return (
@@ -79,11 +79,7 @@ const Contatenos = () => {
         </div>
       </div>
       <div className="contate-nos-right">
-        <img
-          src={Image || "/placeholder.svg"}
-          alt="Contate-nos"
-          className="contate-nos-image"
-        />
+        <CardContatenos />
       </div>
     </div>
   );

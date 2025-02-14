@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+.card-body {
+  font-family: Inter, sans-serif;
+  height: 100vh;
+  color: white;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  width: 820px;
+  height: 340px;
+  display: flex;
+  gap: 10px;
+  margin-inline: 50px;
+}
+
+.card-item {
+  min-width: 70px;
+  height: 100%;
+  border-radius: 30px;
+ 
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  position: relative;
+  transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-timing: 0.35s;
+  cursor: default; /* Mudado de 'pointer' para 'default' */
+}
+
+.card-item:hover {
+  flex-grow: 7;
+}
+
+.card-item > .card-background {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.4);
+  z-index: -1;
+  transition: var(--transition-timing) ease;
+}
+
+.card-item:hover > .card-background {
+  filter: brightness(1);
+}
+
+.card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ensure content stays at the bottom */
+  padding: 20px;
+  transition: var(--transition-timing);
+  z-index: 10;
+}
+
+.card-item:hover .card-content {
+  justify-content: flex-end; /* Keep content at the bottom when card expands */
+}
+
+.card-profile-image {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.card-item:hover .card-profile-image {
+  border-color: rgb(110, 252, 205);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 1;
+  transition: var(--transition-timing);
+}
+
+.info-card {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity var(--transition-timing) ease;
+  color: white;
+  margin-top: -55%;
+}
+
+.card-item:hover .info-card {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.info-card h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.card-backdrop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity var(--transition-timing) ease;
+}
+
+.card-item:hover .card-backdrop {
+  opacity: 1;
+}
+
+/* Adicionando estilos para prevenir seleção de texto */
+.card-item {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
