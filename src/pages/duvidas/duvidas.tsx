@@ -18,9 +18,9 @@ const faqs = [
       "Temos seguros contra terceiros, porém é acionado a franquia para cobrir os danos dos dois carros. Ou fazer o reparo do carro do terceiro onde ele preferir.",
   },
   {
-    question: "E SE OUTRO CARro BATER NO CARRO DA LOCADORA, O QUE FAZER?",
+    question: "E SE OUTRO CARRO BATER NO CARRO DA LOCADORA, O QUE FAZER?",
     answer:
-      "Se a pessoa não tenha seguro, poderá acionar o nosso e entrar em acordo com o terceiro para arcar com as despesas de oficina, ou franquia. Caso o terceiro tenha seguro, o processo correrá de acordo com a seguradora dele.",
+      "Se a pessoa não tiver seguro, poderá usar o nosso e negociar com o terceiro para cobrir as despesas. Se o terceiro tiver seguro, o processo seguirá conforme a seguradora dele.",
   },
   {
     question: "E SE O CARRO ESTRAGAR?",

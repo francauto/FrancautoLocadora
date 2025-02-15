@@ -1,10 +1,10 @@
 import React from "react";
-import Image from "../../assets/contate-nos-image.svg";
 import "./contate-nos.css";
 import "@dotlottie/player-component";
 import Button from "@mui/material/Button";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import CardContatenos from "../../components/card-contate-nos/card-contate-nos";
 
 const Contatenos = () => {
   return (
@@ -18,7 +18,7 @@ const Contatenos = () => {
             <div className="contate-nos-item">
               <Button
                 variant="contained"
-                style={{ backgroundColor: "#833AB4", color: "white" }}
+                style={{ backgroundColor: "#833AB4", color: "white" ,borderRadius: "10px"}}
                 startIcon={<InstagramIcon />}
                 href="https://www.instagram.com/francautolocadora?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
@@ -30,7 +30,7 @@ const Contatenos = () => {
             <div className="contate-nos-item">
               <Button
                 variant="contained"
-                style={{ backgroundColor: "#3b5998", color: "white" }}
+                style={{ backgroundColor: "#3b5998", color: "white", borderRadius: "10px" }}
                 startIcon={<FacebookIcon />}
                 href="https://www.facebook.com/francautolocadora1?locale=pt_BR"
                 target="_blank"
@@ -51,7 +51,7 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p className="text">(16) 99999-9999</p>
+              <p className="text no-wrap">(16) 99966-1580</p>
               <dotlottie-player
                 src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
                 background="transparent"
@@ -60,7 +60,7 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p className="text">(16) 99999-9999</p>
+              <p className="text no-wrap">(16) 99966-1580</p>
             </div>
           </div>
           <div className="contate-nos-row">
@@ -73,17 +73,13 @@ const Contatenos = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-              <p className="text">francautolocadora@gmail.com</p>
+              <p className="text no-wrap">francautolocadora@gmail.com</p>
             </div>
           </div>
         </div>
       </div>
       <div className="contate-nos-right">
-        <img
-          src={Image || "/placeholder.svg"}
-          alt="Contate-nos"
-          className="contate-nos-image"
-        />
+        <CardContatenos />
       </div>
     </div>
   );

@@ -1,0 +1,8 @@
+.whatsAppIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  height: 70px;
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
