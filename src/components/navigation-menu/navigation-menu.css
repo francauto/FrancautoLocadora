@@ -89,6 +89,20 @@
   transform: scale(1.05);
 }
 
+@media (max-width: 1024px) {
+  .navigation-menu ul {
+    margin-left: 30%;
+  }
+
+  .navigation-menu li {
+    margin: 0 10px;
+  }
+
+  .logo {
+    width: 130px;
+  }
+}
+
 @media (max-width: 768px) {
   .navigation-menu ul {
     display: none;
@@ -112,5 +126,23 @@
 
   .menu-toggle {
     display: block;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation-menu ul {
+    margin-left: 0;
+  }
+
+  .navigation-menu li {
+    margin: 10px 15px;
+  }
+
+  .logo {
+    width: 100px;
   }
 }
