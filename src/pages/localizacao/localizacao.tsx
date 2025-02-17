@@ -1,7 +1,7 @@
 import React from "react";
-import "@dotlottie/player-component"; // Import the Lottie player component
-import "./localizacao.css"; // Import the CSS file
-import GoogleMapComponent from "../../components/google-maps/google-map-component"; // Import the GoogleMapComponent
+import "@dotlottie/player-component";
+import "./localizacao.css";
+import Map from "../../components/map/Map"; // Import the new Map component
 
 const Localizacao = () => {
   return (
@@ -32,7 +32,7 @@ const Localizacao = () => {
         </div>
       </div>
       <div className="google-maps-container">
-        <GoogleMapComponent /> {/* Add the GoogleMapComponent */}
+        <Map /> {/* Use the new Map component */}
       </div>
     </div>
   );
