@@ -6,7 +6,9 @@ import CardHome from "../../components/card-home/card-home"; // Import the new C
 const Home = () => {
   return (
     <div className="home-background">
-      <CardHome />
+      <div className="home-content">
+        <CardHome />
+      </div>
     </div>
   );
 };
