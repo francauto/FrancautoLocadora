@@ -14,7 +14,7 @@ const NavigationMenu = () => {
     { id: "home", label: "Home", offset: -70 },
     { id: "localizacao", label: "Localização", offset: -70 },
     { id: "planos", label: "Planos", offset: -70 },
-    { id: "contate-nos", label: "Contate-nos", offset: -70 },
+    { id: "contate-nos", label: "Contate-nos", offset: 0 },
     { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
 
