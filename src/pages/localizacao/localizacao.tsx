@@ -1,8 +1,6 @@
 import React from "react";
 import "@dotlottie/player-component"; // Import the Lottie player component
 import "./localizacao.css"; // Import the CSS file
-import LocalizacaoImage from "../../assets/localizacao-francauto.svg"; // Import the SVG image
-import Button from "@mui/material/Button"; // Import the Material UI Button
 import GoogleMapComponent from "../../components/google-maps/google-map-component"; // Import the GoogleMapComponent
 
 const Localizacao = () => {
