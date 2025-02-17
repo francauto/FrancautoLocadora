@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    initializeGA();
+    initializeGA(); // Inicializa o Google Analytics e envia a visualização da página
   }, []);
 
   return (
@@ -57,7 +57,7 @@ function App() {
       </div>
       <Footer />
       <WhatsAppIcon />
-      <button onClick={trackButtonClick}>Alugar agora</button>
+
     </>
   );
 }
