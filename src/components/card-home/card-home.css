@@ -32,16 +32,39 @@
   padding: 20px;
 }
 
+@media (max-width: 1024px) {
+  .info-card {
+    width: 80%;
+    padding: 15px;
+  }
+}
+
 @media (max-width: 768px) {
   .info-card {
-    width: 30%;
-    margin-left: 5%;
+    width: 70%;
+    padding: 10px;
+    font-size: 0.9em; /* Reduce font size */
+  }
+}
+
+@media (max-width: 768px) {
+  .info-card {
+    width: 80%;
+    margin-left: 10%;
   }
 }
 
 @media (max-width: 480px) {
   .info-card {
-    width: 30%;
-    margin-left: 0;
+    width: 90%;
+    padding: 5px;
+    font-size: 0.8em; /* Further reduce font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .info-card {
+    width: 90%;
+    margin-left: 5%;
   }
 }

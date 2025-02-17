@@ -58,3 +58,38 @@
   background-color: transparent; /* Ensure background stays transparent on hover */
   color: white; /* Ensure arrow color stays white on hover */
 }
+
+@media (max-width: 1024px) {
+  .carousel-item {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .carousel-arrow {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 70%;
+    padding: 10px;
+    font-size: 0.9em; /* Reduce font size */
+  }
+
+  .carousel-arrow {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    width: 90%;
+    padding: 5px;
+    font-size: 0.8em; /* Further reduce font size */
+  }
+
+  .carousel-arrow {
+    height: 200px;
+  }
+}

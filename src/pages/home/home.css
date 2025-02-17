@@ -1,12 +1,22 @@
 .home-background {
-  background-image: url("../../assets/background-home.svg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 98.8vw;
+  background-image: url("../../assets/background-home.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
+}
+
+.home-content {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -17,11 +27,17 @@
     width: 70%;
     padding: 10px;
   }
+  .home-content {
+    padding: 10px;
+  }
 }
 
 @media (max-width: 480px) {
   .info-card {
     width: 90%;
+    padding: 5px;
+  }
+  .home-content {
     padding: 5px;
   }
 }

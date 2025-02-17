@@ -52,14 +52,12 @@ const Planos = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
-
     setActiveIndex((prevIndex) => (prevIndex - 1 + plans.length) % plans.length);
   };
-  
+
   const handlePrev = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % plans.length);
   };
-
 
   return (
     <div className="carousel">
@@ -282,4 +280,5 @@ const Planos = () => {
     </div>
   );
 };
+
 export default Planos;

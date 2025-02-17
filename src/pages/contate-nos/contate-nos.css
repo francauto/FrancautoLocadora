@@ -5,6 +5,8 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: -5%;
+  margin-bottom: -15%;
 }
 
 .contate-nos-left {
@@ -21,13 +23,16 @@
   margin-bottom: 1rem;
   text-align: left;
   margin-top: 1rem; /* Ajuste para descer mais o título */
+  margin-left: 10px;
+
 }
 
 .subtitulo-contatos {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0rem;
+  margin-left: -54%;
   text-align: left;
 }
 
@@ -42,8 +47,9 @@
 .social-media-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Center the buttons */
   width: 100%;
+  margin-top: 20px; /* Adjust margin to position buttons correctly */
 }
 
 .contate-nos-row {
@@ -58,6 +64,7 @@
   align-items: center;
   margin-right: 2rem;
   margin-bottom: 0rem; /* Ajuste para aproximar o email do telefone */
+  margin-left: 10px;
 }
 
 .contate-nos-item p {
@@ -120,6 +127,26 @@
 }
 
 @media (max-width: 768px) {
+  .contate-nos-container {
+    padding: 10px;
+  
+  }
+
+  .titulo-contate-nos,
+  .text {
+    font-size: 1.5rem;
+    margin-left:43%;
+  }
+  .subtitulo-contatos,
+  .text {
+    font-size: 1.5rem;
+    margin-left:0%;
+
+  }
+
+  .contate-nos-item p {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -132,6 +159,16 @@
   .contate-nos-item p {
     margin-left: 0;
     margin-top: 0.5rem;
+  }
+
+  .titulo-contate-nos,
+  .subtitulo-contatos,
+  .text {
+    font-size: 1.2rem;
+  }
+
+  .contate-nos-item p {
+    font-size: 0.8rem;
   }
 }
 
