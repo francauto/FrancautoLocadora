@@ -47,6 +47,7 @@
   height: 400px; /* Set the height to match the car animation */
   margin: 0 auto; /* Center the container */
   margin-right: 10%; /* Adjust the right margin */
+  margin-top: -7%;
 }
 
 .localizacao-image {
