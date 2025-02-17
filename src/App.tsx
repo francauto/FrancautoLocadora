@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Contatenos from "./pages/contate-nos/contate-nos";
 import Duvidas from "./pages/duvidas/duvidas";
@@ -8,8 +8,9 @@ import Home from "./pages/home/home";
 import Localizacao from "./pages/localizacao/localizacao";
 import Planos from "./pages/planos/planos";
 import NavigationMenu from "./components/navigation-menu/navigation-menu";
-import Footer from "./components/footer/footer"; // Importar o Footer
-import WhatsAppIcon from "./components/whatsApp-icon/whatsApp-icon"; // Import WhatsAppIcon
+import Footer from "./components/footer/footer";
+import WhatsAppIcon from "./components/whatsApp-icon/whatsApp-icon";
+import { initializeGA, trackButtonClick } from './components/google-analytics/google-analytics';
 
 function App() {
   const [isInDuvidas, setIsInDuvidas] = useState(false);
@@ -25,11 +26,15 @@ function App() {
     };
 
     window.addEventListener("scroll", checkIfInDuvidas);
-    checkIfInDuvidas(); // Verificação inicial
+    checkIfInDuvidas();
 
     return () => {
       window.removeEventListener("scroll", checkIfInDuvidas);
     };
+  }, []);
+
+  useEffect(() => {
+    initializeGA();
   }, []);
 
   return (
@@ -50,8 +55,9 @@ function App() {
       <div id="duvidas">
         <Duvidas />
       </div>
-      <Footer /> {/* Adicionar o Footer */}
-      <WhatsAppIcon /> {/* Adicionar o WhatsAppIcon */}
+      <Footer />
+      <WhatsAppIcon />
+      <button onClick={trackButtonClick}>Alugar agora</button>
     </>
   );
 }
