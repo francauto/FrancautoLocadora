@@ -1,0 +1,112 @@
+.localizacao-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.lottie-player-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6.5%;
+  margin-top: 0;
+}
+
+.localizacao-label {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  font-family: "Open Sans", sans-serif; /* Use the same font as navigation menu */
+}
+
+.localizacao-address-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.localizacao-address {
+  margin-left: 10px;
+  font-size: 16px;
+  color: black;
+  font-family: "Open Sans", sans-serif; /* Use the same font as navigation menu */
+  text-align: center;
+}
+
+.google-maps-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Adjust the width to match the car animation */
+  height: 400px; /* Set the height to match the car animation */
+  margin: 0 auto; /* Center the container */
+  margin-right: 10%; /* Adjust the right margin */
+  margin-top: -7%;
+}
+
+.localizacao-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.localizacao-button {
+  font-family: "Open Sans", sans-serif; /* Use the same font as navigation menu */
+}
+
+@media (max-width: 1024px) {
+  .localizacao-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .google-maps-container {
+    width: 100%;
+    height: 300px;
+  }
+
+  .localizacao-address {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .localizacao-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .google-maps-container {
+    width: 100%;
+    height: 300px;
+  }
+
+  .localizacao-address {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .localizacao-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .google-maps-container {
+    width: 100%;
+    height: 200px;
+  }
+
+  .localizacao-address {
+    font-size: 12px;
+  }
+}

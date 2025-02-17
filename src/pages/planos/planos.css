@@ -1,0 +1,95 @@
+.carousel {
+  margin-top: auto;
+  border-color: black;
+  background-color: black; /* Set background to black */
+}
+
+.carousel-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 345px;
+  transition: all 0.5s ease-in-out;
+}
+
+.carousel-item.left {
+  transform: translateX(-130%) scale(0.8) translateZ(-100px); /* Adjust translateX value to change distance */
+  opacity: 0.8;
+}
+
+.carousel-item.center {
+  transform: translateX(-50%) scale(1) translateZ(0);
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-item.right {
+  transform: translateX(30%) scale(0.8) translateZ(-100px); /* Adjust translateX value to change distance */
+  opacity: 0.8;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-70%);
+  background-color: transparent; /* Set background to transparent */
+  color: white; /* Change arrow color to white */
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  height: 345px; /* Match the height of the cards */
+  display: flex;
+  align-items: center;
+  outline: none; /* Remove the border on click */
+}
+
+.carousel-arrow.left {
+  left: 10px;
+}
+
+.carousel-arrow.right {
+  right: 10px;
+}
+
+.carousel-arrow:hover {
+  background-color: transparent; /* Ensure background stays transparent on hover */
+  color: white; /* Ensure arrow color stays white on hover */
+}
+
+@media (max-width: 1024px) {
+  .carousel-item {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .carousel-arrow {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 70%;
+    padding: 10px;
+    font-size: 0.9em; /* Reduce font size */
+  }
+
+  .carousel-arrow {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    width: 90%;
+    padding: 5px;
+    font-size: 0.8em; /* Further reduce font size */
+  }
+
+  .carousel-arrow {
+    height: 200px;
+  }
+}
