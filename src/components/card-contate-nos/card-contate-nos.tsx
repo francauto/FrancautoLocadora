@@ -59,6 +59,7 @@ const CardContatenos = () => {
         "A Francauto Peças oferece peças originais Volkswagen com garantia de fábrica, assegurando o melhor desempenho e durabilidade para o seu veículo.",
       background: BackgroundFrancautoPecas,
       icon: WolksvagemIcone,
+      url: "https://pecas.francauto.com.br/"
     },
   ];
 
