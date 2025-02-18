@@ -12,8 +12,12 @@ import BackgroundFrancautoPecas from "../../assets/background-card-pecas.svg";
 const CardContatenos = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
-  const handleCardClick = (index: number) => {
-    setActiveCard(index === activeCard ? null : index);
+  const handleCardClick = (index: number, url?: string) => {
+    if (url) {
+      window.open(url, "_blank", "noopener noreferrer");
+    } else {
+      setActiveCard(index === activeCard ? null : index);
+    }
   };
 
   const cardInfo = [
@@ -23,6 +27,7 @@ const CardContatenos = () => {
         "Encontre o carro dos seus sonhos na Francauto! Oferecemos uma ampla gama de veículos Volkswagen 0KM com as melhores condições do mercado.",
       background: BackgroundFrancautoNovos,
       icon: WolksvagemIcone,
+      url: "https://www.francauto.com.br/distrito-industrial?utm_term=francauto&gclid=Cj0KCQiA_NC9BhCkARIsABSnSTbH9igBwnf1UzrAoFiVd5y37Py5WBlVYRvTUTfX-QNJre1kQPiesFgaAndSEALw_wcB"
     },
     {
       title: "Francauto Locadora",
@@ -30,6 +35,7 @@ const CardContatenos = () => {
         "A Francauto Locadora é especializada no aluguel de veículos em Franca/SP, oferecendo uma frota moderna e bem cuidada para atender suas necessidades com conforto e segurança.",
       background: BackgroundFrancautoLocadora,
       icon: IconeLocadora, // Use the specific icon for Francauto Locadora
+      url: "https://www.francautolocadora.com.br/"
     },
     {
       title: "Francauto Seminovos",
@@ -37,6 +43,7 @@ const CardContatenos = () => {
         "Na Francauto Seminovos, você encontra veículos de qualidade com garantia e procedência, passando por rigorosa inspeção antes da venda.",
       background: BackgroundFrancautoSemiNovos,
       icon: WolksvagemIcone,
+      url: "https://www.francauto.com.br/jardim-integracao?utm_term=francauto&gclid=Cj0KCQiA_NC9BhCkARIsABSnSTbH9igBwnf1UzrAoFiVd5y37Py5WBlVYRvTUTfX-QNJre1kQPiesFgaAndSEALw_wcB"
     },
     {
       title: "Francauto Consorcio",
@@ -44,6 +51,7 @@ const CardContatenos = () => {
         "O Consórcio Francauto oferece planos flexíveis para aquisição de veículos novos e seminovos, com parcelas que cabem no seu bolso.",
       background: BackgroundFrancautoConsorcio,
       icon: IconeConsorcio, // Use the specific icon for Francauto Consorcio
+      url: "https://francautoconsorcio.com.br/"
     },
     {
       title: "Francauto Peças",
@@ -51,6 +59,7 @@ const CardContatenos = () => {
         "A Francauto Peças oferece peças originais Volkswagen com garantia de fábrica, assegurando o melhor desempenho e durabilidade para o seu veículo.",
       background: BackgroundFrancautoPecas,
       icon: WolksvagemIcone,
+      url: "https://pecas.francauto.com.br/"
     },
   ];
 
@@ -63,7 +72,7 @@ const CardContatenos = () => {
             className={`card-contate-nos-item ${
               activeCard === index ? "active" : ""
             }`}
-            onClick={() => handleCardClick(index)}>
+            onClick={() => handleCardClick(index, card.url)}>
             <img
               className="card-contate-nos-background"
               src={card.background || "/placeholder.svg"}
