@@ -88,7 +88,7 @@ const CardContatenos = () => {
               </div>
               <h3 className="card-contate-nos-title">{card.title}</h3>
               <div
-                className={`card-contate-nos-info-card acrylic-effect overlay-text `}>
+                className={`card-contate-nos-info-card acrylic-effect overlay-text`}>
                 <h2>{card.title}</h2>
                 <p>{card.description}</p>
               </div>

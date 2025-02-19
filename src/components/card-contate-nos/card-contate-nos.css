@@ -171,3 +171,12 @@
   -ms-user-select: none;
 }
 
+.card-contate-nos-info-card.acrylic-effect {
+  background: rgba(255, 255, 255, 0.05); /* Increased transparency */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
