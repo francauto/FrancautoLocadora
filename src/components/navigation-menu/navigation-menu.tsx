@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
 import LogoBranca from "../../assets/logo-francauto-locadora-branca.svg";
+import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import "./navigation-menu.css";
 
 const NavigationMenu = () => {
-  const [activeItem, setActiveItem] = useState<string>("home");
+  const [activeItem, setActiveItem] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isMobile = useMediaQuery("(max-width:768px)");
 
   const menuItems = [
     { id: "home", label: "Home", offset: -70 },
@@ -19,20 +23,23 @@ const NavigationMenu = () => {
     { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
 
-  const handleSetActive = (to: string) => {
+  const handleSetActive = (to) => {
     setActiveItem(to);
   };
 
-  const handleClick = (to: string) => {
+  const handleClick = (to) => {
     setActiveItem(to);
-    setMenuOpen(false);
+    setMenuOpen(false); // Fecha o menu ao clicar em um item
+  };
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
   };
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      // Encontra qual seção está mais visível na tela
       const sections = menuItems.map((item) => ({
         id: item.id,
         element: document.getElementById(item.id),
@@ -63,12 +70,12 @@ const NavigationMenu = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Verificação inicial
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [menuItems]);
 
   return (
     <nav className={`navigation-menu ${scrolled ? "scrolled" : ""}`}>
@@ -78,26 +85,28 @@ const NavigationMenu = () => {
         width="200"
         className="logo"
       />
-      <button
-        className="menu-toggle"
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
-      >
-        ☰
-      </button>
-      <ul className={menuOpen ? "open" : ""}>
-        {menuItems.map((item, index) => (
-          <li key={item.id} style={{ "--i": index } as React.CSSProperties}>
+
+      {isMobile && (
+        <IconButton
+          className="menu-toggle"
+          onClick={handleMenuToggle}
+          aria-label="Toggle menu">
+          <MenuIcon />
+        </IconButton>
+      )}
+
+      <ul className={`menu-items ${menuOpen ? "open" : ""}`}>
+        {menuItems.map((item) => (
+          <li key={item.id}>
             <ScrollLink
               to={item.id}
               spy={false}
               smooth={true}
               offset={item.offset}
               duration={500}
-              className={activeItem === item.id ? "active" : ""}
               onClick={() => handleClick(item.id)}
               onSetActive={() => handleSetActive(item.id)}
-            >
+              className={activeItem === item.id ? "active" : ""}>
               {item.label}
             </ScrollLink>
           </li>
