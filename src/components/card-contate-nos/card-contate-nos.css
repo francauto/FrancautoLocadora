@@ -29,7 +29,7 @@
   position: relative;
   transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-timing: 0.35s;
-  cursor: default;
+  cursor: pointer;
 }
 
 .card-contate-nos-item:hover {
@@ -170,4 +170,13 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+.card-contate-nos-info-card.acrylic-effect {
+  background: rgba(255, 255, 255, 0.05); /* Increased transparency */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
 

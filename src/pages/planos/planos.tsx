@@ -20,28 +20,24 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const plans = [
   {
     id: 1,
-    duration: "8 MESES!",
     image: TCross,
     title: "T-Cross",
     features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
   {
     id: 2,
-    duration: "1 ANO!",
     image: PoloTrack,
     title: "Polo Track",
     features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
   {
     id: 3,
-    duration: "30 DIAS!",
     image: Virtus,
     title: "Virtus",
     features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
   },
   {
     id: 4,
-    duration: "15 DIAS!",
     image: Kwid,
     title: "Kwid",
     features: ["Assistência 24h", "Seguro Incluso", "Higienização Completa"],
@@ -63,9 +59,13 @@ const Planos = () => {
     <div className="carousel">
       <Box
         sx={{
-          maxWidth: "90%",
+          width: "100%", // Occupy the entire width
+          height: "100%", // Occupy the entire height
           margin: "0 auto",
           padding: 2,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
       >
         <Typography
@@ -84,7 +84,7 @@ const Planos = () => {
             justifyContent: "center",
             gap: 2,
             position: "relative",
-            height: "600px", // Fixed height for the container
+            height: "550px", // Reduce height for the container
             perspective: "1000px",
           }}
           className="carousel-container"
@@ -122,7 +122,7 @@ const Planos = () => {
                   borderRadius: 2,
                   boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                   border: "1px solid black",
-                  paddingBottom: "30px", // Reduce padding
+                  paddingBottom: "20px", // Reduce padding
                   cursor: "pointer",
                   opacity: position === "hidden" ? 0 : 1,
                   zIndex: position === "hidden" ? -1 : 0,
@@ -130,7 +130,7 @@ const Planos = () => {
               >
                 <CardMedia
                   component="img"
-                  height="180" // Reduce image height
+                  height="160" // Reduce image height
                   image={plan.image}
                   alt={plan.title}
                   sx={{
@@ -186,22 +186,6 @@ const Planos = () => {
                   </Box>
                   <Box
                     sx={{
-                      position: "absolute",
-                      bottom: 10, // Adjust this value to change the vertical position
-                      left: "50%", // Adjust this value to change the horizontal position
-                      transform: "translateX(-50%) ", // Adjust this value to fine-tune the horizontal position
-                      backgroundColor: "#00C853",
-                      color: "black",
-                      padding: "4px 16px",
-                      borderRadius: 1,
-                    }}
-                  >
-                    <Typography variant="subtitle2" fontWeight="bold">
-                      {plan.duration}
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
                       display: "flex",
                       justifyContent: "center",
                       mt: 2,
@@ -222,7 +206,7 @@ const Planos = () => {
                       }}
                       onClick={() =>
                         window.open(
-                          `https://wa.me/5516999661580?text=Olá, gostaria de consultar os valores para o plano ${plan.title} com duração de ${plan.duration}.`,
+                          `https://wa.me/5516999661580?text=Olá, gostaria de consultar os valores para o plano ${plan.title}.`,
                           "_blank"
                         )
                       }
@@ -280,5 +264,4 @@ const Planos = () => {
     </div>
   );
 };
-
 export default Planos;

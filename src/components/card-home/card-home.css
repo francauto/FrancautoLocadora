@@ -3,7 +3,7 @@
   height: 300px;
   padding: 20px;
   margin-left: 40px;
-  color: black;
+  color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
@@ -25,7 +25,7 @@
 }
 
 .acrylic-effect {
-  background: rgba(255, 255, 255, 0.15); /* Increased transparency */
+  background: rgba(255, 255, 255, 0.05); /* Increased transparency */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
