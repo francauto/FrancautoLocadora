@@ -37,13 +37,17 @@
 
 .navigation-menu a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: white; /* Texto branco */
   font-weight: 600;
   cursor: pointer;
   padding: 5px 0;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
+}
+
+.navigation-menu.scrolled a {
+  color: rgb(0, 0, 0); /* Texto preto quando o fundo estiver branco */
 }
 
 .navigation-menu a::after {
@@ -53,8 +57,12 @@
   height: 2px;
   bottom: -2px;
   left: 0;
-  background-color: black;
+  background-color: white; /* Linha branca */
   transition: width 0.5s ease;
+}
+
+.navigation-menu.scrolled a::after {
+  background-color: black; /* Linha preta quando o fundo estiver branco */
 }
 
 .navigation-menu a:hover::after {
@@ -62,7 +70,11 @@
 }
 
 .navigation-menu a.active {
-  color: black;
+  color: white; /* Texto branco */
+}
+
+.navigation-menu.scrolled a.active {
+  color: black; /* Texto preto quando o fundo estiver branco */
 }
 
 .navigation-menu a.active::after {
@@ -76,7 +88,11 @@
   border: none;
   cursor: pointer;
   margin-left: auto;
-  color: black;
+  color: white; /* Ícone branco */
+}
+
+.navigation-menu.scrolled .menu-toggle {
+  color: black; /* Ícone preto quando o fundo estiver branco */
 }
 
 .logo {
