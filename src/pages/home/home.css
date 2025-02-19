@@ -1,15 +1,22 @@
 .home-background {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 98.8vw;
-  background-image: url("../../assets/background-home.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
+}
+
+.home-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 .home-content {
@@ -17,6 +24,12 @@
   max-width: 1200px;
   padding: 20px;
   box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.home-content.visible {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -56,8 +69,8 @@
   transform: translate(-50%, 50%); /* Altere a posição inicial para baixo */
   width: 400px;
   padding: 20px;
-  color: black;
-  background-color: white;
+  color: white; /* Texto na cor branca */
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
@@ -76,6 +89,26 @@
   transform: translate(-50%, -50%); /* Alinhe com o centro da página */
 }
 
+.about-button-left {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background-color: #003366; /* Azul escuro */
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.about-button-left:hover {
+  background-color: #002244; /* Azul ainda mais escuro */
+  transform: scale(1.1); /* Ampliação ao passar o mouse */
+}
+
 .about-button {
   position: absolute;
   bottom: 20px;
@@ -85,11 +118,16 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .about-button:hover {
   background-color: #002244; /* Azul ainda mais escuro */
   transform: scale(1.1); /* Ampliação ao passar o mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .fixed-left {
