@@ -35,6 +35,9 @@
 @media (max-width: 768px) {
   .home-background {
     background-size: contain;
+    width: 47vh;
+    height: 77vh;
+    
   }
   .info-card {
     width: 70%;
