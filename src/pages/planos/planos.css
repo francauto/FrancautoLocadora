@@ -1,8 +1,8 @@
 .carousel {
   margin-top: auto;
   border-color: black;
-  background-color: #333; /* Set background to match footer color */
-  height: 91vh; /* Occupy the entire screen height */
+  background-color: #333;
+  height: 91vh; /* Mantém altura total em desktop */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,43 +11,50 @@
 .carousel-container {
   perspective: 1000px;
   transform-style: preserve-3d;
+  height: 100%; /* Ocupa toda a altura do .carousel */
+  display: flex;
+  align-items: center;
 }
 
 .carousel-item {
-  position: absolute;
-  width: 345px;
-  transition: all 0.5s ease-in-out;
+    position: absolute;
+    width: 85%;
+    max-width: 345px; /* Largura máxima para desktop */
+    transition: all 0.5s ease-in-out;
 }
 
 .carousel-item.left {
-  transform: translateX(-130%) scale(0.8) translateZ(-100px); /* Adjust translateX value to change distance */
+  /* Desktop */
+  transform: translateX(-130%) scale(0.8) translateZ(-100px);
   opacity: 0.8;
 }
 
 .carousel-item.center {
+  /* Desktop */
   transform: translateX(-50%) scale(1) translateZ(0);
   opacity: 1;
   z-index: 1;
 }
 
 .carousel-item.right {
-  transform: translateX(30%) scale(0.8) translateZ(-100px); /* Adjust translateX value to change distance */
+  /* Desktop */
+  transform: translateX(30%) scale(0.8) translateZ(-100px);
   opacity: 0.8;
 }
 
 .carousel-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-70%);
-  background-color: transparent; /* Set background to transparent */
-  color: white; /* Change arrow color to white */
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: white;
   padding: 10px;
   cursor: pointer;
   z-index: 2;
-  height: 345px; /* Match the height of the cards */
   display: flex;
   align-items: center;
-  outline: none; /* Remove the border on click */
+  outline: none;
+  border: none;
 }
 
 .carousel-arrow.left {
@@ -59,41 +66,376 @@
 }
 
 .carousel-arrow:hover {
-  background-color: transparent; /* Ensure background stays transparent on hover */
-  color: white; /* Ensure arrow color stays white on hover */
+  background-color: transparent;
+  color: white;
 }
 
+/* Media Queries */
+
+/* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
-  .carousel-item {
-    width: 80%;
-    padding: 15px;
-  }
+    .carousel-item {
+        max-width: 80%;
+    }
+    .carousel-arrow {
+        padding: 8px;
+    }
 
-  .carousel-arrow {
-    height: 300px;
-  }
+     .carousel-container{
+        height: 500px; /* Ajuste inicial - pode precisar de refinamento */
+    }
 }
 
+/* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
   .carousel-item {
-    width: 70%;
-    padding: 10px;
-    font-size: 0.9em; /* Reduce font size */
+    max-width: 90%;
+    /* Removido margin-left - centralização será feita via transform */
   }
 
-  .carousel-arrow {
-    height: 250px;
+  .carousel {
+    height: auto; /* Altura automática */
+    padding: 30px 0; /* Reduzido padding */
   }
+
+  .carousel-container {
+    height: auto; /* Altura automática */
+  }
+
+
+  .carousel-arrow {
+    padding: 6px;
+  }
+
+  /* Ajustes cruciais para o carrossel menor */
+  .carousel-item.left {
+    transform: translateX(-115%) scale(0.7) translateZ(-50px); /* Mais compacto */
+    opacity: 0.7;
+  }
+
+  .carousel-item.center {
+    transform: translateX(-50%) scale(0.9) translateZ(0); /* Menor e mais próximo */
+    opacity: 1;
+  }
+
+  .carousel-item.right {
+    transform: translateX(15%) scale(0.7) translateZ(-50px); /* Mais compacto */
+    opacity: 0.7;
+  }
+
+  .carousel > div > h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-item .MuiTypography-h5 {
+    font-size: 1rem;
+  }
+
+  .carousel-item .MuiTypography-body2 {
+    font-size: 0.7rem;
+  }
+
+  .carousel-item .MuiButton-root {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .carousel-item dotlottie-player {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .carousel > div > div:last-child > div {
+      width: 10px;
+      height: 10px;
+      margin: 0 2px;
+  }
+    .carousel-item .MuiCardContent-root{
+        padding: 1rem;
+    }
+
+    .carousel-item .MuiCardMedia-root{
+        height: 120px;
+    }
 }
 
+/* Mobile Pequeno (max-width: 480px) */
 @media (max-width: 480px) {
   .carousel-item {
-    width: 90%;
-    padding: 5px;
-    font-size: 0.8em; /* Further reduce font size */
+    max-width: 95%; /* Aumenta em telas *muito* pequenas */
   }
 
-  .carousel-arrow {
-    height: 200px;
+  .carousel {
+    padding: 20px 0; /* Ainda mais compacto */
   }
+
+  .carousel-item.left {
+    transform: translateX(-110%) scale(0.65) translateZ(-20px); /* Ainda menor */
+    opacity: 0.6;
+  }
+  .carousel-item.center {
+      transform: translateX(-50%) scale(0.8) translateZ(0); /* Ainda menor */
+  }
+
+  .carousel-item.right {
+    transform: translateX(10%) scale(0.65) translateZ(-20px);  /* Ainda menor */
+    opacity: 0.6;
+  }
+
+  .carousel > div > h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .carousel-item .MuiTypography-h5 {
+    font-size: 0.9rem;
+  }
+
+  .carousel-item .MuiTypography-body2 {
+    font-size: 0.6rem;
+  }
+
+  .carousel-item .MuiButton-root {
+    font-size: 0.6rem;
+    padding: 4px 8px;
+  }
+
+  .carousel-item dotlottie-player {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .carousel > div > div:last-child > div {
+    width: 8px;
+    height: 8px;
+    margin: 0 1px; /*Mais compacto*/
+  }
+
+    .carousel-item .MuiCardContent-root{
+        padding: 0.8rem;
+    }
+     .carousel-item .MuiCardMedia-root{
+        height: 100px; /* Reduz mais a altura da imagem */
+    }
+}.carousel {
+  margin-top: auto;
+  border-color: black;
+  background-color: #333;
+  height: 91vh; /* Mantém altura total em desktop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  height: 100%; /* Ocupa toda a altura do .carousel */
+  display: flex;
+  align-items: center;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 85%;
+    max-width: 345px; /* Largura máxima para desktop */
+    transition: all 0.5s ease-in-out;
+}
+
+.carousel-item.left {
+  /* Desktop */
+  transform: translateX(-130%) scale(0.8) translateZ(-100px);
+  opacity: 0.8;
+}
+
+.carousel-item.center {
+  /* Desktop */
+  transform: translateX(-50%) scale(1) translateZ(0);
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-item.right {
+  /* Desktop */
+  transform: translateX(30%) scale(0.8) translateZ(-100px);
+  opacity: 0.8;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+}
+
+.carousel-arrow.left {
+  left: 10px;
+}
+
+.carousel-arrow.right {
+  right: 10px;
+}
+
+.carousel-arrow:hover {
+  background-color: transparent;
+  color: white;
+}
+
+/* Media Queries */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .carousel-item {
+        max-width: 80%;
+    }
+    .carousel-arrow {
+        padding: 8px;
+    }
+
+     .carousel-container{
+        height: 500px; /* Ajuste inicial - pode precisar de refinamento */
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .carousel-item {
+    max-width: 90%;
+    /* Removido margin-left - centralização será feita via transform */
+  }
+
+  .carousel {
+    height: auto; /* Altura automática */
+    padding: 30px 0; /* Reduzido padding */
+  }
+
+  .carousel-container {
+    height: auto; /* Altura automática */
+  }
+
+
+  .carousel-arrow {
+    padding: 6px;
+  }
+
+  /* Ajustes cruciais para o carrossel menor */
+  .carousel-item.left {
+    transform: translateX(-115%) scale(0.7) translateZ(-50px); /* Mais compacto */
+    opacity: 0.7;
+  }
+
+  .carousel-item.center {
+    transform: translateX(-50%) scale(0.9) translateZ(0); /* Menor e mais próximo */
+    opacity: 1;
+  }
+
+  .carousel-item.right {
+    transform: translateX(15%) scale(0.7) translateZ(-50px); /* Mais compacto */
+    opacity: 0.7;
+  }
+
+  .carousel > div > h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-item .MuiTypography-h5 {
+    font-size: 1rem;
+  }
+
+  .carousel-item .MuiTypography-body2 {
+    font-size: 0.7rem;
+  }
+
+  .carousel-item .MuiButton-root {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .carousel-item dotlottie-player {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .carousel > div > div:last-child > div {
+      width: 10px;
+      height: 10px;
+      margin: 0 2px;
+  }
+    .carousel-item .MuiCardContent-root{
+        padding: 1rem;
+    }
+
+    .carousel-item .MuiCardMedia-root{
+        height: 120px;
+    }
+}
+
+/* Mobile Pequeno (max-width: 480px) */
+@media (max-width: 480px) {
+  .carousel-item {
+    max-width: 95%; /* Aumenta em telas *muito* pequenas */
+  }
+
+  .carousel {
+    padding: 20px 0; /* Ainda mais compacto */
+  }
+
+  .carousel-item.left {
+    transform: translateX(-110%) scale(0.65) translateZ(-20px); /* Ainda menor */
+    opacity: 0.6;
+  }
+  .carousel-item.center {
+      transform: translateX(-50%) scale(0.8) translateZ(0); /* Ainda menor */
+  }
+
+  .carousel-item.right {
+    transform: translateX(10%) scale(0.65) translateZ(-20px);  /* Ainda menor */
+    opacity: 0.6;
+  }
+
+  .carousel > div > h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .carousel-item .MuiTypography-h5 {
+    font-size: 0.9rem;
+  }
+
+  .carousel-item .MuiTypography-body2 {
+    font-size: 0.6rem;
+  }
+
+  .carousel-item .MuiButton-root {
+    font-size: 0.6rem;
+    padding: 4px 8px;
+  }
+
+  .carousel-item dotlottie-player {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .carousel > div > div:last-child > div {
+    width: 8px;
+    height: 8px;
+    margin: 0 1px; /*Mais compacto*/
+  }
+
+    .carousel-item .MuiCardContent-root{
+        padding: 0.8rem;
+    }
+     .carousel-item .MuiCardMedia-root{
+        height: 150px; /* Reduz mais a altura da imagem */
+    }
 }
