@@ -13,8 +13,7 @@ const Localizacao = () => {
           speed="1"
           style={{ width: "400px", height: "400px" }}
           loop
-          autoplay
-        ></dotlottie-player>
+          autoplay></dotlottie-player>
         <div className="localizacao-label">LOCALIZAÇÃO</div>
         <div className="localizacao-address-container">
           <dotlottie-player
@@ -23,15 +22,14 @@ const Localizacao = () => {
             speed="1"
             style={{ width: "50px", height: "50px" }}
             loop
-            autoplay
-          ></dotlottie-player>
+            autoplay></dotlottie-player>
           <div className="localizacao-address">
             Avenida Doutor Severino Tostes Meirelles,<br></br>1660 - São Miguel,
             Franca São Paulo
           </div>
         </div>
       </div>
-      <div className="google-maps-container">
+      <div className="maps-container">
         <Map /> {/* Use the new Map component */}
       </div>
     </div>
