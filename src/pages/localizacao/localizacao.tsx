@@ -11,7 +11,7 @@ const Localizacao = () => {
           src="https://lottie.host/6aebbfe8-164f-483a-9f6f-9cf20b59e857/0SEBNudFPu.lottie"
           background="transparent"
           speed="1"
-          style={{ width: "500px", height: "500px" }}
+          style={{ width: "400px", height: "400px" }}
           loop
           autoplay
         ></dotlottie-player>

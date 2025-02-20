@@ -21,8 +21,8 @@ const Map = () => {
     // Ensure the map container is properly initialized
     const mapContainer = document.getElementById("map-container");
     if (mapContainer) {
-      mapContainer.style.height = "400px";
-      mapContainer.style.width = "100%";
+      mapContainer.style.height = "300px";
+      mapContainer.style.width = "80%";
     }
   }, []);
 
