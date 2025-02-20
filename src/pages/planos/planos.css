@@ -17,10 +17,10 @@
 }
 
 .carousel-item {
-    position: absolute;
-    width: 85%;
-    max-width: 345px; /* Largura máxima para desktop */
-    transition: all 0.5s ease-in-out;
+  position: absolute;
+  width: 85%;
+  max-width: 345px; /* Largura máxima para desktop */
+  transition: all 0.5s ease-in-out;
 }
 
 .carousel-item.left {
@@ -74,23 +74,22 @@
 
 /* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
-    .carousel-item {
-        max-width: 80%;
-    }
-    .carousel-arrow {
-        padding: 8px;
-    }
+  .carousel-item {
+    max-width: 80%;
+  }
+  .carousel-arrow {
+    padding: 8px;
+  }
 
-     .carousel-container{
-        height: 500px; /* Ajuste inicial - pode precisar de refinamento */
-    }
+  .carousel-container {
+    height: 500px; /* Ajuste inicial - pode precisar de refinamento */
+  }
 }
 
 /* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
   .carousel-item {
     max-width: 90%;
-    /* Removido margin-left - centralização será feita via transform */
   }
 
   .carousel {
@@ -101,7 +100,6 @@
   .carousel-container {
     height: auto; /* Altura automática */
   }
-
 
   .carousel-arrow {
     padding: 6px;
@@ -147,17 +145,17 @@
   }
 
   .carousel > div > div:last-child > div {
-      width: 10px;
-      height: 10px;
-      margin: 0 2px;
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
   }
-    .carousel-item .MuiCardContent-root{
-        padding: 1rem;
-    }
+  .carousel-item .MuiCardContent-root {
+    padding: 1rem;
+  }
 
-    .carousel-item .MuiCardMedia-root{
-        height: 120px;
-    }
+  .carousel-item .MuiCardMedia-root {
+    height: 120px;
+  }
 }
 
 /* Mobile Pequeno (max-width: 480px) */
@@ -175,11 +173,11 @@
     opacity: 0.6;
   }
   .carousel-item.center {
-      transform: translateX(-50%) scale(0.8) translateZ(0); /* Ainda menor */
+    transform: translateX(-50%) scale(0.8) translateZ(0); /* Ainda menor */
   }
 
   .carousel-item.right {
-    transform: translateX(10%) scale(0.65) translateZ(-20px);  /* Ainda menor */
+    transform: translateX(10%) scale(0.65) translateZ(-20px); /* Ainda menor */
     opacity: 0.6;
   }
 
@@ -212,35 +210,28 @@
     margin: 0 1px; /*Mais compacto*/
   }
 
-    .carousel-item .MuiCardContent-root{
-        padding: 0.8rem;
-    }
-     .carousel-item .MuiCardMedia-root{
-        height: 100px; /* Reduz mais a altura da imagem */
-    }
-}.carousel {
+  .carousel-item .MuiCardContent-root {
+    padding: 0.8rem;
+  }
+  .carousel-item .MuiCardMedia-root {
+    height: 100px; /* Reduz mais a altura da imagem */
+  }
+}
+.carousel {
   margin-top: auto;
   border-color: black;
   background-color: #333;
-  height: 91vh; /* Mantém altura total em desktop */
+  height: 100vh; /* Mantém altura total em desktop */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.carousel-container {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  height: 100%; /* Ocupa toda a altura do .carousel */
-  display: flex;
-  align-items: center;
-}
-
 .carousel-item {
-    position: absolute;
-    width: 85%;
-    max-width: 345px; /* Largura máxima para desktop */
-    transition: all 0.5s ease-in-out;
+  position: absolute;
+  width: 85%;
+  max-width: 345px; /* Largura máxima para desktop */
+  transition: all 0.5s ease-in-out;
 }
 
 .carousel-item.left {
@@ -294,16 +285,16 @@
 
 /* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
-    .carousel-item {
-        max-width: 80%;
-    }
-    .carousel-arrow {
-        padding: 8px;
-    }
+  .carousel-item {
+    max-width: 80%;
+  }
+  .carousel-arrow {
+    padding: 8px;
+  }
 
-     .carousel-container{
-        height: 500px; /* Ajuste inicial - pode precisar de refinamento */
-    }
+  .carousel-container {
+    height: 500px; /* Ajuste inicial - pode precisar de refinamento */
+  }
 }
 
 /* Mobile (max-width: 768px) */
@@ -319,9 +310,8 @@
   }
 
   .carousel-container {
-    height: auto; /* Altura automática */
+    height: 100vh; /* Altura automática */
   }
-
 
   .carousel-arrow {
     padding: 6px;
@@ -367,17 +357,17 @@
   }
 
   .carousel > div > div:last-child > div {
-      width: 10px;
-      height: 10px;
-      margin: 0 2px;
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
   }
-    .carousel-item .MuiCardContent-root{
-        padding: 1rem;
-    }
+  .carousel-item .MuiCardContent-root {
+    padding: 1rem;
+  }
 
-    .carousel-item .MuiCardMedia-root{
-        height: 120px;
-    }
+  .carousel-item .MuiCardMedia-root {
+    height: 120px;
+  }
 }
 
 /* Mobile Pequeno (max-width: 480px) */
@@ -395,11 +385,11 @@
     opacity: 0.6;
   }
   .carousel-item.center {
-      transform: translateX(-50%) scale(0.8) translateZ(0); /* Ainda menor */
+    transform: translateX(-50%) scale(0.8) translateZ(0); /* Ainda menor */
   }
 
   .carousel-item.right {
-    transform: translateX(10%) scale(0.65) translateZ(-20px);  /* Ainda menor */
+    transform: translateX(10%) scale(0.65) translateZ(-20px); /* Ainda menor */
     opacity: 0.6;
   }
 
@@ -432,10 +422,10 @@
     margin: 0 1px; /*Mais compacto*/
   }
 
-    .carousel-item .MuiCardContent-root{
-        padding: 0.8rem;
-    }
-     .carousel-item .MuiCardMedia-root{
-        height: 150px; /* Reduz mais a altura da imagem */
-    }
+  .carousel-item .MuiCardContent-root {
+    padding: 0.8rem;
+  }
+  .carousel-item .MuiCardMedia-root {
+    height: 150px; /* Reduz mais a altura da imagem */
+  }
 }

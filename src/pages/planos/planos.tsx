@@ -48,7 +48,9 @@ const Planos = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + plans.length) % plans.length);
+    setActiveIndex(
+      (prevIndex) => (prevIndex - 1 + plans.length) % plans.length
+    );
   };
 
   const handlePrev = () => {
@@ -66,8 +68,7 @@ const Planos = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-        }}
-      >
+        }}>
         <Typography
           variant="h4"
           component="h2"
@@ -87,8 +88,7 @@ const Planos = () => {
             height: "550px", // Altura inicial
             perspective: "1000px",
           }}
-          className="carousel-container"
-        >
+          className="carousel-container">
           {plans.map((plan, index) => {
             let position;
             if (index === activeIndex) {
@@ -96,7 +96,8 @@ const Planos = () => {
             } else if (index === (activeIndex + 1) % plans.length) {
               position = "right";
             } else if (
-              (index === (activeIndex - 1 + plans.length) % plans.length)
+              index ===
+              (activeIndex - 1 + plans.length) % plans.length
             ) {
               position = "left";
             } else {
@@ -117,10 +118,10 @@ const Planos = () => {
                     position === "center"
                       ? "translate(-50%, -50%) scale(1)"
                       : position === "left"
-                        ? "translate(-130%, -50%) scale(0.8)" // Ajuste para mobile
-                        : position === "right"
-                          ? "translate(30%, -50%) scale(0.8)" // Ajuste para mobile
-                          : "translate(-50%, -50%) scale(0.8)",
+                      ? "translate(-130%, -50%) scale(0.8)" // Ajuste para mobile
+                      : position === "right"
+                      ? "translate(30%, -50%) scale(0.8)" // Ajuste para mobile
+                      : "translate(-50%, -50%) scale(0.8)",
                   transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   borderRadius: 2,
                   boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
@@ -129,8 +130,7 @@ const Planos = () => {
                   cursor: "pointer",
                   opacity: position === "hidden" ? 0 : 1,
                   zIndex: position === "hidden" ? -1 : 0,
-                }}
-              >
+                }}>
                 <CardMedia
                   component="img"
                   height="160" // Altura inicial
@@ -140,7 +140,7 @@ const Planos = () => {
                     objectFit: "cover",
                     transform:
                       plan.title === "Polo Track" ||
-                        plan.title === "Tiguan Allspace"
+                      plan.title === "Tiguan Allspace"
                         ? "scaleX(-1)"
                         : "none",
                   }}
@@ -164,8 +164,7 @@ const Planos = () => {
                       flexDirection: "column",
                       alignItems: "center", // Centraliza os ícones
                       // ml: 6, // Removido marginLeft
-                    }}
-                  >
+                    }}>
                     {plan.features.map((feature, index) => (
                       <Box
                         key={index}
@@ -176,21 +175,18 @@ const Planos = () => {
                           mb: 0.5, // Reduzido marginBottom
                           width: "100%", // Garante que ocupe a largura total
                           justifyContent: "center", // Centraliza horizontalmente
-                        }}
-                      >
+                        }}>
                         <dotlottie-player
                           src="https://lottie.host/9e2ed502-0d0e-434d-8d7d-5cef06952f69/FLDafWMshP.lottie"
                           background="transparent"
                           speed="1"
                           style={{ width: "30px", height: "30px" }}
                           loop
-                          autoplay
-                        ></dotlottie-player>
+                          autoplay></dotlottie-player>
                         <Typography
                           variant="body2"
                           color="text.secondary"
-                          sx={{ fontSize: "0.8rem" }}
-                        >
+                          sx={{ fontSize: "0.8rem" }}>
                           {" "}
                           {/* Ajuste inicial de fontSize */}
                           {feature}
@@ -203,8 +199,7 @@ const Planos = () => {
                       display: "flex",
                       justifyContent: "center",
                       mt: 1, // Reduzido marginTop
-                    }}
-                  >
+                    }}>
                     <Button
                       variant="contained"
                       color="primary"
@@ -225,8 +220,7 @@ const Planos = () => {
                           `https://wa.me/5516999661580?text=Olá, gostaria de consultar os valores para o plano ${plan.title}.`,
                           "_blank"
                         )
-                      }
-                    >
+                      }>
                       Consulte
                       <dotlottie-player
                         src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
@@ -238,8 +232,7 @@ const Planos = () => {
                           marginLeft: "8px",
                         }}
                         loop
-                        autoplay
-                      ></dotlottie-player>
+                        autoplay></dotlottie-player>
                     </Button>
                   </Box>
                 </CardContent>
@@ -259,8 +252,7 @@ const Planos = () => {
             justifyContent: "center",
             alignItems: "center",
             mt: -13, // Ajuste para mobile
-          }}
-        >
+          }}>
           {plans.map((_, index) => (
             <Box
               key={index}
