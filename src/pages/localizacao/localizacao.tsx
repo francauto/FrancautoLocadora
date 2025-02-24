@@ -1,7 +1,7 @@
 import React from "react";
 import "@dotlottie/player-component";
 import "./localizacao.css";
-import Map from "../../components/map/Map"; // Import the new Map component
+import Map from "../../components/map/map"; // Import the new Map component
 
 const Localizacao = () => {
   return (
