@@ -6,15 +6,16 @@ import Logo from "../../assets/logo-francauto-locadora.svg";
 import LogoBranca from "../../assets/logo-francauto-locadora-branca.svg";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
-import useMediaQuery from "@mui/material/useMediaQuery";
+//import useMediaQuery from "@mui/material/useMediaQuery"; // Removido: vamos usar styled-components
 import styled from "styled-components";
+import breakpoints from "../breakpoints/breakpoints"; // Importe o arquivo de breakpoints
 
 // Estilos CSS incorporados
 const StyledNav = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  width: 95%;
+  width: 97%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -109,7 +110,7 @@ const StyledNav = styled.nav`
 
   /* --- Media Queries --- */
 
-  @media (max-width: 1024px) {
+  @media ${breakpoints.lg} {
     li {
       margin: 0 10px;
     }
@@ -119,7 +120,7 @@ const StyledNav = styled.nav`
     }
   }
 
-  @media (max-width: 768px) {
+  @media ${breakpoints.md} {
     .menu-items {
       display: none;
       flex-direction: column;
@@ -188,7 +189,7 @@ const StyledNav = styled.nav`
     }
   }
 
-  @media (max-width: 480px) {
+  @media ${breakpoints.sm} {
     padding: 15px 10px;
     justify-content: space-between;
 
@@ -224,7 +225,7 @@ const NavigationMenu = () => {
   const [activeItem, setActiveItem] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isMobile = useMediaQuery("(max-width:768px)");
+  //const isMobile = useMediaQuery("(max-width:768px)"); //Removido: não precisamos mais
 
   const menuItems = [
     { id: "home", label: "Home", offset: -70 },
@@ -288,6 +289,7 @@ const NavigationMenu = () => {
     };
   }, [menuItems]);
 
+  const isMobile = window.innerWidth <= 768; // Determina se é mobile com base na largura da janela
   return (
     <StyledNav className={scrolled ? "navigation-menu scrolled" : "navigation-menu"}>
       <img
