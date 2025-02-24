@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import styled from "styled-components";
 
-// Estilos CSS incorporados (removido o arquivo navigation-menu.css)
+// Estilos CSS incorporados
 const StyledNav = styled.nav`
   position: fixed;
   top: 0;
@@ -124,11 +124,11 @@ const StyledNav = styled.nav`
       display: none;
       flex-direction: column;
       position: fixed;
-      top: 30px; /* Reduzido!  Era 40px.  Ajuste conforme necessário. */
+      top: 30px;
       left: 0;
       width: 100%;
       background-color: rgba(255, 255, 255, 0.95);
-      padding: 20px 0; /* Reduzido!  Era 30px 0. */
+      padding: 20px 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       z-index: 999;
       transition: transform 0.3s ease-out, opacity 0.3s ease-out;
@@ -147,7 +147,7 @@ const StyledNav = styled.nav`
     padding-left: 10px;
 
     li {
-      margin: 10px 0; /* Reduzido! Era 15px 0. */
+      margin: 10px 0;
       width: 100%;
       text-align: center;
       border-bottom: 1px solid #ddd;
@@ -159,8 +159,8 @@ const StyledNav = styled.nav`
 
     .menu-toggle {
       display: block;
-      margin-right: auto;
-      margin-left: 0;
+      margin-left: calc((100vw - 95%) / 2); /* Deslocamento igual às sessões */
+      margin-right: 10px; /* Adiciona margem à direita */
     }
 
     .logo {
@@ -169,10 +169,10 @@ const StyledNav = styled.nav`
 
     a {
       color: #333;
-      font-size: 1rem; /* Reduzido!  Era 1.1rem. */
+      font-size: 1rem;
       width: 100%;
       display: block;
-      padding: 10px 0; /* Reduzido! Era 12px 0. */
+      padding: 10px 0;
       transition: background-color 0.3s ease, color 0.3s ease;
       border-radius: 5px;
     }
@@ -193,18 +193,29 @@ const StyledNav = styled.nav`
     justify-content: space-between;
 
     .menu-toggle {
-      margin-right: auto;
-      margin-left: 30%;
+      margin-left: calc((100vw - 95%) / 2); /* Deslocamento igual às sessões */
+      margin-right: 10px; /* Adiciona margem à direita */
       margin-top: -5px;
       color: white;
     }
 
     li {
-      margin: 5px 0; /* Mantém menor */
+      margin: 5px 0;
     }
 
     .logo {
       width: 100px;
+    }
+  }
+
+    /* Media Query para Desktop */
+  @media (min-width: 769px) {
+        padding-right: 10px;
+    .logo{
+      margin-left: 40px;
+    }
+    .menu-items{
+      margin-right: 20px;
     }
   }
 `;
@@ -229,7 +240,7 @@ const NavigationMenu = () => {
 
   const handleClick = (to) => {
     setActiveItem(to);
-    setMenuOpen(false); // Fecha o menu ao clicar em um item
+    setMenuOpen(false);
   };
 
   const handleMenuToggle = () => {
@@ -286,14 +297,14 @@ const NavigationMenu = () => {
         className="logo"
       />
 
-      {isMobile && (
+      {isMobile ? (
         <IconButton
           className="menu-toggle"
           onClick={handleMenuToggle}
           aria-label="Toggle menu">
           <MenuIcon />
         </IconButton>
-      )}
+      ) : null}
 
       <ul className={`menu-items ${menuOpen ? "open" : ""}`}>
         {menuItems.map((item) => (
