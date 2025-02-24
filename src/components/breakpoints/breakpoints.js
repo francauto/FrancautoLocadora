@@ -1,13 +1,18 @@
+// breakpoints.js
 const size = {
-  sm: "300px",
-  md: "950px",
-  bg: "1240px",
+  xs: '320px',
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
 };
 
 const breakpoints = {
+  xs: `(max-width: ${size.xs})`,
   sm: `(max-width: ${size.sm})`,
   md: `(max-width: ${size.md})`,
-  bg: `(max-width: ${size.bg})`,
+  lg: `(max-width: ${size.lg})`,
+  xl: `(max-width: ${size.xl})`,
 };
 
 export default breakpoints;
