@@ -5,16 +5,209 @@ import { Link as ScrollLink } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
 import LogoBranca from "../../assets/logo-francauto-locadora-branca.svg";
 import MenuIcon from "@mui/icons-material/Menu";
-import { IconButton } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {
-  Nav,
-  LogoImg,
-  MenuToggle,
-  MenuList,
-  MenuItem,
-  StyledScrollLink,
-} from "./styles";
+import styled from "styled-components";
+
+// Estilos CSS incorporados (removido o arquivo navigation-menu.css)
+const StyledNav = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  z-index: 1000;
+  padding: 20px 40px;
+  font-family: "Open Sans", sans-serif;
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  li {
+    margin: 0 15px;
+    position: relative;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+
+  &.scrolled a {
+    color: rgb(0, 0, 0);
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: white;
+    transition: width 0.5s ease;
+  }
+
+  &.scrolled a::after {
+    background-color: black;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+  a.active {
+    color: inherit;
+  }
+
+  &.scrolled a.active::after,
+  a.active::after {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  &.scrolled .menu-toggle {
+    color: black;
+  }
+
+  /* --- Media Queries --- */
+
+  @media (max-width: 1024px) {
+    li {
+      margin: 0 10px;
+    }
+
+    .logo {
+      width: 130px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-items {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 30px; /* Reduzido!  Era 40px.  Ajuste conforme necessário. */
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px 0; /* Reduzido!  Era 30px 0. */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    .menu-items.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 10px;
+
+    li {
+      margin: 10px 0; /* Reduzido! Era 15px 0. */
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .menu-toggle {
+      display: block;
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    .logo {
+      width: 120px;
+    }
+
+    a {
+      color: #333;
+      font-size: 1rem; /* Reduzido!  Era 1.1rem. */
+      width: 100%;
+      display: block;
+      padding: 10px 0; /* Reduzido! Era 12px 0. */
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: #f0f0f0;
+      color: #0056b3;
+    }
+
+    a.active {
+      color: #0056b3;
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 15px 10px;
+    justify-content: space-between;
+
+    .menu-toggle {
+      margin-right: auto;
+      margin-left: 30%;
+      margin-top: -5px;
+      color: white;
+    }
+
+    li {
+      margin: 5px 0; /* Mantém menor */
+    }
+
+    .logo {
+      width: 100px;
+    }
+  }
+`;
 
 const NavigationMenu = () => {
   const [activeItem, setActiveItem] = useState("home");
@@ -85,35 +278,41 @@ const NavigationMenu = () => {
   }, [menuItems]);
 
   return (
-    <Nav className={scrolled ? "scrolled" : ""}>
-      <LogoImg
+    <StyledNav className={scrolled ? "navigation-menu scrolled" : "navigation-menu"}>
+      <img
         src={scrolled ? Logo : LogoBranca}
         alt="Francauto Locadora Logo"
+        width="200"
+        className="logo"
       />
 
-      <MenuToggle onClick={handleMenuToggle}>
-        <MenuIcon />
-      </MenuToggle>
+      {isMobile && (
+        <IconButton
+          className="menu-toggle"
+          onClick={handleMenuToggle}
+          aria-label="Toggle menu">
+          <MenuIcon />
+        </IconButton>
+      )}
 
-      <MenuList $isOpen={menuOpen}>
-        {menuItems.map((item, index) => (
-          <MenuItem key={item.id}>
-            <StyledScrollLink
+      <ul className={`menu-items ${menuOpen ? "open" : ""}`}>
+        {menuItems.map((item) => (
+          <li key={item.id}>
+            <ScrollLink
               to={item.id}
-              spy={true}
+              spy={false}
               smooth={true}
               offset={item.offset}
               duration={500}
               onClick={() => handleClick(item.id)}
               onSetActive={() => handleSetActive(item.id)}
-              className={activeItem === item.id ? "active" : ""}
-            >
+              className={activeItem === item.id ? "active" : ""}>
               {item.label}
-            </StyledScrollLink>
-          </MenuItem>
+            </ScrollLink>
+          </li>
         ))}
-      </MenuList>
-    </Nav>
+      </ul>
+    </StyledNav>
   );
 };
 
