@@ -70,12 +70,13 @@ const Planos = () => {
           justifyContent: "center",
         }}>
         <Typography
+        className="title"
           variant="h4"
           component="h2"
           textAlign="center"
           color="white"
           gutterBottom
-          sx={{ mb: 5, fontSize: "2.5rem" }} // Ajuste inicial de fontSize
+          sx={{ mb: -10,mt : -5 ,fontSize: "2.5rem" }} // Ajuste inicial de fontSize
         >
           Planos
         </Typography>
@@ -85,7 +86,7 @@ const Planos = () => {
             justifyContent: "center",
             gap: 2,
             position: "relative",
-            height: "550px", // Altura inicial
+            height: "700px", // Altura inicial
             perspective: "1000px",
           }}
           className="carousel-container">
