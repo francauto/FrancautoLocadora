@@ -34,26 +34,28 @@ const Localizacao = () => {
         />
         <StyledLocalizacaoLabel>LOCALIZAÇÃO</StyledLocalizacaoLabel>
         <StyledLocalizacaoAddressContainer>
-          <dotlottie-player
-            src="https://lottie.host/ae0b12fc-639c-4c8c-b9b2-c4ed637b9662/Z1MlOrSyY2.lottie"
-            background="transparent"
-            speed="1"
-            style={{ width: "50px", height: "50px" }}
-            loop
-            autoplay
-          />
-          <StyledLocalizacaoAddress>
-            Avenida Doutor Severino Tostes Meirelles,<br />1660 - São Miguel,
-            Franca São Paulo
-          </StyledLocalizacaoAddress>
-          <StyledMapContainer center={[-20.545735817532602, -47.42496940963758]} zoom={15}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[-20.545735817532602, -47.42496940963758]}>
-              <Popup>Francauto - Concessionária</Popup>
-            </Marker>
-          </StyledMapContainer>
+          <StyledAddressWithIcon>
+            <dotlottie-player
+              src="https://lottie.host/ae0b12fc-639c-4c8c-b9b2-c4ed637b9662/Z1MlOrSyY2.lottie"
+              background="transparent"
+              speed="1"
+              style={{ width: "50px", height: "50px" }}
+              loop
+              autoplay
+            />
+            <StyledLocalizacaoAddress>
+              Avenida Doutor Severino Tostes Meirelles,<br />1660 - São Miguel,
+              Franca São Paulo
+            </StyledLocalizacaoAddress>
+          </StyledAddressWithIcon>
         </StyledLocalizacaoAddressContainer>
       </StyledLottiePlayerContainer>
+      <StyledMapContainer center={[-20.545735817532602, -47.42496940963758]} zoom={15}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <Marker position={[-20.545735817532602, -47.42496940963758]}>
+          <Popup>Francauto - Concessionária</Popup>
+        </Marker>
+      </StyledMapContainer>
     </StyledLocalizacaoContainer>
   );
 };
@@ -62,38 +64,40 @@ export default Localizacao;
 
 // Styled Components
 const StyledLocalizacaoContainer = styled.div`
-
+  display: flex;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
   width: 100%;
-  margin: 0 auto;
-  flex-direction: column;
+  margin-left: -150px;
+
   padding-left: 0px; /* Removendo a margem inicial */
 
-    /* Aplica a margem da esquerda conforme a tela aumenta */
+  /* Aplica a margem da esquerda conforme a tela aumenta */
   @media (min-width: 550px) {
-    padding-left: 5px;
+    padding-left: 40px;
   }
 
   @media (min-width: 600px) {
-    padding-left: 10px;
+    padding-left: 60px;
   }
 
   @media (min-width: 650px) {
-    padding-left: 150px;
+    padding-left: 80px;
   }
 
   @media (min-width: 700px) {
-    padding-left: 200px;
+    padding-left: auto;
   }
 
   @media (min-width: 750px) {
-    padding-left: 150px; /* Margem maior */
+    padding-left: 120px; /* Margem maior */
   }
 
   @media ${breakpoints.lg} {
-    flex-direction: row;
+    flex-direction: column; /* Stack items in a column */
+    align-items: center;
+     margin-left: -250px;
   }
 `;
 
@@ -107,7 +111,8 @@ const StyledLottiePlayerContainer = styled.div<{ lottiePlayerRef?: React.RefObje
   margin-bottom: 20px;
 
   @media ${breakpoints.lg} {
-    width: 45%;
+    width: 50%;
+   
   }
 `;
 
@@ -129,20 +134,22 @@ const StyledLocalizacaoAddressContainer = styled.div`
   width: 100%;
 `;
 
-const StyledLocalizacaoAddress = styled.div`
+const StyledAddressWithIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
+const StyledLocalizacaoAddress = styled.div`
   font-size: 16px;
   color: black;
   font-family: "Open Sans", sans-serif;
-  text-align: center;
+  text-align: center; 
+  margin-left: 10px; // Add some space between the icon and the text
 `;
 
 const StyledMapContainer = styled(MapContainer)`
-  width: 100%;
-  height: 300px;
+  width: 400px;
+  height: 400px; // Reduced height
   margin-top: 20px;
-
-  @media ${breakpoints.lg} {
-    height: 400px;
-  }
 `;
