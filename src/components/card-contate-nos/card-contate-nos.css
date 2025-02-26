@@ -203,3 +203,10 @@
   background-color: #003380;
   /* Darker shade on hover */
 }
+
+@media (max-width: 1024px) {
+  .card-contate-nos-body{
+    margin-top: -20vh;
+    margin-left: -5vh;
+  }
+}

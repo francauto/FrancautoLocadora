@@ -15,7 +15,7 @@ const Contatenos = () => {
         </h2>
         <div className="social-media-container">
           <div className="contate-nos-row">
-            <div className="contate-nos-item">
+            <div className="contate-nos-button">
               <Button
                 variant="contained"
                 style={{ backgroundColor: "#833AB4", color: "white" ,borderRadius: "10px"}}
@@ -27,7 +27,7 @@ const Contatenos = () => {
                 Instagram
               </Button>
             </div>
-            <div className="contate-nos-item">
+            <div className="contate-nos-button">
               <Button
                 variant="contained"
                 style={{ backgroundColor: "#3b5998", color: "white", borderRadius: "10px" }}
