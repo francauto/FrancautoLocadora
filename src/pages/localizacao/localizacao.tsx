@@ -134,8 +134,12 @@ const StyledLocalizacaoContainer = styled.div`
         margin-left: -38vh;
     }
 
-    @media (max-width: 430px) {
+   @media (max-width: 490px) {
         margin-left: -38vh;
+    }
+
+    @media (max-width: 430px) {
+        margin-left: -28vh;
     }
 
 `;

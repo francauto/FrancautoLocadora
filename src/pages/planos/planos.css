@@ -281,10 +281,13 @@
     }
 }
 
+
+
 @media (max-width: 450px) {
   .plan-card {
     width: calc(50% - 10rem); /* 2 cards por linha */
-    width: 62vh; /*Aumenta o limite máximo para telas menores */
+    width: 46vh; /*Aumenta o limite máximo para telas menores */
+ 
     margin: 0.5rem;
   }
 
@@ -292,7 +295,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        margin-left: -40vh;
+        margin-left: -28vh;
     }
 
       .planos-container > * {
