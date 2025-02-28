@@ -1,23 +1,30 @@
-/* home.css */
+/* home.css -  Ajustes para remover margens COMPLETAMENTE */
+
+html, body, #root { /*  <-- Adicionado #root (ou o ID do seu elemento raiz) */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
 
 .home-background {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  .video-home {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /*  Mantém 100vh */
+  width: 100%;    /*  Mantém 100% */
+  margin: 0;      /*  Garante que não haja margem */
+  padding: 0;     /*  Garante que não haja padding */
+  overflow: hidden; /* Mantém para evitar barras de rolagem do vídeo */
+}
+
+.video-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}

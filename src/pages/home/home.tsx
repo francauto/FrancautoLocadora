@@ -1,7 +1,7 @@
-// Home.tsx
+// Home.tsx -  Nenhuma mudança necessária aqui!
 import React, { useRef, useEffect } from "react";
 import videoHome from "../../assets/video_home.mp4";
-import "./home.css"; // Importa o arquivo CSS
+import "./home.css";
 
 const Home = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -16,10 +16,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-background"> {/* Usa a classe CSS */}
+    <div className="home-background">
       <video
         ref={videoRef}
-        className="video-home" /* Usa a classe CSS */
+        className="video-home"
         src={videoHome}
         autoPlay
         loop
