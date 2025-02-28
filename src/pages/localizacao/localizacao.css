@@ -1,0 +1,77 @@
+/* localizacao.css */
+
+.localizacao-container {
+    display: flex;
+    flex-direction: column;  /* Empilha em telas menores */
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;  /* Ocupa pelo menos toda a altura da viewport */
+    justify-content: center; /* Centraliza verticalmente */
+  }
+  
+  .lottie-player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;   /* Mantém a largura máxima */
+    margin-bottom: 1rem; /* Espaço abaixo em telas menores */
+  }
+  
+  .localizacao-label {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+  }
+  
+  .localizacao-address-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .address-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .localizacao-address {
+    font-size: 1rem;
+    color: black;
+    text-align: center;
+    margin-left: 0.5rem;
+  }
+  
+  .map-container {
+    width: 45vh;    /* Mantém a largura/altura originais */
+    height: 45vh;
+    max-width: 600px; /*  Largura máxima para o mapa */
+  }
+  
+  
+  /* Media Queries */
+  @media (min-width: 768px) {
+    .localizacao-container {
+      flex-direction: row;   /* Lado a lado em telas maiores */
+      justify-content: space-around; /* Distribui o espaço */
+      align-items: center;     /* Centraliza verticalmente */
+    }
+  
+      .lottie-player-container{
+          margin-bottom: 0;
+      }
+  }
+  
+  @media (max-width: 767px) {
+    .map-container {
+      width: 80vw;  /* Ocupa mais espaço na horizontal */
+      height: 40vh;  /* Reduz um pouco a altura */
+      max-width: none; /* Remove o max-width em telas menores */
+    }
+  }
