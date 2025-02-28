@@ -47,7 +47,7 @@ html, body, #root {
   flex-direction: column;
   align-items: flex-start; /* Alinha os itens à esquerda */
   width: 48%; /* Ocupa um pouco menos da metade para dar espaço */
-  box-sizing: border-box; /* Inclui padding e borda na largura */
+  box-sizing: border-box; 
   margin-bottom: 1rem;
 }
 
@@ -55,43 +55,43 @@ html, body, #root {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-align: left; /* Alinha o título à esquerda */
-  margin-top: 0; /* Remove margem superior */
+  text-align: left;
+  margin-top: 0;
   color: black;
-  width: 100%; /* Ocupa toda a largura disponível */
+  width: 100%; 
 }
 
 .subtitulo-contatos {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
-  margin-top: 0;      /* Remove margem superior */
-  margin-bottom: 1rem; /* Adiciona margem inferior */
-  text-align: left;   /* Alinha o subtítulo à esquerda */
+  margin-top: 0;     
+  margin-bottom: 1rem;
+  text-align: left;  
   color: black;
-  width: 100%; /* Ocupa toda a largura disponível */
+  width: 100%; 
 }
 
 .text {
     font-family: "Open Sans", sans-serif;
-    font-size: 1rem; /* Diminui o tamanho do texto */
-    margin-top: 0;     /* Remove margem superior */
-    margin-bottom: 0;    /* Remove margem inferior */
+    font-size: 1rem; 
+    margin-top: 0;   
+    margin-bottom: 0;    
     text-align: left;
-    line-height: 1.5; /* Melhora a legibilidade com espaçamento entre linhas */
+    line-height: 1.5; 
 
 }
 
 .social-media-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinha os itens à esquerda */
+  align-items: flex-start; 
   width: 100%;
-  margin-top: 1rem;      /* Reduz a margem superior */
+  margin-top: 1rem;     
 }
 
 .contate-nos-row {
   display: flex;
-  justify-content: flex-start; /* Alinha os itens à esquerda */
+  justify-content: flex-start; 
   width: 100%;
   margin: 0.5rem 0;
 }
