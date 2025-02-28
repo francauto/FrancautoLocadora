@@ -11,6 +11,7 @@
   margin: 0 auto;
   padding: 0 15px;
   box-sizing: border-box;
+  /* Sem height, altura automática */
 }
 
 .faq-title {
@@ -41,8 +42,8 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  height: auto;
-  min-height: 80px;
+  height: auto; /* Garante que a altura se ajuste ao conteúdo */
+  min-height: 80px; /* Mantém uma altura mínima */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -57,7 +58,7 @@
 }
 
 .faq-card.expanded {
-  height: auto;
+  height: auto; /* Garante que a altura se ajuste quando expandido */
 }
 
 .faq-question {
@@ -69,7 +70,7 @@
 }
 
 .faq-answer {
-  max-height: 0;
+  max-height: 0; /* Começa escondido */
   overflow: hidden;
   transition: max-height 0.3s ease, opacity 0.3s ease;
   opacity: 0;
@@ -79,7 +80,7 @@
 }
 
 .faq-answer.show {
-  max-height: 500px;
+  max-height: 1000px; /* Aumentei para 1000px para garantir. Use um valor grande o suficiente */
   opacity: 1;
   margin-bottom: 10px;
 }
@@ -110,20 +111,27 @@
     margin-top: 30px;
     margin-bottom: 25px;
   }
-  
+
   .faq-container {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  
+
   .faq-card {
     font-size: 1rem;
     padding: 12px;
     min-height: 70px;
+    overflow-x: hidden;
+    word-wrap: break-word;
   }
-  
+
   .faq-question {
     font-size: 0.95rem;
+    padding-right: 20px;
+  }
+  .faq-answer{
+    overflow-x: hidden;
+    word-wrap: break-word;
   }
 }
 
@@ -141,22 +149,22 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  
+
   .faq-card {
     padding: 12px 10px;
     min-height: 60px;
     font-size: 0.9rem;
   }
-  
+
   .faq-question {
     font-size: 0.9rem;
-    padding-right: 25px;
+    padding-right: 15px;
   }
-  
+
   .faq-answer {
     font-size: 0.85rem;
   }
-  
+
   .expand-icon {
     top: 10px;
     right: 10px;
@@ -164,21 +172,20 @@
   }
 }
 
-/* Garantindo que não haja overflow horizontal em dispositivos pequenos */
 @media (max-width: 320px) {
   .faq-card {
     padding: 10px 8px;
   }
-  
+
   .faq-question {
     font-size: 0.85rem;
-    padding-right: 20px;
+    padding-right: 10px;
   }
-  
+
   .faq-answer {
     font-size: 0.8rem;
   }
-  
+
   .expand-icon {
     top: 8px;
     right: 8px;
