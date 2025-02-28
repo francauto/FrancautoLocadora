@@ -27,7 +27,7 @@ const Localizacao = () => {
           src="https://lottie.host/6aebbfe8-164f-483a-9f6f-9cf20b59e857/0SEBNudFPu.lottie"
           background="transparent"
           speed="1"
-          style={{ width: "400px", height: "400px" }}
+          style={{ width: "400px", height: "400px" }} // Mantém o tamanho fixo
           loop
           autoplay
         />
@@ -67,102 +67,41 @@ export default Localizacao;
 
 const StyledLocalizacaoContainer = styled.div`
   display: flex;
+  flex-direction: column;  /* Empilha em telas menores */
   align-items: center;
-  padding: 20px;
+  padding: 1rem;
   box-sizing: border-box;
   width: 100%;
-  margin-left: 0px;
+  min-height: 100vh;  /* Ocupa pelo menos toda a altura da viewport */
+  justify-content: center; /* Centraliza verticalmente */
 
-    flex-direction: row;
-    justify-content: center;
 
-    @media (max-width: 1920px) {
+  @media (min-width: 768px) {
+    flex-direction: row;   /* Lado a lado em telas maiores */
+    justify-content: space-around; /* Distribui o espaço */
+    align-items: center;     /* Centraliza verticalmente */
 
-    }
-
-    @media (max-width: 1400px) {
-    
-    }
-
-    @media (max-width: 1200px) {
-        margin-left: -15vh;
-    }
-
-    @media (max-width: 1024px) {
-        flex-direction: column;
-        align-items: center;
-        margin-left: 0;
-    }
-
-    @media (max-width: 900px) {
-        margin-left: -10vh;
-    }
-
-   @media (max-width: 800px) {
-        margin-left: -15vh;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    @media (max-width: 768px) {
-        margin-left: -13vh;
-    }
-    @media (max-width: 700px) {
-        margin-left: -20vh;
-    }
-
-    @media (max-width: 650px) {
-        margin-left: -25vh;
-    }
-
-    @media (max-width: 630px) {
-        margin-left: -28vh;
-    }
-
-    @media (max-width: 550px) {
-        margin-left: -32vh;
-    }
-
-    @media (max-width: 500px) {
-        margin-left: -36vh;
-    }
-    @media (max-width: 480px) {
-      margin-left: -35vh;
-    }
-
-    @media (max-width: 450px) {
-        margin-left: -38vh;
-    }
-
-   @media (max-width: 490px) {
-        margin-left: -38vh;
-    }
-
-    @media (max-width: 430px) {
-        margin-left: -28vh;
-    }
-
+  }
 `;
 
 const StyledLottiePlayerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  width: 50%;
-  margin-bottom: 20px;
+  max-width: 400px;   /* Mantém a largura máxima */
+  margin-bottom: 1rem; /* Espaço abaixo em telas menores */
 
-    @media (max-width: 900px) {
-        width: 100%;
-    }
+  @media (min-width: 768px) {
+        margin-bottom: 0;
+  }
+
 `;
 
 const StyledLocalizacaoLabel = styled.div`
-  margin-top: 10px;
-  font-size: 18px;
+  margin-top: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: black;
-  font-family: "Open Sans", sans-serif;
   text-align: center;
 `;
 
@@ -170,8 +109,7 @@ const StyledLocalizacaoAddressContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 10px;
+  margin-top: 1rem;
   width: 100%;
 `;
 
@@ -182,37 +120,22 @@ const StyledAddressWithIcon = styled.div`
 `;
 
 const StyledLocalizacaoAddress = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
   color: black;
-  font-family: "Open Sans", sans-serif;
   text-align: center;
-  margin-left: 10px;
+  margin-left: 0.5rem;
 `;
 
 const StyledMapContainer = styled(MapContainer)`
-  width: 45vh;
+  width: 45vh;    /* Mantém a largura/altura originais */
   height: 45vh;
-  margin-top: 20px;
+  max-width: 600px; /*  Largura máxima para o mapa */
 
-  
-    @media (max-width: 1000px) {
-        width: 50%;
-    }
-        
-    @media (max-width: 900px) {
-        width: 50%;
-    }
 
-    @media (max-width: 800px) {
-        width: 50%;  /* Smaller map on 800px breakpoint */
- 
-    }
+  @media (max-width: 767px) { /*  Ajusta para telas menores, mas mantendo o tamanho */
+        width: 80vw;  /*  Ocupa mais espaço na horizontal */
+        height: 40vh;  /*  Reduz um pouco a altura */
+        max-width: none; /* Remove o max-width em telas menores */
+  }
 
-    @media (max-width: 600px) {
-        height: 300px;
-    }
-    
-    @media (max-width: 500px) {
-    width: 40%;
-    }
 `;
