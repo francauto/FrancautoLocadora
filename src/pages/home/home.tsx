@@ -1,23 +1,32 @@
-import React, { useState } from "react";
-import "@dotlottie/player-component"; // Import the Lottie player
+// Home.tsx -  Nenhuma mudança necessária aqui!
+import React, { useRef, useEffect } from "react";
+import videoHome from "../../assets/video_home.mp4";
 import "./home.css";
- // Import the new CardHome component
-import videoHome from "../../assets/video_home.mp4"; // Import the video file
 
 const Home = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const toggleCardVisibility = () => {
-    setIsVisible(!isVisible);
-  };
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(error => {
+        console.error("Autoplay failed:", error);
+      });
+    }
+  }, []);
 
   return (
     <div className="home-background">
-      <video className="home-video" src={videoHome} autoPlay loop muted />
-     
-        {/* Se for manter o card, faça o import aqui */}
-        
-      </div>
+      <video
+        ref={videoRef}
+        className="video-home"
+        src={videoHome}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+    </div>
   );
 };
 

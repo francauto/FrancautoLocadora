@@ -1,3 +1,16 @@
+html, body {
+  height: 100%; /* Garante que html e body ocupem a altura total da viewport */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove paddings padrão */
+}
+
 body {
-  /* Remover margin-bottom: 60px; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1; /* Faz o conteúdo principal ocupar todo o espaço disponível */
+  /* padding-bottom: 60px;  Se precisar de espaço extra, use padding-bottom */
 }
