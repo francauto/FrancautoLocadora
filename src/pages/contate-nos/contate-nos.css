@@ -1,10 +1,11 @@
 /* contate-nos.css */
-html, body, #root { /*  <-- Adicionado #root (ou o ID do seu elemento raiz) */
+html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
 }
+
 .contate-nos-container {
   display: flex;
   flex-direction: column;
@@ -13,105 +14,125 @@ html, body, #root { /*  <-- Adicionado #root (ou o ID do seu elemento raiz) */
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 100vh; /* Garante que o container ocupe pelo menos a altura total da viewport */
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .contate-nos-card {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 1rem;
-  max-width: 600px;
+  max-width: 800px; /* Aumentei o max-width para acomodar os dois lados */
+  display: flex; /* Adicionado: Flexbox para o card principal */
+  justify-content: space-between; /* Distribui o espaço entre os lados */
+  flex-wrap: wrap; /* Permite quebras de linha em telas menores */
 }
 
-/* Estilos para o card do formulário (CardContatenos) */
 .contate-nos-card:last-child {
   margin-top: 0;
   margin-bottom: 0;
-  /* padding: 0;  Se quiser remover o padding interno, descomente */
+}
+
+.contate-nos-content { /* Nova classe para agrupar os dois lados */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os itens ao topo */
+    width: 100%;
+    flex-wrap: wrap; /* Permite que os contatos "quebrem" para baixo em telas menores */
 }
 
 .contate-nos-left {
   color: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start; /* Alinha os itens à esquerda */
+  width: 48%; /* Ocupa um pouco menos da metade para dar espaço */
+  box-sizing: border-box; /* Inclui padding e borda na largura */
+  margin-bottom: 1rem;
 }
 
 .titulo-contate-nos {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-align: center;
-  margin-top: 1rem;
+  text-align: left; /* Alinha o título à esquerda */
+  margin-top: 0; /* Remove margem superior */
   color: black;
+  width: 100%; /* Ocupa toda a largura disponível */
 }
 
 .subtitulo-contatos {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0rem;
-  text-align: center;
+  margin-top: 0;      /* Remove margem superior */
+  margin-bottom: 1rem; /* Adiciona margem inferior */
+  text-align: left;   /* Alinha o subtítulo à esquerda */
   color: black;
-  margin-left: 0;
+  width: 100%; /* Ocupa toda a largura disponível */
 }
 
 .text {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  text-align: left;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem; /* Diminui o tamanho do texto */
+    margin-top: 0;     /* Remove margem superior */
+    margin-bottom: 0;    /* Remove margem inferior */
+    text-align: left;
+    line-height: 1.5; /* Melhora a legibilidade com espaçamento entre linhas */
+
 }
 
 .social-media-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Alinha os itens à esquerda */
   width: 100%;
-  margin-top: 20px;
+  margin-top: 1rem;      /* Reduz a margem superior */
 }
 
 .contate-nos-row {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Alinha os itens à esquerda */
   width: 100%;
   margin: 0.5rem 0;
 }
 
 .contate-nos-item {
-  display: flex;
-  align-items: center;
-  margin-right: 0;
-  margin-bottom: 0rem;
-  margin-left: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-bottom: 0.5rem; 
+    margin-left: 0;
+    line-height: 1; 
 }
 
 .contate-nos-item a {
-  margin: 0 5px;
+  margin: 0;
+  display: flex; 
+  align-items: center;
 }
 
 .contate-nos-item p {
-  margin-left: 0rem;
+  margin-left: 0;
   font-size: 1rem;
 }
 
 .contate-nos-item dotlottie-player {
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 
 .contate-nos-item.email {
-  margin-top: -0.5rem;
+  margin-top: 0;
 }
 
 .contate-nos-right {
-  position: relative;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    width: 48%; 
+    box-sizing: border-box; 
+    align-items: flex-start; 
+
 }
 
 button {
@@ -129,14 +150,35 @@ button:hover {
 .no-wrap {
   white-space: nowrap;
 }
-/* --- Media Queries --- */
 
-/*  Remove o min-height em telas menores, já que o conteúdo
-    pode ser menor que a altura da viewport. */
+
+
 @media (max-width: 1024px) {
   .contate-nos-container {
-    min-height: 0; /* Remove o min-height */
-    padding-top: 20px; /* Adiciona padding superior */
-    padding-bottom: 20px; /* Adiciona padding inferior */
+    min-height: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
+   .contate-nos-card {
+        max-width: 100%; 
+    }
+
+    .contate-nos-left,
+    .contate-nos-right {
+        width: 100%; 
+        align-items: center; 
+        margin-bottom: 1rem;
+    }
+    .contate-nos-row{
+        justify-content: center;
+    }
+     .titulo-contate-nos, .subtitulo-contatos{
+        text-align: center;
+    }
+}
+
+@media (min-width: 1025px) {
+    .social-media-container{
+        margin-right: 2rem;
+    }
 }

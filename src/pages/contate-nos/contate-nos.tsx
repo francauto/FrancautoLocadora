@@ -4,52 +4,55 @@ import "./contate-nos.css";
 import Button from "@mui/material/Button";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import CardContatenos from "../../components/card-contate-nos/card-contate-nos"; // Importa o componente
+import CardContatenos from "../../components/card-contate-nos/card-contate-nos";
 
 const Contatenos = () => {
   return (
     <div className="contate-nos-container">
-      {/* Card para Redes Sociais e Contatos */}
       <div className="contate-nos-card">
-        <div className="contate-nos-left">
-          <h2 className="titulo-contate-nos">
-            Nos siga nas <br /> Redes Sociais!
-          </h2>
-          <div className="social-media-container">
-            <div className="contate-nos-row">
-              <div className="contate-nos-button">
-                <Button
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#833AB4",
-                    color: "white",
-                    borderRadius: "10px",
-                  }}
-                  startIcon={<InstagramIcon />}
-                  href="https://www.instagram.com/francautolocadora"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </Button>
-              </div>
-              <div className="contate-nos-button">
-                <Button
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#3b5998",
-                    color: "white",
-                    borderRadius: "10px",
-                  }}
-                  startIcon={<FacebookIcon />}
-                  href="https://www.facebook.com/francautolocadora1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Facebook
-                </Button>
+        <div className="contate-nos-content"> 
+          <div className="contate-nos-left">
+            <h2 className="titulo-contate-nos">
+              Nos siga nas <br /> Redes Sociais!
+            </h2>
+            <div className="social-media-container">
+              <div className="contate-nos-row">
+                <div className="contate-nos-button">
+                  <Button
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#833AB4",
+                      color: "white",
+                      borderRadius: "10px",
+                    }}
+                    startIcon={<InstagramIcon />}
+                    href="https://www.instagram.com/francautolocadora"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </Button>
+                </div>
+                <div className="contate-nos-button">
+                  <Button
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#3b5998",
+                      color: "white",
+                      borderRadius: "10px",
+                    }}
+                    startIcon={<FacebookIcon />}
+                    href="https://www.facebook.com/francautolocadora1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </Button>
+                </div>
               </div>
             </div>
+          </div>
+          <div className="contate-nos-right"> 
             <h3 className="subtitulo-contatos">Contatos</h3>
             <div className="contate-nos-row">
               <div className="contate-nos-item">
@@ -110,7 +113,6 @@ const Contatenos = () => {
         </div>
       </div>
 
-   
       <CardContatenos />
     </div>
   );
