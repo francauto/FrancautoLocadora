@@ -1,31 +1,12 @@
-// Home.tsx -  Nenhuma mudança necessária aqui!
-import React, { useRef, useEffect } from "react";
-import videoHome from "../../assets/video_home.mp4";
+// Home.tsx - Sem alterações no componente React
+import React from "react";
+import backgroundHome from "../../assets/background-home.svg";
 import "./home.css";
 
 const Home = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(error => {
-        console.error("Autoplay failed:", error);
-      });
-    }
-  }, []);
-
   return (
     <div className="home-background">
-      <video
-        ref={videoRef}
-        className="video-home"
-        src={videoHome}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+      <img src={backgroundHome} alt="Background" className="background-image" />
     </div>
   );
 };
