@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./duvidas.css";
 
 const faqs = [
@@ -63,24 +63,57 @@ const faqs = [
 ];
 
 const Duvidas = () => {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detectar se está em um dispositivo móvel
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
-    <div>
-      <h1 className="faq-title">PERGUNTAS FREQUENTES</h1>
-      <div className="faq-container">
-        {faqs.map((faq, index) => (
-          <div key={index} className="faq-card">
-            <div className="faq-question">{`${index + 1}. ${
-              faq.question
-            }`}</div>
-            <div className="faq-answer">
-              {faq.answer.split('\n').map((line, i) => (
-                <p key={i}>{line}</p>
-              ))}
+    <section className="duvidas-section">
+      <div className="container">
+        <h1 className="faq-title">PERGUNTAS FREQUENTES</h1>
+        <div className="faq-container">
+          {faqs.map((faq, index) => (
+            <div 
+              key={index} 
+              className={`faq-card ${expandedIndex === index ? 'expanded' : ''}`}
+              onClick={() => toggleExpand(index)}
+              role="button"
+              aria-expanded={expandedIndex === index}
+              tabIndex={0}
+            >
+              <div className="faq-question">
+                {isMobile ? faq.question : `${index + 1}. ${faq.question}`}
+              </div>
+              <div className={`faq-answer ${expandedIndex === index ? 'show' : ''}`}>
+                {faq.answer.split('\n').map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+              </div>
+              <div className="expand-icon">
+                {expandedIndex === index ? '−' : '+'}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
