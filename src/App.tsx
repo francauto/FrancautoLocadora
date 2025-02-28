@@ -34,30 +34,32 @@ function App() {
   }, []);
 
   useEffect(() => {
-    initializeGA(); // Inicializa o Google Analytics e envia a visualização da página
+    initializeGA(); // Inicializa o Google Analytics
   }, []);
 
   return (
     <>
       <NavigationMenu />
-      <div id="home">
-        <Home />
-      </div>
-      <div id="localizacao">
-        <Localizacao />
-      </div>
-      <div id="planos">
-        <Planos />
-      </div>
-      <div id="contate-nos">
-        <Contatenos />
-      </div>
-      <div id="duvidas">
-        <Duvidas />
+      {/* Envolve o conteúdo principal em uma div com uma classe */}
+      <div className="main-content">
+        <div id="home">
+          <Home />
+        </div>
+        <div id="localizacao">
+          <Localizacao />
+        </div>
+        <div id="planos">
+          <Planos />
+        </div>
+        <div id="contate-nos">
+          <Contatenos />
+        </div>
+        <div id="duvidas">
+          <Duvidas />
+        </div>
       </div>
       <Footer />
       <WhatsAppIcon />
-
     </>
   );
 }
