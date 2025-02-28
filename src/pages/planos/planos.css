@@ -1,24 +1,22 @@
 .planos-container {
   background-color: #333;
-  padding: 20px;
+  padding: 1rem; /*  Padding consistente */
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Ocupa toda a largura disponível */
-  box-sizing: border-box; /* Inclui padding no cálculo da largura */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .plan-card {
-  /*  Estilos base (móvel primeiro) */
-  width: 90%;  /* Quase toda a largura em telas pequenas */
-  max-width: 30vh; /* Limita o tamanho máximo */
-  height: auto; /* Altura automática, proporcional à largura */
-  margin: 0.5rem auto; /* Centraliza e adiciona margem */
+  width: 100%;        /*  Ocupa toda a largura disponível dentro do container pai */
+  max-width: 300px; /*  Largura máxima para evitar que fiquem muito largos em telas grandes. */
+  margin: 0.5rem 0; /*  Margem superior e inferior, centraliza horizontalmente com 'auto' */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   transition: transform 0.2s ease-in-out;
-  box-sizing: border-box; /* Padding e border incluídos no width/height */
+  box-sizing: border-box;
 }
 
 .plan-card:hover {
@@ -26,378 +24,51 @@
 }
 
 .card-image {
-  width: 100%; /* Ocupa toda a largura do card */
-  height: auto; /* Altura automática para manter proporção */
-  object-fit: cover; /* Garante que a imagem cubra o espaço */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.card-content {
-  padding: 10px;
-}
-
-.card-title {
-  font-size: 1rem;
-}
-
-.features-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; /* Espaçamento consistente */
-  margin-bottom: 0.5rem;
-  justify-content: center;
-  width: 100%; /* Ocupa a largura do card */
-}
-
-.feature-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.card-feature {
-  font-size: 0.7rem;
-}
-
-.button-box {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem; /* Espaçamento consistente */
-}
 
 .consult-button {
-  display: flex;
-  align-items: center;
-  transform: scale(0.9);
-  transition: transform 0.3s ease-in-out;
-  font-size: 0.8rem;
-  padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out; /* Mantive a transição */
+    font-size: 0.8rem; /* Mantive tamanho da fonte */
+    padding: 8px 16px;
 }
-
 .consult-button:hover {
-  transform: scale(1);
+    transform: scale(1.05); 
 }
 
-.button-icon {
-  width: 25px;
-  height: 25px;
-  margin-left: 8px;
-}
 
-/* --- Media Queries --- */
-
-/* 1. Extra Pequeno (até 480px) - 1 card por linha */
-@media (max-width: 480px) {
+@media (min-width: 600px) {  /*  Usei um breakpoint mais comum */
   .plan-card {
-    max-width: 95%; /* Aumenta um pouco a largura em telas muito pequenas */
+    width: calc(50% - 1rem); /*  50% da largura, menos o 'gap' */
+    margin: 0.5rem; /*  Ajusta a margem para centralizar */
   }
 }
 
-/* 2. Pequeno (481px - 768px) - 2 cards por linha, centralizados */
-@media (min-width: 481px) and (max-width: 768px) {
+/*  3 cards por linha */
+@media (min-width: 960px) {  /*  Breakpoint do Material UI */
   .plan-card {
-    width: calc(50% - 0.5rem); /* Reduz a margem */
-    max-width: 30vh;
-    margin: 0.25rem; /* Margens menores */
-  }
-
-  .planos-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .planos-container > * {
-    flex: 1;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100%;
+    width: calc(33.333% - 1rem);
   }
 }
 
-/* Adicionando a media query para menor que 900px (ajuste fino) */
-@media (max-width: 900px) {
+/*  4 cards por linha */
+@media (min-width: 1280px) { /*  Breakpoint do Material UI */
   .plan-card {
-    width: calc(50% - 1rem); /* 2 cards por linha */
-    max-width: 30vh; /*Aumenta o limite máximo para telas menores */
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -10vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-@media (max-width: 800px) {
-  .plan-card {
-    width: calc(50% - 1rem); /* 2 cards por linha */
-    max-width: 30vh; /*Aumenta o limite máximo para telas menores */
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -18vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 700px) {
-  .plan-card {
-    width: calc(50% - 1rem); /* 2 cards por linha */
-    max-width: 40vh; /*Aumenta o limite máximo para telas menores */
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -20vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 650px) {
-  .plan-card {
-    width: calc(50% - 1rem); /* 2 cards por linha */
-    max-width: 40vh; /*Aumenta o limite máximo para telas menores */
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -25vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 630px) {
-  .plan-card {
-    width: calc(50% - 1rem); /* 2 cards por linha */
-    max-width: 70vh; /*Aumenta o limite máximo para telas menores */
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -25vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 550px) {
-  .plan-card {
-    width: calc(50% - 1rem); /* 2 cards por linha */
-    max-width: 70vh; /*Aumenta o limite máximo para telas menores */
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -32vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 500px) {
-  .plan-card {
-    width: calc(50% - 1rem); /* 2 cards por linha */
-    max-width: 70vh; /*Aumenta o limite máximo para telas menores */
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -36vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-
-
-
-@media (max-width: 450px) {
-  .plan-card {
-    width: calc(50% - 10rem); /* 2 cards por linha */
-    width: 46vh; /*Aumenta o limite máximo para telas menores */
- 
-    margin: 0.5rem;
-  }
-
-    .planos-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: -28vh;
-    }
-
-      .planos-container > * {
-        flex: 1;
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-    }
-}
-/*Media para a faixa de 901 até 1024*/
-@media (min-width: 901px) and (max-width: 1024px) {
-  .plan-card {
-    width: calc(33.33% - 1rem); /* 3 cards por linha */
-    max-width: 30vh;
-    margin: 0.5rem;
-  }
-    .planos-container {
-    display: flex; /* Flex container */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: flex-start;
-    ;
-  }
-
-   .planos-container > * {
-      flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-wrap: wrap;
-       max-width: 100%;
-   }
-}
-/* ... restante das media queries ... */
-
-/* 4. Grande (1025px - 1200px) - 4 cards por linha */
-@media (min-width: 1025px) and (max-width: 1200px) {
-  .plan-card {
-    width: calc(25% - 1rem); /* 4 cards por linha com espaço */
-    max-width: 30vh;
-    margin: 0.5rem;
-
-  }
-    .planos-container {
-    display: flex; /* Flex container */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: flex-start;
-    margin-left: -15vh;
-
-  }
-
-   .planos-container > * {
-      flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-wrap: wrap;
-       max-width: 100%;
-   }
-}
-/* 5. Extra Grande (1201px - 1400px) - 4 cards */
-@media (min-width: 1201px) and (max-width: 1400px){
- .plan-card {
     width: calc(25% - 1rem);
-    max-width: 30vh;
-    margin: 0.5rem;
   }
-      .planos-container {
-    display: flex; /* Flex container */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: flex-start;
-  }
-
-   .planos-container > * {
-      flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-wrap: wrap;
-       max-width: 100%;
-   }
 }
 
-/* 6. XXL (1401px e acima) - 5 cards por linha */
-@media (min-width: 1401px) {
-  .plan-card {
-    width: calc(20% - 1rem); /* 5 cards por linha com espaço */
-    max-width: 30vh;
-    margin: 0.5rem;
-  }
-   .planos-container {
-    display: flex; /* Flex container */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: flex-start;
-  }
-
-   .planos-container > * {
-      flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-wrap: wrap;
-       max-width: 100%;
-   }
+/* 5 cards por linha (se houver espaço) */
+@media (min-width: 1600px) {
+    .plan-card {
+        width: calc(20% - 1rem);
+    }
 }
-
 /*Ajuste para telas extra extra grandes*/
 @media (min-width: 1921px) { /* Para monitores ultra-wide, etc. */
   .plan-card {
@@ -406,12 +77,9 @@
 }
 
 .title {
-  position: relative;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative; /*  Para o título */
   text-align: center;
   color: white;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem; /* Espaçamento abaixo do título */
   font-size: 2.5rem;
 }

@@ -51,13 +51,10 @@ const Planos = () => {
         textAlign="center"
         color="white"
         gutterBottom
-        sx={{ 
-          mb: 4, 
+        sx={{
+          mb: 4,
           fontSize: "2.5rem",
-          position: "relative", // Ensure it stays at the top
-          top: 0, // Align to the top
-          left: "50%", // Center horizontally
-          transform: "translateX(-50%)", // Adjust for centering
+          position: "relative", //  manter o título no topo
         }}
       >
         Planos
@@ -65,21 +62,22 @@ const Planos = () => {
       <Box
         sx={{
           display: "flex",
-          flexWrap: "wrap", // Important for responsiveness
-          justifyContent: "center",
-          gap: 3, // Space between cards  // Increased gap slightly
-          padding: 2,
-          width: '100%', // Add this line
+          flexWrap: "wrap", // Fundamental para a responsividade
+          justifyContent: "center", // Centraliza os cards
+          gap: "1rem",         // Espaço consistente entre os cards.  Use unidade 'rem'.
+          padding: "1rem",      // Padding consistente.
+          width: "100%",       // Garante que o container ocupe toda a largura.
+          boxSizing: "border-box", // Inclui padding e border na largura total.
         }}
       >
         {plans.map((plan) => (
           <Card
             key={plan.id}
-            className="plan-card" // Add a class for easier styling
+            className="plan-card"
           >
             <CardMedia
               component="img"
-              className="card-image" // Class for image styling
+              className="card-image"
               image={plan.image}
               alt={plan.title}
             />
@@ -141,7 +139,7 @@ const Planos = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  className="consult-button" // Class for button styling
+                  className="consult-button"
                   onClick={() =>
                     window.open(
                       `https://wa.me/5516999661580?text=Olá, gostaria de consultar os valores para o plano ${plan.title}.`,
