@@ -1,30 +1,51 @@
+/* contate-nos.css */
+html, body, #root { /*  <-- Adicionado #root (ou o ID do seu elemento raiz) */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
 .contate-nos-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: -5%;
-  margin-bottom: -15%;
+  min-height: 100vh; /* Garante que o container ocupe pelo menos a altura total da viewport */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
+}
+
+.contate-nos-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+/* Estilos para o card do formulário (CardContatenos) */
+.contate-nos-card:last-child {
+  margin-top: 0;
+  margin-bottom: 0;
+  /* padding: 0;  Se quiser remover o padding interno, descomente */
 }
 
 .contate-nos-left {
   color: black;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 50%;
+  align-items: center;
+  width: 100%;
 }
 
 .titulo-contate-nos {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-align: left;
-  margin-top: 1rem; /* Ajuste para descer mais o título */
-  margin-left: 10px;
-
+  text-align: center;
+  margin-top: 1rem;
+  color: black;
 }
 
 .subtitulo-contatos {
@@ -32,13 +53,14 @@
   font-size: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0rem;
-  margin-left: -54%;
-  text-align: left;
+  text-align: center;
+  color: black;
+  margin-left: 0;
 }
 
 .text {
   font-family: "Open Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 16px;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   text-align: left;
@@ -47,14 +69,14 @@
 .social-media-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the buttons */
+  align-items: center;
   width: 100%;
-  margin-top: 20px; /* Adjust margin to position buttons correctly */
+  margin-top: 20px;
 }
 
 .contate-nos-row {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   margin: 0.5rem 0;
 }
@@ -62,9 +84,13 @@
 .contate-nos-item {
   display: flex;
   align-items: center;
-  margin-right: 2rem;
-  margin-bottom: 0rem; /* Ajuste para aproximar o email do telefone */
-  margin-left: 10px;
+  margin-right: 0;
+  margin-bottom: 0rem;
+  margin-left: 0;
+}
+
+.contate-nos-item a {
+  margin: 0 5px;
 }
 
 .contate-nos-item p {
@@ -73,11 +99,11 @@
 }
 
 .contate-nos-item dotlottie-player {
-  margin-top: 0.5rem; /* Ajuste para descer os ícones */
+  margin-top: 0.5rem;
 }
 
 .contate-nos-item.email {
-  margin-top: -0.5rem; /* Ajuste para subir o email e o ícone */
+  margin-top: -0.5rem;
 }
 
 .contate-nos-right {
@@ -85,350 +111,14 @@
   flex: 1;
   display: flex;
   justify-content: center;
-}
-
-@media (max-width: 1024px) {
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
- 
-
-  .contate-nos-row{
-    margin-left: -20vh;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 45vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-left: 0vh;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -98vh;
-  }
-
-  .social-media-container {
-    margin-left: 50vh;
-  }
- 
- 
-}
-
-@media (max-width: 850px) {
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-    
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 45vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-right: -10px;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -85vh;
-  }
-
-  .social-media-container {
-    margin-left: 38vh;
-  }
-
-@media (max-width: 768px) {
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 35vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-right: -10px;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -85vh;
-  }
-
-  .social-media-container {
-    margin-left: 30vh;
-  }
-}
-
-@media (max-width: 650px) {
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 30vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-right: -10px;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -85vh;
-  }
-
-  .social-media-container {
-    margin-left: 25vh;
-  }
-
-}
-
-@media (max-width: 600px) {
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 25vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-right: -10px;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -85vh;
-  }
-
-  .social-media-container {
-    margin-left: 20vh;
-  }
-}
-
-@media (max-width: 500px){
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 18vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-right: -10px;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -85vh;
-  }
-
-  .social-media-container {
-    margin-left: 13vh;
-  }
-}
-
-@media (max-width: 450px){
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 10vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-right: -10px;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -85vh;
-  }
-
-  .social-media-container {
-    margin-left: 8vh;
-  }
-}
-
-@media (max-width: 450px) {
-  .contate-nos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .contate-nos-left,
-  .contate-nos-right {
-    width: 100%;
-  }
-
-  .contate-nos-left {
-    margin-bottom: 2rem;
-  }
-
-  .titulo-contate-nos {
-    text-align: center;
-    margin-left: 7vh;
-  }
-
-  .contate-nos-button {
-    margin-top: -4vh;
-    display: flex;
-    margin-right: 10px;
-  }
-
-  .contate-nos-item {
-    margin-right: -10px;
-    margin-bottom: -20px;
-  }
-
-  .subtitulo-contatos {
-    text-align: center;
-    margin-left: -87vh;
-  }
-
-  .social-media-container {
-    margin-left: 3vh;
-  }
+  width: 100%;
 }
 
 button {
   background-color: darkviolet;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 25px; /* Aumenta o arredondamento dos botões */
+  border-radius: 25px;
   cursor: pointer;
 }
 
@@ -438,4 +128,15 @@ button:hover {
 
 .no-wrap {
   white-space: nowrap;
+}
+/* --- Media Queries --- */
+
+/*  Remove o min-height em telas menores, já que o conteúdo
+    pode ser menor que a altura da viewport. */
+@media (max-width: 1024px) {
+  .contate-nos-container {
+    min-height: 0; /* Remove o min-height */
+    padding-top: 20px; /* Adiciona padding superior */
+    padding-bottom: 20px; /* Adiciona padding inferior */
+  }
 }
