@@ -2,11 +2,11 @@
   background-color: #333;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
+  padding: 10px 0; /* Aumentei um pouco o padding padrão */
   width: 100%;
-  bottom: 0;
-  left: 0;
+ 
   font-size: 13px;
+  box-sizing: border-box; /* Boa prática: inclui padding e border no cálculo da largura */
 }
 
 .footer a:hover {
@@ -16,13 +16,20 @@
 @media (max-width: 768px) {
   .footer {
     font-size: 12px;
-    padding: 10px 0;
+    /* Padding já está sendo ajustado no estilo base, então não precisa repetir aqui */
   }
 }
 
 @media (max-width: 480px) {
   .footer {
     font-size: 11px;
-    padding: 15px 0;
+    padding: 12px 0; /* Ajustei um pouco o padding para telas menores */
+  }
+}
+
+@media (max-width: 320px) { /* Adicionei uma media query para telas muito pequenas */
+  .footer {
+    font-size: 10px; /* Reduz um pouco mais a fonte */
+    padding: 10px 0; /* Ajusta o padding */
   }
 }
