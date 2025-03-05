@@ -227,21 +227,12 @@
     }
 }
 
-/*  Ajustes para telas MUITO pequenas (abaixo de 600px, por exemplo) */
 @media (max-width: 600px) {
     .navigation-menu {
-        padding: 0.625rem;  /*  Reduz o padding */
+        padding: 0.625rem;
     }
-
     .navigation-menu .logo {
-        width: 6.25rem;   /*  Reduz o tamanho da logo */
+        width: 6.25rem; 
     }
 
-    /*  Se você quiser que o menu *não* ocupe 100% da largura em telas MUITO pequenas: */
-    /*
-    .navigation-menu .menu-items {
-        width: 80%;  // Exemplo: 80% da largura
-        max-width: 250px; // Exemplo: Largura máxima
-    }
-    */
 }
