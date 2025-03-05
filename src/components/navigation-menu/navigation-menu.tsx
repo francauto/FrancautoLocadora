@@ -1,15 +1,25 @@
+// NavigationMenu.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
 import LogoBranca from "../../assets/logo-francauto-locadora-branca.svg";
-import "./navigation-menu.css";
+import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
+import styled from "styled-components";
+import "./navigation-menu.css"; //  <-- Usaremos um arquivo CSS separado
+
+
+const StyledNav = styled.nav`
+    /*  Estilos base (transferidos para o CSS) */
+`; //  Mantém o StyledNav, mas vazio (usado apenas para o nome da classe)
 
 const NavigationMenu = () => {
-  const [activeItem, setActiveItem] = useState<string>("home");
+  const [activeItem, setActiveItem] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
 
   const menuItems = [
     { id: "home", label: "Home", offset: -70 },
@@ -19,20 +29,25 @@ const NavigationMenu = () => {
     { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
 
-  const handleSetActive = (to: string) => {
+  const handleSetActive = (to) => {
     setActiveItem(to);
   };
 
-  const handleClick = (to: string) => {
+  const handleClick = (to) => {
     setActiveItem(to);
-    setMenuOpen(false);
+    setMenuOpen(false); // Fecha o menu ao clicar em um item
   };
 
-  useEffect(() => {
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+    useEffect(() => {
     const handleScroll = () => {
+      // Atualiza o estado 'scrolled' com base na posição de rolagem
       setScrolled(window.scrollY > 50);
 
-      // Encontra qual seção está mais visível na tela
+      // Encontra a seção mais visível na tela
       const sections = menuItems.map((item) => ({
         id: item.id,
         element: document.getElementById(item.id),
@@ -59,51 +74,58 @@ const NavigationMenu = () => {
         }
       });
 
-      setActiveItem(mostVisibleSection);
+      setActiveItem(mostVisibleSection); // Atualiza o item ativo
     };
 
+    // Adiciona o listener de scroll ao montar o componente
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Verificação inicial
+    handleScroll(); // Chama a função para definir o estado inicial
 
+    // Remove o listener de scroll ao desmontar o componente
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [menuItems]); // menuItems como dependência para re-renderizar se mudar
 
   return (
-    <nav className={`navigation-menu ${scrolled ? "scrolled" : ""}`}>
+    <StyledNav
+      className={`navigation-menu ${scrolled ? "scrolled" : ""} ${
+        menuOpen ? "menu-open" : ""
+      }`}
+    >
       <img
         src={scrolled ? Logo : LogoBranca}
         alt="Francauto Locadora Logo"
-        width="200"
         className="logo"
       />
-      <button
+
+      <IconButton
         className="menu-toggle"
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={handleMenuToggle}
         aria-label="Toggle menu"
       >
-        ☰
-      </button>
-      <ul className={menuOpen ? "open" : ""}>
-        {menuItems.map((item, index) => (
-          <li key={item.id} style={{ "--i": index } as React.CSSProperties}>
+        <MenuIcon />
+      </IconButton>
+
+      <ul className="menu-items">
+        {menuItems.map((item) => (
+          <li key={item.id}>
             <ScrollLink
               to={item.id}
-              spy={false}
+              spy={false} /* Desativa o 'spy' para controle manual */
               smooth={true}
               offset={item.offset}
               duration={500}
-              className={activeItem === item.id ? "active" : ""}
               onClick={() => handleClick(item.id)}
-              onSetActive={() => handleSetActive(item.id)}
+              onSetActive={() => handleSetActive(item.id)} //  Mantém, mas não é crucial
+              className={activeItem === item.id ? "active" : ""}
             >
               {item.label}
             </ScrollLink>
           </li>
         ))}
       </ul>
-    </nav>
+    </StyledNav>
   );
 };
 

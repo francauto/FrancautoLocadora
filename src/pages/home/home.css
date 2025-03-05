@@ -1,146 +1,33 @@
+/* home.css */
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .home-background {
-  position: relative;
+  position: relative; /* Importante para posicionar a imagem */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 98.8vw;
+  width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-.home-video {
-  position: absolute;
+/*  Estilos para a imagem de fundo */
+.background-image {
+  position: absolute; /* Posiciona a imagem em relação ao .home-background */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  width: 100%;       /* Ocupa toda a largura */
+  height: 100%;      /* Ocupa toda a altura */
+  object-fit: cover; /* Garante que a imagem cubra todo o container, mantendo a proporção */
+  z-index: -1;       /* Coloca a imagem atrás de qualquer outro conteúdo */
 }
 
-.home-content {
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
-  box-sizing: border-box;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.home-content.visible {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .home-background {
-    background-size: contain;
-  }
-  .info-card {
-    width: 70%;
-    padding: 10px;
-  }
-  .home-content {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .info-card {
-    width: 90%;
-    padding: 5px;
-  }
-  .home-content {
-    padding: 5px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .info-card {
-    width: 80%;
-    padding: 15px;
-  }
-}
-
-.info-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%); /* Altere a posição inicial para baixo */
-  width: 400px;
-  padding: 20px;
-  color: white; /* Texto na cor branca */
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-}
-
-.info-card h2 {
-  margin-top: 0;
-  text-align: center; /* Centraliza o título */
-}
-
-.info-card p {
-  margin: 0;
-}
-
-.info-card.visible {
-  opacity: 1;
-  transform: translate(-50%, -50%); /* Alinhe com o centro da página */
-}
-
-.about-button-left {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  background-color: #003366; /* Azul escuro */
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  color: white;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.about-button-left:hover {
-  background-color: #002244; /* Azul ainda mais escuro */
-  transform: scale(1.1); /* Ampliação ao passar o mouse */
-}
-
-.about-button {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background-color: #003366; /* Azul escuro */
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  color: white;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.about-button:hover {
-  background-color: #002244; /* Azul ainda mais escuro */
-  transform: scale(1.1); /* Ampliação ao passar o mouse */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.fixed-left {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.acrylic-effect {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 20px;
-}
+/* Remove os estilos do .video-home, já que não estamos mais usando vídeo */

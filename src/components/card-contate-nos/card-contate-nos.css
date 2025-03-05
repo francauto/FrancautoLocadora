@@ -1,21 +1,27 @@
+/* card-contate-nos.css */
+
+/* --- Estilos Originais (Desktop) - MANTIDOS INTACTOS --- */
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
 .card-contate-nos-body {
   font-family: Inter, sans-serif;
-  height: 100vh;
   color: white;
   background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem; /* Mantido */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card-contate-nos-container {
-  width: 820px;
-  height: 340px;
+  width: 820px;  /* Largura original */
+  height: 340px; /* Altura original */
   display: flex;
   gap: 10px;
-  margin-inline: 50px;
+  box-sizing: border-box; /* Importante */
 }
 
 .card-contate-nos-item {
@@ -30,6 +36,7 @@
   transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-timing: 0.35s;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .card-contate-nos-item:hover {
@@ -37,13 +44,15 @@
 }
 
 .card-contate-nos-item > .card-contate-nos-background {
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(0.4); /* Always apply the filter */
-  z-index: -1;
-  transition: var(--transition-timing) ease;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.4);
+    z-index: -1;
+    transition: var(--transition-timing) ease;
+    width: 100%; /* Garante que a imagem ocupe toda a largura */
+    height: 100%;
 }
 
 .card-contate-nos-content {
@@ -55,10 +64,11 @@
   padding: 20px;
   transition: var(--transition-timing);
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .card-contate-nos-item:hover .card-contate-nos-content {
-  justify-content: flex-end; /* Keep content at the bottom */
+  justify-content: flex-end;
 }
 
 .card-contate-nos-item:hover .card-contate-nos-profile-image,
@@ -66,11 +76,11 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  margin-bottom: 0; /* Remove bottom margin */
+  margin-bottom: 0;
 }
 
 .card-contate-nos-item:hover .card-contate-nos-title {
-  top: 80px; /* Adjust title position below the logo */
+  top: 80px;
 }
 
 .card-contate-nos-profile-image {
@@ -82,53 +92,55 @@
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: -5px; /* Adjust margin to bring icon closer to the title */
+  margin-bottom: -5px;
   transition: margin-bottom var(--transition-timing);
 }
 
 .card-contate-nos-profile-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image fits within the circle */
+  object-fit: cover;
 }
 
 .card-contate-nos-item:hover .card-contate-nos-profile-image {
   border-color: black;
-  margin-bottom: 10px; /* Adjust margin to move logo to the top */
+  margin-bottom: 10px;
 }
 
 .card-contate-nos-item:hover .card-contate-nos-profile-image {
-  position: absolute;
-  top: 20px;
-  right: 20px; /* Move logo to the top right */
-  margin-bottom: 0; /* Remove bottom margin */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-bottom: 0;
 }
 
 .card-contate-nos-item:hover .card-contate-nos-title {
   position: absolute;
   top: 20px;
   left: 50%;
-  transform: translateX(-50%); /* Center the title */
-  margin-bottom: 0; /* Remove bottom margin */
-  opacity: 0; /* Hide the title */
+  transform: translateX(-50%);
+  margin-bottom: 0;
+  opacity: 0;
   transition: opacity var(--transition-timing);
 }
 
 .card-contate-nos-title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: -10;
-  opacity: 1;
-  transition: var(--transition-timing);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: -10; /* Valor original */
+    opacity: 1;
+    transition: var(--transition-timing);
+    color: white;
+    z-index: 2;
 }
 
 .card-contate-nos-info-card {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity var(--transition-timing) ease;
-  color: white;
-  margin-top: -55%;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity var(--transition-timing) ease;
+    color: white;
+    margin-top: -55%; /* Valor original */
 }
 
 .card-contate-nos-item:hover .card-contate-nos-info-card {
@@ -137,15 +149,15 @@
 }
 
 .card-contate-nos-info-card h2 {
-  font-size: 18px;
-  margin-top: 0;
-  margin-bottom: 5px;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
-
 .card-contate-nos-info-card p {
-  font-size: 12px;
-  line-height: 1.4;
-  margin: 0;
+    font-size: 12px;      /* Aumenta um pouco o tamanho da fonte */
+    line-height: 1.4;
+    margin: 0;
+    margin-bottom: 1rem;  /* Ajusta a margem */
 }
 
 .card-contate-nos-backdrop {
@@ -172,11 +184,150 @@
 }
 
 .card-contate-nos-info-card.acrylic-effect {
-  background: rgba(255, 255, 255, 0.05); /* Increased transparency */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 20px;
+    background: rgba(255, 255, 255, 0.05);  /* Ajusta a transparência */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 1rem;      /* Usa rem para padding */
+    box-sizing: border-box; /* Inclui padding no cálculo das dimensões */
+}
+
+.card-contate-nos-button {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.625rem 1rem;  /* Usa rem para padding (10px e 16px) */
+    font-size: 0.875rem;   /* Usa rem para font-size (14px) */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: auto;     /* Empurra o botão para baixo */
+    display: block; /* Ocupa toda a largura disponível */
+    width: 100%;      /* Ocupa toda a largura disponível */
+    box-sizing: border-box;
+}
+
+.card-contate-nos-button:hover {
+  background-color: #003380;
 }
 
 
+/* --- Estilos para Mobile (max-width: 767px) --- */
+
+@media (max-width: 767px) {
+  .card-contate-nos-container {
+    flex-direction: column; /* Empilha os cards verticalmente */
+    height: auto;         /* Altura automática */
+    width: 100%;          /* Ocupa toda a largura */
+    gap: 1rem;            /* Espaçamento entre os cards */
+    padding: 0;
+  }
+
+  .card-contate-nos-item {
+    width: 100%;        /* Ocupa toda a largura */
+    min-height: 200px;  /* Altura mínima */
+    padding: 1rem;      /* Padding interno */
+     /*  Flexbox para o conteúdo interno do card (mobile) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aligns content to the bottom */
+    border-radius: 15px;
+    /*  Remove o flex-grow (não é mais necessário) */
+    /*  Remove as transições complexas de hover */
+  }
+    /*  Hover simples para mobile */
+    .card-contate-nos-item:hover {
+        transform: scale(1.03); /* Slight zoom on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    /*  Esconde o backdrop em mobile */
+    .card-contate-nos-backdrop {
+        display: none;
+    }
+
+      .card-contate-nos-content {
+        position: relative; /* Importante para o z-index */
+        padding: 0; /* Remove o padding, o padding do item ja resolve */
+        z-index: 2;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;        /* Flex para alinhar os conteudos*/
+        flex-direction: column;/*Alinha os conteudos na vertical*/
+    }
+
+    .card-contate-nos-profile-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+        align-self: flex-start; /* Aligns to the start (left) */
+        border: 1px solid transparent; /* Add a transparent border initially */
+        display: flex; /* Add these to center the image inside */
+        justify-content: center;
+        align-items: center;
+    }
+      .card-contate-nos-title {
+        font-size: 1.25rem;  /*  Aumentei o tamanho do título */
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: white;
+        z-index: 2;
+    }
+
+    .card-contate-nos-info-card {
+        color: white;
+        border-radius: 10px;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);  /* Ajusta a transparência */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-sizing: border-box;
+        opacity: 1; /* Initially visible */
+        max-height: 500px; /*  large enough value */
+        margin-top: 0; /*  Remove o margin-top */
+    }
+    /*  Remove estilos específicos de hover para mobile */
+    .card-contate-nos-item:hover .card-contate-nos-profile-image,
+    .card-contate-nos-item:hover .card-contate-nos-title,
+    .card-contate-nos-item:hover .card-contate-nos-info-card
+     {
+        position: static; /*  Remove posicionamento absoluto */
+        transform: none;   /*  Remove transformações */
+        opacity: 1;        /*  Garante visibilidade */
+        margin-bottom: unset; /*  Reseta a margem */
+        top: unset;       /*  Reseta o top */
+        left: unset;      /* Reseta o left */
+        right: unset;
+    }
+
+      .card-contate-nos-info-card h2 {
+        font-size: 1.125rem;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-contate-nos-info-card p {
+        font-size: 0.875rem;
+        line-height: 1.4;
+        margin: 0 0 1rem 0;
+    }
+}
+
+/*  Ajustes para telas MUITO pequenas (abaixo de 400px) - Opcional */
+@media (max-width: 400px) {
+  .card-contate-nos-info-card p {
+    font-size: 0.75rem;
+  }
+
+  .card-contate-nos-button {
+    font-size: 0.75rem; /* Reduz um pouco mais */
+    padding: 0.5rem 0.75rem; /* Reduz o padding */
+  }
+  .card-contate-nos-title{
+    font-size: 1rem;
+  }
+    .card-contate-nos-info-card h2{
+        font-size: 1rem;
+    }
+}

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>
-        Copyright &copy; 2025 Desenvolvimento FrancautoLabs. Todos os direitos
+        Copyright © 2025 Desenvolvimento FrancautoLabs. Todos os direitos
         reservados.
       </p>
     </footer>
