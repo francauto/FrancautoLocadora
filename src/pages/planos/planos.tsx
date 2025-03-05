@@ -7,7 +7,8 @@ import {
   Box,
   Button,
 } from "@mui/material";
-import "@dotlottie/player-component";
+import{DotLottiePlayer} from "@dotlottie/react-player";
+import '@dotlottie/player-component'
 import "./planos.css";
 import TCross from "../../assets/novo-t-cross.svg";
 import PoloTrack from "../../assets/polo-track.svg";
@@ -111,14 +112,16 @@ const Planos = () => {
                       justifyContent: "center",
                     }}
                   >
-                    <dotlottie-player
+                    <DotLottiePlayer
+                    
                       src="https://lottie.host/9e2ed502-0d0e-434d-8d7d-5cef06952f69/FLDafWMshP.lottie"
+                     
                       background="transparent"
-                      speed="1"
+                      speed={1}
                       style={{ width: "30px", height: "30px" }}
                       loop
                       autoplay
-                    ></dotlottie-player>
+                    ></DotLottiePlayer>
                     <Typography
                       variant="body2"
                       color="text.secondary"
@@ -148,14 +151,14 @@ const Planos = () => {
                   }
                 >
                   Consulte
-                  <dotlottie-player
+                  <DotLottiePlayer
                     src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
                     background="transparent"
-                    speed="1"
+                    speed= {1}
                     style={{ width: "25px", height: "25px", marginLeft: "8px" }}
                     loop
                     autoplay
-                  ></dotlottie-player>
+                  ></DotLottiePlayer>
                 </Button>
               </Box>
             </CardContent>

@@ -1,6 +1,6 @@
-"use client";
 
-import { useState, useEffect } from "react";
+
+import { useEffect } from "react";
 import "./App.css";
 import Contatenos from "./pages/contate-nos/contate-nos";
 import Duvidas from "./pages/duvidas/duvidas";
@@ -10,28 +10,11 @@ import Planos from "./pages/planos/planos";
 import NavigationMenu from "./components/navigation-menu/navigation-menu";
 import Footer from "./components/footer/footer";
 import WhatsAppIcon from "./components/whatsApp-icon/whatsApp-icon";
-import { initializeGA, trackButtonClick } from './components/google-analytics/google-analytics';
+import { initializeGA } from './components/google-analytics/google-analytics';
+import '@dotlottie/player-component';
+
 
 function App() {
-  const [isInDuvidas, setIsInDuvidas] = useState(false);
-
-  useEffect(() => {
-    const checkIfInDuvidas = () => {
-      const duvidasElement = document.getElementById("duvidas");
-      if (duvidasElement) {
-        const rect = duvidasElement.getBoundingClientRect();
-        const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
-        setIsInDuvidas(isVisible);
-      }
-    };
-
-    window.addEventListener("scroll", checkIfInDuvidas);
-    checkIfInDuvidas();
-
-    return () => {
-      window.removeEventListener("scroll", checkIfInDuvidas);
-    };
-  }, []);
 
   useEffect(() => {
     initializeGA(); // Inicializa o Google Analytics

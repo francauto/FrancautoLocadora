@@ -1,7 +1,7 @@
 // NavigationMenu.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import Logo from "../../assets/logo-francauto-locadora.svg";
 import LogoBranca from "../../assets/logo-francauto-locadora-branca.svg";
@@ -29,11 +29,11 @@ const NavigationMenu = () => {
     { id: "duvidas", label: "Dúvidas", offset: -70 },
   ];
 
-  const handleSetActive = (to) => {
+  const handleSetActive = (to: string) => {
     setActiveItem(to);
   };
 
-  const handleClick = (to) => {
+  const handleClick = (to: string) => {
     setActiveItem(to);
     setMenuOpen(false); // Fecha o menu ao clicar em um item
   };
