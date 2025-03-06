@@ -3,233 +3,247 @@
 /* Estilos base e desktop - MANTIDOS */
 
 .navigation-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    z-index: 1000;
-    padding: 1.25rem 2.5rem;
-    font-family: "Open Sans", sans-serif;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-    box-sizing: border-box;
-  }
-  
-  .navigation-menu.scrolled {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navigation-menu .logo {
-    width: 9.375rem;
-    height: auto;
-    transition: transform 0.3s ease, width 0.3s ease;
-  }
-  
-  .navigation-menu .logo:hover {
-    transform: scale(1.05);
-  }
-  
-  .navigation-menu .menu-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .navigation-menu .menu-items li {
-    margin: 0 0.9375rem;
-    position: relative;
-  }
-  
-  .navigation-menu .menu-items a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  z-index: 1000;
+  padding: 1.25rem 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.navigation-menu.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-menu .logo {
+  width: 9.375rem;  /* 150px no desktop */
+  height: auto;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.navigation-menu .logo:hover {
+  transform: scale(1.05);
+}
+
+.navigation-menu .menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navigation-menu .menu-items li {
+  margin: 0 0.9375rem;
+  position: relative;
+}
+
+.navigation-menu .menu-items a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.3125rem 0;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.navigation-menu.scrolled .menu-items a {
+  color: #000;
+}
+
+.navigation-menu .menu-items a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: white;
+  transition: width 0.5s ease, background-color 0.3s ease;
+}
+
+.navigation-menu.scrolled .menu-items a::after {
+  background-color: #000;
+}
+
+.navigation-menu .menu-items a:hover::after {
+  width: 100%;
+}
+
+.navigation-menu .menu-items a.active::after {
+  width: 100%;
+}
+
+.navigation-menu .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
     cursor: pointer;
-    padding: 0.3125rem 0;
+    color: white;
     transition: color 0.3s ease;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .navigation-menu.scrolled .menu-items a {
-    color: #000;
-  }
-  
-  .navigation-menu .menu-items a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: white;
-    transition: width 0.5s ease, background-color 0.3s ease;
-  }
-  
-  .navigation-menu.scrolled .menu-items a::after {
-    background-color: #000;
-  }
-  
-  .navigation-menu .menu-items a:hover::after {
-    width: 100%;
-  }
-  
-  .navigation-menu .menu-items a.active::after {
-    width: 100%;
-  }
-  
-  .navigation-menu .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: white;
-      transition: color 0.3s ease;
-      padding: 0;
-      font-size: 1.5rem; /*  Mantém o tamanho do ícone */
-  }
-  
-  .navigation-menu.scrolled .menu-toggle {
-    color: #000;
-  }
-  
-  @media (min-width: 769px) {
-       .navigation-menu {
-          padding-left: 2.5rem;  /*  40px */
-          padding-right: 2.5rem; /*  40px */
-      }
-  
-      .navigation-menu .logo {
-          margin-left: 0; /*  Remove a margem */
-          width: 150px;
-      }
-  
-      .navigation-menu .menu-items{
-          margin-right: 0;  /* Remove a margem */
-      }
-  }
-  
-  /* --- Estilos Mobile (Ajustados) --- */
-  
-  @media (max-width: 768px) {
-    .navigation-menu {
-      padding: 1rem;
-      align-items: flex-start;
-      transition: box-shadow 0.3s ease;
+    padding: 0;
+    font-size: 1.5rem; /*  Mantém o tamanho do ícone */
+}
+
+.navigation-menu.scrolled .menu-toggle {
+  color: #000;
+}
+
+@media (min-width: 769px) {
+     .navigation-menu {
+        padding-left: 2.5rem;  /*  40px */
+        padding-right: 2.5rem; /*  40px */
     }
+
+    .navigation-menu .logo {
+        margin-left: 0; /*  Remove a margem */
+        /*width: 150px;  Mantido em desktop */
+    }
+
+    .navigation-menu .menu-items{
+        margin-right: 0;  /* Remove a margem */
+    }
+}
+
+/* --- Estilos Mobile --- */
+
+@media (max-width: 768px) {
+  .navigation-menu {
+    padding: 1rem;
+    align-items: center;  /*  <-- Centraliza verticalmente em mobile */
+    justify-content: space-between; /*  <--  Espaço entre logo e botão */
+    transition: box-shadow 0.3s ease;
+  }
+
     .navigation-menu.scrolled{
-      background-color: transparent;
-    }
-  
-    .navigation-menu .logo {
-      width: 7.5rem;
-      margin-left: 0;
-    }
-  
+    background-color: transparent;
+  }
+
+  /*  Aumenta o tamanho da logo em mobile */
+  .navigation-menu .logo {
+    width: 12rem;  /*  <-- Aumentei para 192px (exemplo) */
+    margin-left: 0;
+     /*  Adiciona uma transição para a largura */
+    transition: width 0.3s ease;
+  }
+
     .navigation-menu .menu-toggle {
-      display: block;
-      margin-left: auto;
-      margin-right: 0;
-      z-index: 1001;
-      color: white; /* Cor do ícone (branco inicialmente) */
-  
+        display: block;
+        margin-left: 0; /*  <--  Remove o margin-left: auto; */
+        margin-right: 0;  /*  <-- Mantém o margin-right: 0; */
+        z-index: 1001;      /*  Acima do menu */
+        color: white; /* Cor do ícone (branco inicialmente) */
     }
-    .navigation-menu.scrolled .menu-toggle {
-      color: #000;
+     .navigation-menu.scrolled .menu-toggle {
+        color: #000;
     }
-  
-    .navigation-menu .menu-items {
-      display: none;
-      flex-direction: column;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: transparent;
-      /*     padding: 4rem 1.5rem;  Padding muito grande */
-      padding: 2rem 1rem; /* Reduz o padding superior e lateral */
-      z-index: 1000;
-      overflow-y: auto;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      transform: translateX(-100%);
-      opacity: 0;
-          box-sizing: border-box; /* Inclui padding na largura/altura */
-  
+
+  .navigation-menu .menu-items {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: transparent; /* Fundo transparente */
+        padding: 2rem 1rem; /* Reduz o padding superior e lateral */
+        z-index: 1000;
+        overflow-y: auto;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        transform: translateX(-100%); /* Esconde o menu fora da tela */
+        opacity: 0;             /* Menu inicialmente invisível */
+        box-sizing: border-box; /* Inclui padding na largura/altura */
     }
-    /*Menu aberto*/
-      .navigation-menu.menu-open .menu-items {
-          display: flex; /*  Mostra o menu */
-          transform: translateX(0);
-          opacity: 1;
-          background-color: transparent; /*Mantem transparente*/
-  
-      }
-    .navigation-menu .menu-items li {
-      margin: 0.5rem 0;       /* Reduz a margem vertical */
-      width: 100%;
-      text-align: left;
+
+      /*Menu aberto*/
+  .navigation-menu.menu-open .menu-items {
+        display: flex; /*  Mostra o menu */
+        transform: translateX(0);
+        opacity: 1;
+        background-color: transparent; /*Mantem transparente*/
+
+  }
+
+  .navigation-menu .menu-items li {
+    margin: 0.5rem 0;  /*Reduz a margem*/
+    width: 100%;
+    text-align: left;
+  }
+    .navigation-menu .menu-items li:last-child {
+        border-bottom: none;
     }
-  
-    .navigation-menu .menu-items a {
-          color: #000;       /*  SEMPRE PRETO */
-          font-size: 1rem;    /*  Reduz um pouco o tamanho da fonte */
-          width: 100%;
-          display: block;
-          padding: 0.6rem 0.8rem; /*  Reduz o padding */
-          transition: background-color 0.3s ease, color 0.3s ease;
-          border-radius: 8px;
-          font-weight: 500;
-          background-color: rgba(255, 255, 255, 0.9);
-          box-shadow: 0 2px 4px rgba(0,0,0, 0.1);
-      }
-        /*Menu aberto e scroll*/
-      .navigation-menu.scrolled .menu-items a{
-          color: #000; /*  SEMPRE PRETO */
-      }
-  
+
+  .navigation-menu .menu-items a {
+        color: #000;       /*  SEMPRE PRETO */
+        font-size: 1rem;    /*  Reduz um pouco o tamanho da fonte */
+        width: 100%;
+        display: block;
+        padding: 0.6rem 0.8rem; /*  Reduz o padding */
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 8px;
+        font-weight: 500;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 4px rgba(0,0,0, 0.1);
+    }
+     /*Menu aberto e scroll*/
+    .navigation-menu.scrolled .menu-items a{
+        color: #000; /*  SEMPRE PRETO */
+    }
       .navigation-menu .menu-items a:hover {
-          background-color: #004aad; /* Cor de fundo no hover*/
-          color: white; /* Cor no hover */
-      }
-  
-      .navigation-menu .menu-items a.active {
-          color: #004aad;
-          font-weight: bold;
-          background-color: rgba(255, 255, 255, 0.9);
-      }
-  
-    .navigation-menu .menu-items a::after {
-      display: none;
+        background-color: #004aad; /* Cor de fundo no hover*/
+        color: white; /* Cor no hover */
     }
-       /*  Remove o hover do link quando está ativo */
-      .navigation-menu .menu-items a.active:hover {
-          color: white;
-      }
+
+    .navigation-menu .menu-items a.active {
+        color: #004aad;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+  .navigation-menu .menu-items a::after {
+    display: none;
   }
-  
-  
-  /*  Ajustes para telas MUITO pequenas */
-  @media (max-width: 480px) { /*  Breakpoint menor que 600px */
-    .navigation-menu {
-      padding: 0.5rem;  /*  Padding ainda menor */
+    /*  Remove o hover do link quando está ativo */
+    .navigation-menu .menu-items a.active:hover {
+        color: white;
     }
-  
-    .navigation-menu .logo {
-      width: 6rem;     /*  Logo menor */
-    }
-  
-    .navigation-menu .menu-items a {
-      font-size: 0.9rem; /*  Fonte menor */
-      padding: 0.5rem 0.7rem;  /*  Padding menor */
-    }
-       .navigation-menu .menu-toggle {
-          font-size: 1.2rem; /*  Reduz um pouco o tamanho do ícone */
-      }
+}
+
+
+/*  Ajustes para telas MUITO pequenas */
+@media (max-width: 480px) {
+  .navigation-menu {
+    padding: 0.5rem;
   }
+
+  /*  Ajusta o tamanho da logo para telas ainda menores */
+  .navigation-menu .logo {
+    width: 10rem;  /*  <-- Reduzido para 160px (exemplo) */
+  }
+
+  .navigation-menu .menu-items a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.7rem;
+  }
+    .navigation-menu .menu-toggle{
+        font-size: 1.2rem;
+    }
+}
+
+/* Adicionado: Media query para telas entre 481px e 768px (tablets, etc.) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navigation-menu .logo {
+    width: 11rem; /*  <--  Um valor intermediário para tablets */
+  }
+}
