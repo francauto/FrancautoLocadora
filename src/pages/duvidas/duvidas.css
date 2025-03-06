@@ -1,3 +1,5 @@
+
+
 .duvidas-section {
   padding: 20px 10px;
   background-color: #f9f9f9;
@@ -11,7 +13,7 @@
   margin: 0 auto;
   padding: 0 15px;
   box-sizing: border-box;
-  /* Sem height, altura automática */
+
 }
 
 .faq-title {
@@ -42,8 +44,8 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  height: auto; /* Garante que a altura se ajuste ao conteúdo */
-  min-height: 80px; /* Mantém uma altura mínima */
+  height: auto; 
+  min-height: 80px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -58,7 +60,7 @@
 }
 
 .faq-card.expanded {
-  height: auto; /* Garante que a altura se ajuste quando expandido */
+  height: auto;
 }
 
 .faq-question {
@@ -70,7 +72,7 @@
 }
 
 .faq-answer {
-  max-height: 0; /* Começa escondido */
+  max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, opacity 0.3s ease;
   opacity: 0;
@@ -80,7 +82,7 @@
 }
 
 .faq-answer.show {
-  max-height: 1000px; /* Aumentei para 1000px para garantir. Use um valor grande o suficiente */
+  max-height: 1000px;
   opacity: 1;
   margin-bottom: 10px;
 }
@@ -97,7 +99,7 @@
   font-weight: bold;
 }
 
-/* Estilos responsivos */
+
 @media (max-width: 1200px) {
   .faq-container {
     grid-template-columns: repeat(2, 1fr);
@@ -191,4 +193,22 @@
     right: 8px;
     font-size: 1rem;
   }
+}
+
+
+@media (min-width: 769px) {
+    .faq-card {
+        cursor: default;
+        pointer-events: none; 
+    }
+
+  .faq-answer {
+    max-height: none; 
+    opacity: 1;      
+    margin-bottom: 10px; 
+    overflow: visible;
+  }
+   .expand-icon {
+        display: none;
+    }
 }
