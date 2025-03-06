@@ -66,7 +66,7 @@
     const [expandedIndex, setExpandedIndex] = useState(null);
     const [isMobile, setIsMobile] = useState(false);
 
-    // Detectar se está em um dispositivo móvel
+
     useEffect(() => {
       const checkIfMobile = () => {
         setIsMobile(window.innerWidth <= 768);
