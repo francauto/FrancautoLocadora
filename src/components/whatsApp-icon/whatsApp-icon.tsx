@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import '@dotlottie/player-component'; // Import the dotlottie player
+import  { useState } from 'react';
 import './whatsApp-icon.css'; // Import the CSS file
+import{DotLottiePlayer} from "@dotlottie/react-player";
+import '@dotlottie/player-component'
 
 const whatsAppIcon = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -17,14 +18,14 @@ const whatsAppIcon = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <dotlottie-player
+      <DotLottiePlayer
         src={isHovered ? "https://lottie.host/hovered-icon.lottie" : "https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"}
         background="transparent"
-        speed="1"
+        speed={1}
         style={{ width: "70px", height: "70px", marginLeft: "8px" }} // Increased size
         loop
         autoplay
-      ></dotlottie-player>
+      ></DotLottiePlayer>
     </div>
   );
 };

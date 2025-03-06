@@ -1,5 +1,4 @@
-// Home.tsx - Sem alterações no componente React
-import React from "react";
+
 import backgroundHome from "../../assets/background-home.svg";
 import "./home.css";
 

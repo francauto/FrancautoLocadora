@@ -1,4 +1,4 @@
-  import React, { useState, useEffect } from "react";
+  import { useState, useEffect } from "react";
   import "./duvidas.css";
 
   const faqs = [
@@ -80,7 +80,7 @@
       };
     }, []);
 
-    const toggleExpand = (index) => {
+    const toggleExpand = (index: any) => {
       setExpandedIndex(expandedIndex === index ? null : index);
     };
 

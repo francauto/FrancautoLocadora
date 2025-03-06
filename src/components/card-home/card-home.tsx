@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./card-home.css";
 
 const CardHome = () => {
