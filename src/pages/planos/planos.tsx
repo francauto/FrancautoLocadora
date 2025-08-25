@@ -2,10 +2,10 @@
 
 import { Card, CardContent, CardMedia, Typography, Box, Button, Container } from "@mui/material";
 import { motion } from "framer-motion";
-import { DotLottiePlayer } from "@dotlottie/react-player";
-import "@dotlottie/player-component";
 
-// 1. IMPORTAÇÕES DO SWIPER
+// 1. IMPORTAÇÃO DOS ÍCONES ESTÁTICOS
+import { FaShieldAlt, FaWrench, FaSoap } from "react-icons/fa"; 
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -14,7 +14,7 @@ import 'swiper/css/pagination';
 
 import "./planos.css";
 
-// Importe suas imagens
+// Imagens
 import TCross from "../../assets/novo-t-cross.svg";
 import PoloTrack from "../../assets/polo-track.svg";
 import Virtus from "../../assets/virtus.svg";
@@ -27,7 +27,12 @@ const plans = [
   { id: 4, image: Kwid, title: "Kwid" },
 ];
 
-const features = ["Assistência 24h", "Seguro Incluso", "Higienização Completa"];
+// 2. DADOS DOS BENEFÍCIOS ATUALIZADOS COM OS ÍCONES
+const features = [
+    { text: "Assistência 24h", icon: <FaWrench /> },
+    { text: "Seguro Incluso", icon: <FaShieldAlt /> },
+    { text: "Higienização Completa", icon: <FaSoap /> }
+];
 
 const Planos = () => {
   return (
@@ -40,7 +45,7 @@ const Planos = () => {
             transition={{ duration: 0.8 }}
         >
             <Typography variant="h2" component="h2" className="planos-title">
-            Nossos Planos
+            Nossa Frota
             </Typography>
             <Typography variant="h6" component="p" className="planos-subtitle">
             Escolha o veículo ideal para sua necessidade. Todos os planos incluem nossos benefícios premium.
@@ -55,16 +60,13 @@ const Planos = () => {
         >
             <Swiper
                 modules={[Navigation, Pagination]}
-                navigation // Habilita as setas
-                pagination={{ clickable: true }} // Habilita os pontos
+                navigation
+                pagination={{ clickable: true }}
                 spaceBetween={30}
                 slidesPerView={1}
                 breakpoints={{
-                    // Quando a largura da tela for >= 640px
                     640: { slidesPerView: 2, spaceBetween: 20 },
-                    // Quando a largura da tela for >= 1024px
                     1024: { slidesPerView: 3, spaceBetween: 30 },
-                    // Quando a largura da tela for >= 1280px
                     1280: { slidesPerView: 4, spaceBetween: 30 },
                 }}
                 className="mySwiper"
@@ -87,16 +89,10 @@ const Planos = () => {
                     <Box component="ul" className="features-list">
                       {features.map((feature, index) => (
                         <Box component="li" key={index} className="feature-item">
-                          <DotLottiePlayer
-                            src="https://lottie.host/9e2ed502-0d0e-434d-8d7d-5cef06952f69/FLDafWMshP.lottie"
-                            background="transparent"
-                            speed={1}
-                            style={{ width: "25px", height: "25px", flexShrink: 0 }}
-                            loop
-                            autoplay
-                          />
+                          {/* 3. SUBSTITUIÇÃO DO LOTTIE PELO ÍCONE ESTÁTICO */}
+                          <span className="feature-icon">{feature.icon}</span>
                           <Typography variant="body2" className="feature-text">
-                            {feature}
+                            {feature.text}
                           </Typography>
                         </Box>
                       ))}

@@ -1,31 +1,68 @@
-import { motion } from "framer-motion";
-import "./footer.css";
-// Se for usar ícones de redes sociais, instale react-icons (npm install react-icons)
-// import { FaInstagram, FaFacebook } from 'react-icons/fa';
+"use client";
 
-const Footer = () => {
+import type React from "react";
+import { FaPhone, FaEnvelope, FaCar } from "react-icons/fa"; // Ícones da Francauto Locadora
+import "./footer.css";
+
+// Dados para os links de contato
+const contactLinks = [
+  {
+    href: "tel:5516999661580",
+    Icon: FaPhone,
+    text: "(16) 99966-1580",
+  },
+  {
+    href: "mailto:contato@francautolocadora.com.br", // E-mail de exemplo
+    Icon: FaEnvelope,
+    text: "contato@francautolocadora.com.br",
+  },
+];
+
+const Footer: React.FC = () => {
   return (
-    <motion.footer
-      className="footer"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <div className="footer-content">
-        <p>
-          Copyright © 2025 Desenvolvimento FrancautoLabs. Todos os direitos
-          reservados.
-        </p>
-        {/* Descomente esta seção se quiser adicionar ícones de redes sociais */}
-        {/*
-        <div className="social-icons">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+    <footer className="footer-container">
+      <div className="footer-wrapper">
+        {/* Conteúdo Principal (Informações e Contato) */}
+        <div className="footer-content">
+          {/* Seção de Informações da Empresa */}
+          <div className="company-info">
+            <div className="logo">
+              <div className="avatar">
+                <FaCar />
+              </div>
+              <span className="brand-name">Francauto Locadora</span>
+            </div>
+            <p className="description">
+              Sua melhor opção em aluguel de veículos em Franca/SP. Frota nova,
+              segura e com o atendimento que você merece.
+            </p>
+          </div>
+
+          {/* Seção de Contato */}
+          <div className="support-section">
+            <h2 className="support-title">
+              Fale Conosco
+            </h2>
+            <div className="contact-links">
+              {contactLinks.map(({ href, Icon, text }) => (
+                <a key={href} href={href} className="contact-link">
+                  <Icon className="icon" />
+                  <span>{text}</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-        */}
+
+        {/* Seção de Copyright */}
+        <div className="copyright">
+          <span>© 2025 Francauto Locadora. Todos os direitos reservados.</span>
+          <span className="developed-by">
+            Desenvolvido com <span className="heart">❤️</span> por FrancautoLabs
+          </span>
+        </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 };
 
