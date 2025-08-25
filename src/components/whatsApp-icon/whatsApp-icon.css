@@ -1,8 +1,10 @@
 .whatsAppIcon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   z-index: 1000;
-  height: 70px;
-  cursor: pointer; /* Change cursor to pointer on hover */
+  cursor: pointer;
+  width: 80px; /* Garante que a área de clique corresponda ao ícone */
+  height: 80px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3)); /* Sombra para destaque */
 }

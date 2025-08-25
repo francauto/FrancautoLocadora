@@ -1,16 +1,44 @@
-html, body {
-  height: 100%; /* Garante que html e body ocupem a altura total da viewport */
-  margin: 0; /* Remove margens padrão */
-  padding: 0; /* Remove paddings padrão */
+/* App.css */
+
+/* Garante que o App ocupe todo o espaço */
+#root {
+  width: 100%;
+  overflow-x: hidden; /* Previne scroll horizontal */
 }
 
-body {
+/* 
+  Container de Seção Padrão 
+  - Cada "página" (Home, Planos, etc.) será uma seção.
+  - Garante padding consistente e centralização.
+*/
+.page-section {
+  width: 100%;
+  padding: 100px 5%; /* Espaçamento vertical e horizontal */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Essencial para as animações não vazarem */
+  scroll-margin-top: -70px; /* Compensa a altura do menu fixo ao rolar */
+}
+
+/* Estilos específicos para seções com fundos diferentes */
+#home {
+  padding: 0; /* A seção Home controla seu próprio padding */
   min-height: 100vh;
 }
 
-.main-content {
-  flex: 1; /* Faz o conteúdo principal ocupar todo o espaço disponível */
-  /* padding-bottom: 60px;  Se precisar de espaço extra, use padding-bottom */
+#planos {
+  background-color: var(--dark-background);
+}
+
+#duvidas {
+  background-color: var(--light-background);
+}
+
+/* Ajustes de padding para telas menores */
+@media (max-width: 768px) {
+  .page-section {
+    padding: 80px 5%;
+  }
 }

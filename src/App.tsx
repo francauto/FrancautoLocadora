@@ -1,21 +1,34 @@
-
-
 import { useEffect } from "react";
+import { motion, Variants } from "framer-motion"; // <-- 1. IMPORTAR O TIPO 'VARIANTS'
+
 import "./App.css";
-import Contatenos from "./pages/contate-nos/contate-nos";
-import Duvidas from "./pages/duvidas/duvidas";
-import Home from "./pages/home/home";
-import Localizacao from "./pages/localizacao/localizacao";
-import Planos from "./pages/planos/planos";
+
+// Componentes e Páginas
 import NavigationMenu from "./components/navigation-menu/navigation-menu";
+import Home from "./pages/home/home";
+import Planos from "./pages/planos/planos";
+import Localizacao from "./pages/localizacao/localizacao";
+import Duvidas from "./pages/duvidas/duvidas";
+import CardContatenos from "./components/card-contate-nos/card-contate-nos";
 import Footer from "./components/footer/footer";
 import WhatsAppIcon from "./components/whatsApp-icon/whatsApp-icon";
-import { initializeGA } from './components/google-analytics/google-analytics';
-import '@dotlottie/player-component';
+import { initializeGA } from "./components/google-analytics/google-analytics";
 
+// Variantes de animação para as seções
+// 2. APLICAR O TIPO 'VARIANTS' À CONSTANTE -->
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 function App() {
-
   useEffect(() => {
     initializeGA(); // Inicializa o Google Analytics
   }, []);
@@ -23,24 +36,57 @@ function App() {
   return (
     <>
       <NavigationMenu />
-      {/* Envolve o conteúdo principal em uma div com uma classe */}
-      <div className="main-content">
-        <div id="home">
+      <main>
+        {/* A seção Home tem seu próprio container */}
+        <section id="home">
           <Home />
-        </div>
-        <div id="localizacao">
-          <Localizacao />
-        </div>
-        <div id="planos">
+        </section>
+
+        <motion.section
+          id="planos"
+          className="page-section"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Planos />
-        </div>
-        <div id="contate-nos">
-          <Contatenos />
-        </div>
-        <div id="duvidas">
+        </motion.section>
+
+        <motion.section
+          id="localizacao"
+          className="page-section"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Localizacao />
+        </motion.section>
+
+        <motion.section
+          id="duvidas"
+          className="page-section"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Duvidas />
-        </div>
-      </div>
+        </motion.section>
+
+        {/* O componente de contato agora é tratado como uma seção também */}
+        <motion.section
+          id="contate-nos"
+          className="page-section"
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <CardContatenos />
+        </motion.section>
+      </main>
       <Footer />
       <WhatsAppIcon />
     </>

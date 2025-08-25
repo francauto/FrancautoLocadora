@@ -1,85 +1,157 @@
+/* ==========================================================================
+   PLANOS - CONTAINER E TÍTULOS
+   ========================================================================== */
 .planos-container {
-  background-color: #333;
-  padding: 1rem; /*  Padding consistente */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
-  box-sizing: border-box;
+  background: linear-gradient(180deg, var(--dark-background) 0%, #2D3748 100%);
+  padding-bottom: 60px; /* Espaço para a paginação do carrossel */
 }
 
+.planos-title {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem !important;
+  font-weight: 700 !important;
+}
+
+.planos-subtitle {
+  color: var(--text-color-light);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem auto !important;
+  font-weight: 400 !important;
+}
+
+/* ==========================================================================
+   O CARD DO PLANO (DESIGN ROBUSTO)
+   ========================================================================== */
 .plan-card {
-  width: 100%;        /*  Ocupa toda a largura disponível dentro do container pai */
-  max-width: 300px; /*  Largura máxima para evitar que fiquem muito largos em telas grandes. */
-  margin: 0.5rem 0; /*  Margem superior e inferior, centraliza horizontalmente com 'auto' */
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  transition: transform 0.2s ease-in-out;
-  box-sizing: border-box;
+  height: 100%; /* Garante que todos os cards na mesma linha tenham a mesma altura */
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #ffffff !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  overflow: hidden; /* Garante que o conteúdo não vaze das bordas arredondadas */
 }
 
 .plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow) !important;
+}
+
+/* ==========================================================================
+   CORREÇÃO DO ALINHAMENTO E ESTILO DA IMAGEM
+   ========================================================================== */
+
+/* 1. O contêiner da imagem com proporção fixa (A CORREÇÃO DEFINITIVA) */
+.card-media-container {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Força uma proporção 4:3. Moderno e à prova de falhas. */
+  overflow: hidden; /* Esconde qualquer parte da imagem que exceda a proporção */
+  /* 2. Borda elegante como separador */
+  border-bottom: 4px solid #e2e8f0; /* Um cinza claro para separar a imagem do conteúdo */
+}
+
+/* 3. A imagem preenche o contêiner sem distorcer */
+.card-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* Preenche a área mantendo a proporção */
+  transition: transform 0.4s ease !important;
+}
+
+.plan-card:hover .card-image {
+  transform: scale(1.05); /* Efeito de zoom sutil no hover */
+}
+
+/* ==========================================================================
+   CONTEÚDO DO CARD
+   ========================================================================== */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Essencial para que esta área ocupe o espaço restante */
+  padding: 1.5rem !important;
+}
+
+.card-title {
+  font-family: var(--font-heading) !important;
+  color: var(--text-color-dark) !important;
+  font-weight: 700 !important;
+  text-align: center;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 !important;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.feature-text {
+  color: #4A5568;
+}
+
+.consult-button {
+  background: var(--primary-color) !important;
+  color: white !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  padding: 12px 24px !important;
+  margin-top: auto !important; /* Força o botão a ficar na base do card */
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
+.consult-button:hover {
+  background-color: var(--primary-hover-color) !important;
   transform: scale(1.03);
 }
 
-.card-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+/* ==========================================================================
+   CUSTOMIZAÇÃO DO SWIPER (CARROSSEL)
+   ========================================================================== */
+.mySwiper {
+  padding: 10px 0 50px 0 !important;
 }
 
-
-.consult-button {
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease-in-out; /* Mantive a transição */
-    font-size: 0.8rem; /* Mantive tamanho da fonte */
-    padding: 8px 16px;
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff !important;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
-.consult-button:hover {
-    transform: scale(1.05); 
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.2rem !important;
+  font-weight: 900 !important;
 }
 
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  width: 10px !important;
+  height: 10px !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #ffffff !important;
+}
 
-@media (min-width: 600px) {  /*  Usei um breakpoint mais comum */
-  .plan-card {
-    width: calc(50% - 1rem); /*  50% da largura, menos o 'gap' */
-    margin: 0.5rem; /*  Ajusta a margem para centralizar */
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
   }
-}
-
-/*  3 cards por linha */
-@media (min-width: 960px) {  /*  Breakpoint do Material UI */
-  .plan-card {
-    width: calc(33.333% - 1rem);
-  }
-}
-
-/*  4 cards por linha */
-@media (min-width: 1280px) { /*  Breakpoint do Material UI */
-  .plan-card {
-    width: calc(25% - 1rem);
-  }
-}
-
-/* 5 cards por linha (se houver espaço) */
-@media (min-width: 1600px) {
-    .plan-card {
-        width: calc(20% - 1rem);
-    }
-}
-/*Ajuste para telas extra extra grandes*/
-@media (min-width: 1921px) { /* Para monitores ultra-wide, etc. */
-  .plan-card {
-    width: calc(16.666% - 1rem); /* 6 cards por linha */
-  }
-}
-
-.title {
-  position: relative; /*  Para o título */
-  text-align: center;
-  color: white;
-  margin-bottom: 2rem; /* Espaçamento abaixo do título */
-  font-size: 2.5rem;
 }

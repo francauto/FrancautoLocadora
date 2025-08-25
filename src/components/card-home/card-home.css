@@ -1,70 +1,51 @@
 .info-card {
-  width: 300px;
-  height: 300px;
-  padding: 20px;
-  margin-left: 40px;
+  width: 320px;
+  padding: 2rem;
   color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .info-card h2 {
   margin-top: 0;
-  text-align: center; /* Centraliza o título */
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .info-card p {
   margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
 }
 
 .fixed-left {
   position: absolute;
-  left: 0;
+  left: 5%; /* Posiciona um pouco para dentro da tela */
   top: 50%;
   transform: translateY(-50%);
 }
 
 .acrylic-effect {
-  background: rgba(255, 255, 255, 0.05); /* Increased transparency */
+  background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 20px;
 }
 
-@media (max-width: 1024px) {
-  .info-card {
-    width: 80%;
-    padding: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .info-card {
-    width: 70%;
-    padding: 10px;
-    font-size: 0.9em; /* Reduce font size */
-  }
-}
-
-@media (max-width: 768px) {
-  .info-card {
-    width: 80%;
-    margin-left: 10%;
-  }
-}
-
-@media (max-width: 480px) {
-  .info-card {
+@media (max-width: 992px) {
+  .fixed-left {
+    position: relative; /* Remove o posicionamento absoluto */
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0 auto; /* Centraliza o card */
     width: 90%;
-    padding: 5px;
-    font-size: 0.8em; /* Further reduce font size */
+    max-width: 400px;
   }
-}
 
-@media (max-width: 480px) {
   .info-card {
-    width: 90%;
-    margin-left: 5%;
+    padding: 1.5rem;
   }
 }

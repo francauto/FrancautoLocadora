@@ -1,8 +1,8 @@
 import ReactGA from "react-ga4";
 
 export const initializeGA = () => {
-  ReactGA.initialize("G-XG4GXQZ44K"); // Substitua pelo seu ID real do Google Analytics
-  ReactGA.send("pageview"); // Registra a visualização da página
+  ReactGA.initialize("G-XG4GXQZ44K"); 
+  ReactGA.send("pageview"); 
 };
 
 export const trackButtonClick = () => {

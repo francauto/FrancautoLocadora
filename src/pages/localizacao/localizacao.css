@@ -1,77 +1,139 @@
-/* localizacao.css */
+/* ==========================================================================
+   LOCALIZAÇÃO - ESTRUTURA GERAL
+   ========================================================================== */
+.localizacao-section {
+  width: 100%;
+  background-color: var(--light-background);
+}
 
 .localizacao-container {
-    display: flex;
-    flex-direction: column;  /* Empilha em telas menores */
-    align-items: center;
-    padding: 1rem;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 100vh;  /* Ocupa pelo menos toda a altura da viewport */
-    justify-content: center; /* Centraliza verticalmente */
+  max-width: 500px; /* Layout mais contido e focado */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.localizacao-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--text-color-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   PAINEL INTERATIVO PRINCIPAL
+   ========================================================================== */
+.interactive-panel {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden; /* Garante que tudo fique dentro das bordas arredondadas */
+}
+
+/* ==========================================================================
+   VISUAL BOX (LOTTIE E MAPA)
+   ========================================================================== */
+.visual-box {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Proporção fixa para evitar pulos de layout */
+  background-color: #f0f4f8; /* Fundo sutil para a animação */
+  display: grid; /* Permite que o filho ocupe todo o espaço */
+  place-items: center;
+}
+.visual-box > div {
+  width: 100%;
+  height: 100%;
+}
+
+.map-wrapper, .map-container {
+  width: 100%;
+  height: 100%;
+}
+.leaflet-container {
+  border-radius: 0 !important; /* O mapa não precisa de bordas aqui */
+}
+
+/* ==========================================================================
+   CARD DE ENDEREÇO (O GATILHO DA INTERAÇÃO)
+   ========================================================================== */
+.address-card {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.interactive-panel:hover .address-card {
+    background-color: #f8f9fa;
+}
+
+.address-card-instruction {
+    color: #A0AEC0;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.address-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-color-dark);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.map-button, .phone-button {
+  padding: 12px 28px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.map-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+.map-button:hover {
+  background-color: var(--primary-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.phone-button {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+.phone-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 600px) {
+  .localizacao-title {
+    font-size: rem;
   }
-  
-  .lottie-player-container {
-    display: flex;
+  .address-text {
+    font-size: 1.1rem;
+  }
+  .cta-buttons {
     flex-direction: column;
-    align-items: center;
-    max-width: 400px;   /* Mantém a largura máxima */
-    margin-bottom: 1rem; /* Espaço abaixo em telas menores */
+    gap: 1rem;
   }
-  
-  .localizacao-label {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-  }
-  
-  .localizacao-address-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
-    width: 100%;
-  }
-  
-  .address-with-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .localizacao-address {
-    font-size: 1rem;
-    color: black;
-    text-align: center;
-    margin-left: 0.5rem;
-  }
-  
-  .map-container {
-    width: 45vh;    /* Mantém a largura/altura originais */
-    height: 45vh;
-    max-width: 600px; /*  Largura máxima para o mapa */
-  }
-  
-  
-  /* Media Queries */
-  @media (min-width: 768px) {
-    .localizacao-container {
-      flex-direction: row;   /* Lado a lado em telas maiores */
-      justify-content: space-around; /* Distribui o espaço */
-      align-items: center;     /* Centraliza verticalmente */
-    }
-  
-      .lottie-player-container{
-          margin-bottom: 0;
-      }
-  }
-  
-  @media (max-width: 767px) {
-    .map-container {
-      width: 80vw;  /* Ocupa mais espaço na horizontal */
-      height: 40vh;  /* Reduz um pouco a altura */
-      max-width: none; /* Remove o max-width em telas menores */
-    }
-  }
+}
