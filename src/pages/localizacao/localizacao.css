@@ -7,7 +7,7 @@
 }
 
 .localizacao-container {
-  max-width: 500px; /* Layout mais contido e focado */
+  max-width: 500px; /* Mantendo o tamanho que você ajustou */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: var(--box-shadow);
-  overflow: hidden; /* Garante que tudo fique dentro das bordas arredondadas */
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -39,14 +39,19 @@
    ========================================================================== */
 .visual-box {
   width: 100%;
-  aspect-ratio: 16 / 9; /* Proporção fixa para evitar pulos de layout */
-  background-color: #f0f4f8; /* Fundo sutil para a animação */
-  display: grid; /* Permite que o filho ocupe todo o espaço */
+  aspect-ratio: 16 / 9;
+  background-color: #f0f4f8;
+  display: grid;
   place-items: center;
 }
+
+/* AQUI ESTÁ A CORREÇÃO: */
 .visual-box > div {
   width: 100%;
   height: 100%;
+  /* Estas duas linhas centralizam o conteúdo (o Lottie Player) */
+  display: grid;
+  place-items: center;
 }
 
 .map-wrapper, .map-container {
@@ -54,7 +59,7 @@
   height: 100%;
 }
 .leaflet-container {
-  border-radius: 0 !important; /* O mapa não precisa de bordas aqui */
+  border-radius: 0 !important;
 }
 
 /* ==========================================================================
@@ -127,7 +132,7 @@
    ========================================================================== */
 @media (max-width: 600px) {
   .localizacao-title {
-    font-size: rem;
+    font-size: 2rem;
   }
   .address-text {
     font-size: 1.1rem;
