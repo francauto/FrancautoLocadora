@@ -1,8 +1,11 @@
+// card-contate-nos.tsx
+
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// NOVO: Importa o tipo Variants para ajudar o TypeScript
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import "./card-contate-nos.css";
 import WolksvagemIcone from "../../assets/icone-volkswagen.svg";
-import IconeLocadora from "../../assets/icone-locadora.svg";
+import IconeLocadora from "../../assets/icone-francauto-locadora.svg";
 import IconeConsorcio from "../../assets/icone-consorcio.svg";
 import BackgroundFrancautoLocadora from "../../assets/background-card-locadora.svg";
 import BackgroundFrancautoConsorcio from "../../assets/background-card-consorcio.svg";
@@ -18,40 +21,71 @@ const cardInfo = [
   { title: "Francauto Peças", description: "Peças originais Volkswagen com garantia de fábrica, assegurando o melhor desempenho.", background: BackgroundFrancautoPecas, icon: WolksvagemIcone, url: "https://pecas.francauto.com.br/" },
 ];
 
-const cardVariants = {
-    inactive: { flexGrow: 1 },
-    active: { flexGrow: 10 },
-};
-
-const panelVariants = {
+// ADICIONADO: Tipagem explícita para a constante, resolvendo o erro.
+const panelVariants: Variants = {
     hidden: { opacity: 0, x: "-100%" },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
     exit: { opacity: 0, x: "-100%", transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
 };
 
+const wallContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardEntryVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
+
+
 const CardContatenos = () => {
-  const [activeCard, setActiveCard] = useState<number>(-1); // -1 indica que nenhum card está ativo inicialmente
+  const [activeCard, setActiveCard] = useState<number>(-1);
 
   return (
     <div className="contate-nos-section">
-      <motion.h2 className="contate-nos-title" initial={{ opacity: 0, y: -30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+      <motion.h2 
+        className="contate-nos-title" 
+        initial={{ opacity: 0, y: -30 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        viewport={{ amount: 0.5 }} 
+        transition={{ duration: 0.8 }}
+      >
         Conheça o Grupo Francauto
       </motion.h2>
-      <motion.p className="contate-nos-subtitle" initial={{ opacity: 0, y: -30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }}>
+      <motion.p 
+        className="contate-nos-subtitle" 
+        initial={{ opacity: 0, y: -30 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        viewport={{ amount: 0.5 }} 
+        transition={{ duration: 0.8, delay: 0.1 }}
+      >
         Somos mais do que uma locadora. Explore todos os nossos serviços e encontre o que precisa.
       </motion.p>
 
-      <div className="card-wall-container">
+      <motion.div 
+        className="card-wall-container"
+        variants={wallContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.2 }}
+      >
         {cardInfo.map((card, index) => (
           <motion.div
             key={index}
             className="card-item"
+            onMouseEnter={() => setActiveCard(index)}
             onClick={() => setActiveCard(activeCard === index ? -1 : index)}
-            layout // O layout ainda é crucial para a animação suave
-            variants={cardVariants}
-            initial="inactive"
-            animate={activeCard === index ? "active" : "inactive"}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }} // Animação de mola
+            layout
+            variants={cardEntryVariants}
+            animate={{ flexGrow: activeCard === index ? 10 : 1 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
           >
             <motion.img layout="position" className="card-background" src={card.background} alt={card.title} />
             <div className="card-overlay" />
@@ -82,7 +116,7 @@ const CardContatenos = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

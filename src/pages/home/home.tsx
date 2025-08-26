@@ -1,12 +1,25 @@
-import { motion } from "framer-motion";
+// home.tsx
+
+import { motion, useScroll, useTransform } from "framer-motion";
 import backgroundHome from "../../assets/background-home.svg";
 import "./home.css";
 
 const Home = () => {
+  // Hooks para o efeito parallax
+  const { scrollYProgress } = useScroll();
+  // Mapeia o progresso do scroll (0 a 1) para um movimento vertical (y) de 0% a 50%
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]);
+
   return (
     <div className="home-container">
       <div className="background-overlay" />
-      <img src={backgroundHome} alt="Background" className="background-image" />
+      {/* A imagem de fundo agora é um componente 'motion' para ser animada */}
+      <motion.img
+        src={backgroundHome}
+        alt="Background"
+        className="background-image"
+        style={{ y: yBg }} // Aplica o movimento parallax no eixo Y
+      />
       <div className="home-content">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}

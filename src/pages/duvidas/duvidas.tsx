@@ -1,6 +1,8 @@
+// duvidas.tsx
+
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { DotLottiePlayer } from "@dotlottie/react-player";
+// NOVO: Importa o tipo Variants
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import "./duvidas.css";
 
 const faqs = [
@@ -16,10 +18,28 @@ const faqs = [
     { question: "COMO É A QUILOMETRAGEM?", answer: "No aluguel diário, a quilometragem é livre. No plano mensal, a quilometragem é limitada e não há opção de quilometragem livre." },
 ];
 
-const answerVariants = {
+// ADICIONADO: Tipagem explícita para resolver o erro
+const answerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
+};
+
+// ADICIONADO: Tipagem para consistência
+const listVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.07,
+    },
+  },
+};
+
+// ADICIONADO: Tipagem para consistência
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
 };
 
 const Duvidas = () => {
@@ -33,7 +53,7 @@ const Duvidas = () => {
           className="duvidas-title"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{}}
           transition={{ duration: 0.8 }}
         >
           Perguntas Frequentes
@@ -42,7 +62,7 @@ const Duvidas = () => {
           className="duvidas-subtitle"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{}}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
           Exclareça suas duvidas de forma rápida e clara.
@@ -51,24 +71,29 @@ const Duvidas = () => {
           className="faq-wrapper"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Coluna da Esquerda: Lista de Perguntas */}
-          <div className="questions-list">
+          <motion.div 
+            className="questions-list"
+            variants={listVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.1 }}
+          >
             {faqs.map((faq, index) => (
-              <button
+              <motion.button
                 key={index}
+                variants={itemVariants}
                 className={`question-item ${selectedIndex === index ? "active" : ""}`}
                 onClick={() => setSelectedIndex(index)}
               >
                 {faq.question}
                 {selectedIndex === index && <motion.div className="active-indicator" layoutId="active-indicator" />}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Coluna da Direita: Resposta Selecionada */}
           <div className="answer-panel">
             <AnimatePresence mode="wait">
               <motion.div

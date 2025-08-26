@@ -1,17 +1,19 @@
-/* ==========================================================================
-   LOCALIZAÇÃO - ESTRUTURA GERAL
-   ========================================================================== */
+/* localizacao.css */
+
 .localizacao-section {
   width: 100%;
-  background-color: var(--light-background);
+  background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+  padding: 1rem 0;
+  overflow: hidden; /* Previne barras de rolagem horizontais durante a animação */
 }
 
 .localizacao-container {
-  max-width: 500px; /* Mantendo o tamanho que você ajustou */
+  max-width: 1100px; 
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1.5rem;
 }
 
 .localizacao-title {
@@ -20,92 +22,109 @@
   font-size: 2.5rem;
   color: var(--text-color-dark);
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-/* ==========================================================================
-   PAINEL INTERATIVO PRINCIPAL
-   ========================================================================== */
-.interactive-panel {
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: var(--box-shadow);
-  overflow: hidden;
-}
-
-/* ==========================================================================
-   VISUAL BOX (LOTTIE E MAPA)
-   ========================================================================== */
-.visual-box {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: #f0f4f8;
-  display: grid;
-  place-items: center;
-}
-
-/* AQUI ESTÁ A CORREÇÃO: */
-.visual-box > div {
-  width: 100%;
-  height: 100%;
-  /* Estas duas linhas centralizam o conteúdo (o Lottie Player) */
-  display: grid;
-  place-items: center;
-}
-
-.map-wrapper, .map-container {
-  width: 100%;
-  height: 100%;
-}
-.leaflet-container {
-  border-radius: 0 !important;
-}
-
-/* ==========================================================================
-   CARD DE ENDEREÇO (O GATILHO DA INTERAÇÃO)
-   ========================================================================== */
-.address-card {
-  padding: 2rem;
-  background-color: #ffffff;
-  border-top: 1px solid var(--border-color);
+.localizacao-subtitle {
+  color: #4A5568;
   text-align: center;
-  transition: background-color 0.3s ease;
+  max-width: 550px;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.interactive-panel:hover .address-card {
-    background-color: #f8f9fa;
+/* ==========================================================================
+   GRID LAYOUT PARA AS DUAS COLUNAS
+   ========================================================================== */
+.localizacao-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  align-items: center;
 }
 
-.address-card-instruction {
-    color: #A0AEC0;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    font-style: italic;
+/* ==========================================================================
+   COLUNA DA ESQUERDA: PAINEL DE INFORMAÇÕES
+   ========================================================================== */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
+.address-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.address-icon {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
 .address-text {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   color: var(--text-color-dark);
   font-family: var(--font-heading);
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin: 0;
 }
 
+.info-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5rem;
+}
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-color-dark);
+  margin-bottom: 1rem;
+}
+.info-section p {
+  color: #4A5568;
+  margin: 0.25rem 0 0.25rem 2rem;
+  line-height: 1.5;
+}
+.amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 2rem;
+}
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4A5568;
+  margin-bottom: 0.5rem;
+}
+
+/* ALTERAÇÃO AQUI: Estilo dos botões ajustado para a nova posição */
 .cta-buttons {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
+  /* Removido: margin-top, border-top, padding-top */
 }
 
 .map-button, .phone-button {
-  padding: 12px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 12px 24px;
   font-family: var(--font-heading);
   font-weight: 600;
   border-radius: 50px;
   text-decoration: none;
   transition: all 0.3s ease;
+  flex-grow: 1;
 }
 
 .map-button {
@@ -128,14 +147,67 @@
 }
 
 /* ==========================================================================
+   COLUNA DA DIREITA: PAINEL VISUAL (LOTTIE/MAPA)
+   ========================================================================== */
+.visual-panel {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.address-card-instruction {
+    color: #A0AEC0;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.visual-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.visual-box > div {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.map-wrapper, .map-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
    RESPONSIVIDADE
    ========================================================================== */
+@media (max-width: 992px) {
+  .localizacao-content-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .info-panel {
+    order: 2;
+  }
+  .visual-panel {
+    order: 1;
+  }
+}
+
 @media (max-width: 600px) {
   .localizacao-title {
     font-size: 2rem;
   }
-  .address-text {
-    font-size: 1.1rem;
+  .localizacao-subtitle {
+    font-size: 1rem;
   }
   .cta-buttons {
     flex-direction: column;

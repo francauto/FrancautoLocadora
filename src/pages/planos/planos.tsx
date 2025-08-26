@@ -1,17 +1,12 @@
+// planos.tsx
+
 "use client";
 
 import { Card, CardContent, CardMedia, Typography, Box, Button, Container } from "@mui/material";
 import { motion } from "framer-motion";
-
-// 1. IMPORTAÇÃO DOS ÍCONES ESTÁTICOS
 import { FaShieldAlt, FaWrench, FaSoap } from "react-icons/fa"; 
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import "./planos.css";
 
 // Imagens
@@ -27,21 +22,36 @@ const plans = [
   { id: 4, image: Kwid, title: "Kwid" },
 ];
 
-// 2. DADOS DOS BENEFÍCIOS ATUALIZADOS COM OS ÍCONES
 const features = [
     { text: "Assistência 24h", icon: <FaWrench /> },
     { text: "Seguro Incluso", icon: <FaShieldAlt /> },
     { text: "Higienização Completa", icon: <FaSoap /> }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 const Planos = () => {
   return (
-    <div className="planos-container">
+    <div id="planos" className="planos-container">
       <Container maxWidth="xl">
         <motion.div
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            // ALTERAÇÃO AQUI: 'once' foi removido
+            viewport={{ amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
             <Typography variant="h2" component="h2" className="planos-title">
@@ -53,10 +63,11 @@ const Planos = () => {
         </motion.div>
         
         <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            // ALTERAÇÃO AQUI: 'once' foi removido
+            viewport={{ amount: 0.2 }}
         >
             <Swiper
                 modules={[Navigation, Pagination]}
@@ -73,40 +84,41 @@ const Planos = () => {
             >
             {plans.map((plan) => (
               <SwiperSlide key={plan.id}>
-                <Card className="plan-card">
-                  <Box className="card-media-container">
-                    <CardMedia
-                      component="img"
-                      className="card-image"
-                      image={plan.image}
-                      alt={plan.title}
-                    />
-                  </Box>
-                  <CardContent className="card-content">
-                    <Typography gutterBottom variant="h5" component="div" className="card-title">
-                      {plan.title}
-                    </Typography>
-                    <Box component="ul" className="features-list">
-                      {features.map((feature, index) => (
-                        <Box component="li" key={index} className="feature-item">
-                          {/* 3. SUBSTITUIÇÃO DO LOTTIE PELO ÍCONE ESTÁTICO */}
-                          <span className="feature-icon">{feature.icon}</span>
-                          <Typography variant="body2" className="feature-text">
-                            {feature.text}
-                          </Typography>
-                        </Box>
-                      ))}
+                <motion.div variants={cardVariants} style={{ height: '100%' }}>
+                  <Card className="plan-card">
+                    <Box className="card-media-container">
+                      <CardMedia
+                        component="img"
+                        className="card-image"
+                        image={plan.image}
+                        alt={plan.title}
+                      />
                     </Box>
-                    <Button
-                      variant="contained"
-                      className="consult-button"
-                      fullWidth
-                      onClick={() => window.open(`https://wa.me/5516999661580?text=Olá, gostaria de consultar os valores para o plano ${plan.title}.`, "_blank")}
-                    >
-                      Consulte Valores
-                    </Button>
-                  </CardContent>
-                </Card>
+                    <CardContent className="card-content">
+                      <Typography gutterBottom variant="h5" component="div" className="card-title">
+                        {plan.title}
+                      </Typography>
+                      <Box component="ul" className="features-list">
+                        {features.map((feature, index) => (
+                          <Box component="li" key={index} className="feature-item">
+                            <span className="feature-icon">{feature.icon}</span>
+                            <Typography variant="body2" className="feature-text">
+                              {feature.text}
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                      <Button
+                        variant="contained"
+                        className="consult-button"
+                        fullWidth
+                        onClick={() => window.open(`https://wa.me/5516999661580?text=Olá, gostaria de consultar os valores para o plano ${plan.title}.`, "_blank")}
+                      >
+                        Consulte Valores
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>

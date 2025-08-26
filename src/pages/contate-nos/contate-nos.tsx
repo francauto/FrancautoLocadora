@@ -1,18 +1,27 @@
+// contate-nos.tsx
 
 import "./contate-nos.css";
 import Button from "@mui/material/Button";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import CardContatenos from "../../components/card-contate-nos/card-contate-nos";
-import{DotLottiePlayer} from "@dotlottie/react-player";
-import '@dotlottie/player-component'
+import { DotLottiePlayer } from "@dotlottie/react-player";
+import '@dotlottie/player-component';
+import { motion } from "framer-motion";
 
 const Contatenos = () => {
   return (
     <div className="contate-nos-container">
       <div className="contate-nos-card">
         <div className="contate-nos-content"> 
-          <div className="contate-nos-left">
+          <motion.div 
+            className="contate-nos-left"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            // ALTERAÇÃO AQUI: 'once' removido
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <h2 className="titulo-contate-nos">
               Nos siga nas <br /> Redes Sociais!
             </h2>
@@ -52,8 +61,16 @@ const Contatenos = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="contate-nos-right"> 
+          </motion.div>
+          
+          <motion.div 
+            className="contate-nos-right"
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            // ALTERAÇÃO AQUI: 'once' removido
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          > 
             <h3 className="subtitulo-contatos">Contatos</h3>
             <div className="contate-nos-row">
               <div className="contate-nos-item">
@@ -110,11 +127,19 @@ const Contatenos = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <CardContatenos />
+      <motion.div
+        style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.5 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <CardContatenos />
+      </motion.div>
     </div>
   );
 };

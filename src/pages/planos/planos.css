@@ -1,6 +1,4 @@
-/* ==========================================================================
-   PLANOS - CONTAINER E TÍTULOS
-   ========================================================================== */
+/* planos.css */
 .planos-container {
   width: 100%;
   background: linear-gradient(180deg, var(--dark-background) 0%, #2D3748 100%);
