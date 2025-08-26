@@ -3,10 +3,17 @@
 "use client";
 
 import { Card, CardContent, CardMedia, Typography, Box, Button, Container } from "@mui/material";
-import { motion } from "framer-motion";
+// NOVO: Importa o tipo Variants para consistência
+import { motion, Variants } from "framer-motion";
 import { FaShieldAlt, FaWrench, FaSoap } from "react-icons/fa"; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+
+// CORREÇÃO AQUI: Apenas a importação principal do CSS é necessária
+import 'swiper/css';
+// REMOVIDO: import 'swiper/css/navigation';
+// REMOVIDO: import 'swiper/css/pagination';
+
 import "./planos.css";
 
 // Imagens
@@ -28,7 +35,7 @@ const features = [
     { text: "Higienização Completa", icon: <FaSoap /> }
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -38,7 +45,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
@@ -50,7 +57,6 @@ const Planos = () => {
         <motion.div
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            // ALTERAÇÃO AQUI: 'once' foi removido
             viewport={{ amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
@@ -66,7 +72,6 @@ const Planos = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            // ALTERAÇÃO AQUI: 'once' foi removido
             viewport={{ amount: 0.2 }}
         >
             <Swiper
