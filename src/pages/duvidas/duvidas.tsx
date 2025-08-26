@@ -1,7 +1,6 @@
 // duvidas.tsx
 
-import { useState } from "react";
-// NOVO: Importa o tipo Variants
+import { useState, useRef } from "react"; // NOVO: Importa o hook useRef
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import "./duvidas.css";
 
@@ -18,14 +17,12 @@ const faqs = [
     { question: "COMO É A QUILOMETRAGEM?", answer: "No aluguel diário, a quilometragem é livre. No plano mensal, a quilometragem é limitada e não há opção de quilometragem livre." },
 ];
 
-// ADICIONADO: Tipagem explícita para resolver o erro
 const answerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.3, ease: "easeIn" } },
 };
 
-// ADICIONADO: Tipagem para consistência
 const listVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -36,7 +33,6 @@ const listVariants: Variants = {
   },
 };
 
-// ADICIONADO: Tipagem para consistência
 const itemVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0 },
@@ -45,6 +41,21 @@ const itemVariants: Variants = {
 const Duvidas = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const selectedFaq = faqs[selectedIndex];
+  // NOVO: Cria uma referência para o painel de respostas
+  const answerPanelRef = useRef<HTMLDivElement>(null);
+
+  // NOVO: Função para lidar com o clique e o scroll
+  const handleQuestionClick = (index: number) => {
+    setSelectedIndex(index);
+
+    // Verifica se a tela é menor que 992px (o breakpoint do seu CSS)
+    if (window.innerWidth <= 992) {
+      // Atraso sutil para garantir que o painel de resposta já começou a transição
+      setTimeout(() => {
+        answerPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100); // 100ms de atraso
+    }
+  };
 
   return (
     <div className="duvidas-section">
@@ -86,7 +97,8 @@ const Duvidas = () => {
                 key={index}
                 variants={itemVariants}
                 className={`question-item ${selectedIndex === index ? "active" : ""}`}
-                onClick={() => setSelectedIndex(index)}
+                // ALTERADO: Chama a nova função de clique
+                onClick={() => handleQuestionClick(index)}
               >
                 {faq.question}
                 {selectedIndex === index && <motion.div className="active-indicator" layoutId="active-indicator" />}
@@ -94,7 +106,8 @@ const Duvidas = () => {
             ))}
           </motion.div>
 
-          <div className="answer-panel">
+          {/* NOVO: Adiciona a referência ao elemento div */}
+          <div className="answer-panel" ref={answerPanelRef}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedIndex}

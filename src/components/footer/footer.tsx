@@ -12,9 +12,9 @@ const contactLinks = [
     text: "(16) 99966-1580",
   },
   {
-    href: "mailto:contato@francautolocadora.com.br", // E-mail de exemplo
+    href: "francautolocadora@gmail.com", // E-mail de exemplo
     Icon: FaEnvelope,
-    text: "contato@francautolocadora.com.br",
+    text: "francautolocadora@gmail.com",
   },
 ];
 
