@@ -3,22 +3,16 @@
 "use client";
 
 import { Card, CardContent, CardMedia, Typography, Box, Button, Container } from "@mui/material";
-// NOVO: Importa o tipo Variants para consistência
 import { motion, Variants } from "framer-motion";
 import { FaShieldAlt, FaWrench, FaSoap } from "react-icons/fa"; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-
-// CORREÇÃO AQUI: Apenas a importação principal do CSS é necessária
-import 'swiper/css';
-// REMOVIDO: import 'swiper/css/navigation';
-// REMOVIDO: import 'swiper/css/pagination';
-
+import 'swiper/swiper-bundle.css';
 import "./planos.css";
 
 // Imagens
 import TCross from "../../assets/novo-t-cross.svg";
-import PoloTrack from "../../assets/polo-track.svg";
+import PoloTrack from "../../assets/polo-track.png";
 import Virtus from "../../assets/virtus.svg";
 import Kwid from "../../assets/kwid.svg";
 
