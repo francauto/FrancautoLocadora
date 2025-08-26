@@ -6,7 +6,6 @@ import "./duvidas.css";
 
 const faqs = [
     { question: "O QUE O SEGURO COBRE?", answer: "O seguro cobre casos de roubo, furto, incêndio e perda total. Nesses casos, o cliente é responsável pelo pagamento da franquia do veículo. Em casos de danos de pequeno porte, são cobrados apenas os valores do orçamento." },
-    { question: "ONDE ARRUMAR O CARRO EM CASO DE SINISTRO?", answer: "Nosso seguro é conveniado com a oficina da Francauto. Portanto, qualquer reparo necessário será realizado em nossa loja." },
     { question: "E SE EU BATER EM OUTRO CARRO?", answer: "Temos seguro contra terceiros. No entanto, a franquia é acionada para cobrir os danos dos dois veículos. Alternativamente, o reparo do carro do terceiro pode ser feito onde ele preferir." },
     { question: "E SE OUTRO CARRO BATER NO CARRO DA LOCADORA?", answer: "Se o terceiro não possuir seguro, poderá utilizar o nosso e negociar para cobrir as despesas. Se o terceiro possuir seguro, o processo seguirá conforme a seguradora dele." },
     { question: "E SE O CARRO ESTRAGAR?", answer: "Nosso seguro oferece assistência 24 horas com guincho. Temos até 48 horas para solucionar problemas de pane elétrica ou mecânica." },
