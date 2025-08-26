@@ -88,7 +88,7 @@ const Localizacao = () => {
             <div className="info-section">
               <h4 className="info-title"><FaClock /> Horário de Funcionamento</h4>
               <p>Segunda a Sexta: 08:00 – 18:00</p>
-              <p>Sábado: 08:00 – 12:00</p>
+              <p>Sábado: 09:00 – 12:00</p>
             </div>
 
             <div className="info-section">
