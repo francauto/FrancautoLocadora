@@ -1,19 +1,21 @@
 // duvidas.tsx
 
-import { useState, useRef } from "react"; // NOVO: Importa o hook useRef
+import { useState, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import "./duvidas.css";
 
+// ALTERAÇÃO AQUI: Adicionadas as 3 novas perguntas no final da lista
 const faqs = [
     { question: "O QUE O SEGURO COBRE?", answer: "O seguro cobre casos de roubo, furto, incêndio e perda total. Nesses casos, o cliente é responsável pelo pagamento da franquia do veículo. Em casos de danos de pequeno porte, são cobrados apenas os valores do orçamento." },
     { question: "E SE EU BATER EM OUTRO CARRO?", answer: "Temos seguro contra terceiros. No entanto, a franquia é acionada para cobrir os danos dos dois veículos. Alternativamente, o reparo do carro do terceiro pode ser feito onde ele preferir." },
-    { question: "E SE OUTRO CARRO BATER NO CARRO DA LOCADORA?", answer: "Se o terceiro não possuir seguro, poderá utilizar o nosso e negociar para cobrir as despesas. Se o terceiro possuir seguro, o processo seguirá conforme a seguradora dele." },
     { question: "E SE O CARRO ESTRAGAR?", answer: "Nosso seguro oferece assistência 24 horas com guincho. Temos até 48 horas para solucionar problemas de pane elétrica ou mecânica." },
-    { question: "O CARRO TEM SEM PARAR?", answer: "Não, o cliente deve realizar o cadastro em um ponto de venda autorizado do Sem Parar. É um serviço de pagamento automático que facilita a vida do motorista." },
     { question: "TENHO QUE LAVAR O CARRO PARA ENTREGAR?", answer: "Não é necessário, pois o valor do orçamento já inclui a taxa de limpeza, garantindo que o veículo esteja em boas condições para o próximo cliente." },
     { question: "COMO FUNCIONA A CAUÇÃO?", answer: "A caução refere-se à franquia do veículo, variando entre R$ 500,00 e R$ 1.500,00. O valor é deixado na retirada e estornado na devolução, se não houver avarias." },
     { question: "TENHO QUE ABASTECER O CARRO?", answer: "Sim, o veículo deve ser devolvido com o tanque cheio e abastecido com etanol, nas mesmas condições em que você o recebeu." },
     { question: "COMO É A QUILOMETRAGEM?", answer: "No aluguel diário, a quilometragem é livre. No plano mensal, a quilometragem é limitada e não há opção de quilometragem livre." },
+    { question: "TEM COMO COLOCAR CONDUTOR ADICIONAL?", answer: "Sim, fazemos o cadastro do condutor adicional, porém é gerada uma taxa de R$ 12,00 por dia." },
+    { question: "QUAIS AS FORMAS DE PAGAMENTO?", answer: "Aceitamos à vista, PIX e cartão de crédito em até 6x sem juros." },
+    { question: "O QUE PRECISA PARA CADASTRO?", answer: "• Ser maior de 21 anos\n• CNH válida por mais de 2 anos\n• Comprovante de endereço\n\n(Sujeito a análise cadastral)" },
 ];
 
 const answerVariants: Variants = {
@@ -40,19 +42,15 @@ const itemVariants: Variants = {
 const Duvidas = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const selectedFaq = faqs[selectedIndex];
-  // NOVO: Cria uma referência para o painel de respostas
   const answerPanelRef = useRef<HTMLDivElement>(null);
 
-  // NOVO: Função para lidar com o clique e o scroll
   const handleQuestionClick = (index: number) => {
     setSelectedIndex(index);
 
-    // Verifica se a tela é menor que 992px (o breakpoint do seu CSS)
     if (window.innerWidth <= 992) {
-      // Atraso sutil para garantir que o painel de resposta já começou a transição
       setTimeout(() => {
         answerPanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100); // 100ms de atraso
+      }, 100);
     }
   };
 
@@ -96,7 +94,6 @@ const Duvidas = () => {
                 key={index}
                 variants={itemVariants}
                 className={`question-item ${selectedIndex === index ? "active" : ""}`}
-                // ALTERADO: Chama a nova função de clique
                 onClick={() => handleQuestionClick(index)}
               >
                 {faq.question}
@@ -105,7 +102,6 @@ const Duvidas = () => {
             ))}
           </motion.div>
 
-          {/* NOVO: Adiciona a referência ao elemento div */}
           <div className="answer-panel" ref={answerPanelRef}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -116,7 +112,8 @@ const Duvidas = () => {
                 exit="exit"
               >
                 <h3 className="answer-question">{selectedFaq.question}</h3>
-                <p className="answer-text">{selectedFaq.answer}</p>
+                {/* ALTERAÇÃO AQUI: Usando <div> para que a propriedade CSS 'white-space: pre-line' funcione */}
+                <div className="answer-text">{selectedFaq.answer}</div>
               </motion.div>
             </AnimatePresence>
           </div>
