@@ -11,10 +11,10 @@ import 'swiper/swiper-bundle.css';
 import "./planos.css";
 
 // Imagens
-import TCross from "../../assets/novo-t-cross.svg";
+import TCross from "../../assets/t-cross.png";
 import PoloTrack from "../../assets/polo-track.png";
-import Virtus from "../../assets/virtus.svg";
-import Kwid from "../../assets/kwid.svg";
+import Virtus from "../../assets/virtus.png";
+import Kwid from "../../assets/kwid.png";
 
 const plans = [
   { id: 1, image: TCross, title: "T-Cross" },
