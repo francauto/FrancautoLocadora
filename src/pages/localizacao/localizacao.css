@@ -3,8 +3,8 @@
 .localizacao-section {
   width: 100%;
   background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
-  padding: 0rem 0;
-  overflow: hidden; /* Previne barras de rolagem horizontais durante a animação */
+  padding: 0; 
+  overflow: hidden;
 }
 
 .localizacao-container {
@@ -34,9 +34,6 @@
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   GRID LAYOUT PARA AS DUAS COLUNAS
-   ========================================================================== */
 .localizacao-content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -45,9 +42,6 @@
   align-items: center;
 }
 
-/* ==========================================================================
-   COLUNA DA ESQUERDA: PAINEL DE INFORMAÇÕES
-   ========================================================================== */
 .info-panel {
   display: flex;
   flex-direction: column;
@@ -106,11 +100,9 @@
   margin-bottom: 0.5rem;
 }
 
-/* ALTERAÇÃO AQUI: Estilo dos botões ajustado para a nova posição */
 .cta-buttons {
   display: flex;
   gap: 1rem;
-  /* Removido: margin-top, border-top, padding-top */
 }
 
 .map-button, .phone-button {
@@ -125,30 +117,37 @@
   text-decoration: none;
   transition: all 0.3s ease;
   flex-grow: 1;
+  border: 2px solid transparent; /* Adiciona uma borda transparente para evitar "pulos" no hover */
 }
 
 .map-button {
   background-color: var(--primary-color);
   color: white;
+  border-color: var(--primary-color); /* Define a cor da borda para ser a mesma do fundo */
 }
+
+/* 
+  *** ALTERAÇÃO PRINCIPAL AQUI ***
+  O hover do .map-button agora inverte as cores, igual ao .phone-button
+*/
 .map-button:hover {
-  background-color: var(--primary-hover-color);
+  background-color: white;
+  color: var(--primary-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 .phone-button {
+  background-color: white; /* Adicionado para garantir o estado inicial */
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
 }
+
 .phone-button:hover {
   background-color: var(--primary-color);
   color: white;
 }
 
-/* ==========================================================================
-   COLUNA DA DIREITA: PAINEL VISUAL (LOTTIE/MAPA)
-   ========================================================================== */
 .visual-panel {
   width: 100%;
   border-radius: 20px;
@@ -185,9 +184,6 @@
   height: 100%;
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE
-   ========================================================================== */
 @media (max-width: 992px) {
   .localizacao-content-grid {
     grid-template-columns: 1fr;
