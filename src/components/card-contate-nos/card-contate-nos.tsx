@@ -12,12 +12,16 @@ import BackgroundFrancautoNovos from "../../assets/background-card-novos.svg";
 import BackgroundFrancautoSemiNovos from "../../assets/background-card-semi-novos.svg";
 import BackgroundFrancautoPecas from "../../assets/background-card-pecas.svg";
 
+import { FaWhatsapp } from "react-icons/fa";
+
+// *** ALTERAÇÃO PRINCIPAL AQUI ***
+// Adicionada a propriedade 'whatsappNumber' a cada objeto
 const cardInfo = [
-  { title: "Francauto Novos", description: "Encontre o Volkswagen 0KM dos seus sonhos com as melhores condições.", background: BackgroundFrancautoNovos, icon: WolksvagemIcone, url: "https://www.francauto.com.br/distrito-industrial" },
-  { title: "Francauto Locadora", description: "Alugue veículos em Franca/SP com uma frota moderna para suas necessidades.", background: BackgroundFrancautoLocadora, icon: IconeLocadora, url: "https://www.francautolocadora.com.br/" },
-  { title: "Francauto Seminovos", description: "Veículos de qualidade com garantia e procedência, passando por rigorosa inspeção.", background: BackgroundFrancautoSemiNovos, icon: WolksvagemIcone, url: "https://www.francauto.com.br/jardim-integracao" },
-  { title: "Francauto Consórcio", description: "Planos flexíveis para aquisição de veículos, com parcelas que cabem no seu bolso.", background: BackgroundFrancautoConsorcio, icon: IconeConsorcio, url: "https://francautoconsorcio.com.br/" },
-  { title: "Francauto Peças", description: "Peças originais Volkswagen com garantia de fábrica, assegurando o melhor desempenho.", background: BackgroundFrancautoPecas, icon: WolksvagemIcone, url: "https://pecas.francauto.com.br/" },
+  { title: "Francauto Novos", description: "Encontre o Volkswagen 0KM dos seus sonhos com as melhores condições.", background: BackgroundFrancautoNovos, icon: WolksvagemIcone, url: "https://www.francauto.com.br/distrito-industrial", whatsappNumber: "551637115000" },
+  { title: "Francauto Locadora", description: "Alugue veículos em Franca/SP com uma frota moderna para suas necessidades.", background: BackgroundFrancautoLocadora, icon: IconeLocadora, url: "https://www.francautolocadora.com.br/", whatsappNumber: "5516999661580" },
+  { title: "Francauto Seminovos", description: "Veículos de qualidade com garantia e procedência, passando por rigorosa inspeção.", background: BackgroundFrancautoSemiNovos, icon: WolksvagemIcone, url: "https://www.francauto.com.br/jardim-integracao", whatsappNumber: "551637115000" },
+  { title: "Francauto Consórcio", description: "Planos flexíveis para aquisição de veículos, com parcelas que cabem no seu bolso.", background: BackgroundFrancautoConsorcio, icon: IconeConsorcio, url: "https://francautoconsorcio.com.br/", whatsappNumber: "551637115051" },
+  { title: "Francauto Peças", description: "Peças originais Volkswagen com garantia de fábrica, assegurando o melhor desempenho.", background: BackgroundFrancautoPecas, icon: WolksvagemIcone, url: "https://pecas.francauto.com.br/", whatsappNumber: "551637115000" },
 ];
 
 const panelVariants: Variants = {
@@ -73,18 +77,13 @@ const CardContatenos = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.2 }}
-        // *** ALTERAÇÃO AQUI ***
-        // Adicionado onMouseLeave ao container pai.
-        // Isso garante que ao sair da área de todos os cards, eles se fecham.
         onMouseLeave={() => setActiveCard(-1)}
       >
         {cardInfo.map((card, index) => (
           <motion.div
             key={index}
             className="card-item"
-            // O onMouseEnter agora só precisa ativar o card específico
             onMouseEnter={() => setActiveCard(index)}
-            // O onClick é mantido para a funcionalidade de toque em dispositivos móveis
             onClick={() => setActiveCard(index)}
             layout
             variants={cardEntryVariants}
@@ -111,9 +110,27 @@ const CardContatenos = () => {
                         <motion.p variants={{hidden: {opacity: 0, y:20}, visible: {opacity: 1, y: 0, transition: {delay: 0.4}}}}>
                             {card.description}
                         </motion.p>
-                        <motion.a href={card.url} target="_blank" rel="noopener noreferrer" className="card-button" variants={{hidden: {opacity: 0, y:20}, visible: {opacity: 1, y: 0, transition: {delay: 0.5}}}} whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
-                            Visitar Site
-                        </motion.a>
+                        
+                        <motion.div 
+                          className="card-buttons-container"
+                          variants={{hidden: {opacity: 0, y:20}, visible: {opacity: 1, y: 0, transition: {delay: 0.5}}}}
+                        >
+                          <a href={card.url} target="_blank" rel="noopener noreferrer" className="card-button" >
+                              Visitar Site
+                          </a>
+                          {/* 
+                            *** ALTERAÇÃO AQUI ***
+                            O href agora usa 'card.whatsappNumber' para pegar o número específico de cada card.
+                          */}
+                          <a 
+                            href={`https://wa.me/${card.whatsappNumber}?text=Olá, gostaria de mais informações sobre ${card.title}.`} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="card-button whatsapp-button"
+                          >
+                              <FaWhatsapp /> Contato
+                          </a>
+                        </motion.div>
                     </motion.div>
                     )}
                 </AnimatePresence>

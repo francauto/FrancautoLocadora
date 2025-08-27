@@ -54,7 +54,37 @@
   height: 100%;
   object-fit: cover;
 }
+a/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
 
+/* NOVO: Container para agrupar os botões */
+.card-buttons-container {
+  display: flex;
+  flex-direction: column; /* Empilha os botões verticalmente */
+  gap: 1rem; /* Espaço entre os botões */
+  width: 100%;
+  max-width: 250px; /* Limita a largura dos botões */
+}
+
+/* Ajuste no botão existente para funcionar no container */
+.card-button {
+  width: 100%; /* Faz o botão ocupar toda a largura do container */
+  text-align: center; /* Centraliza o texto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* NOVO: Estilo específico para o botão de WhatsApp */
+.whatsapp-button {
+  background-color: #25D366; /* Cor verde do WhatsApp */
+  color: white;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E; /* Cor mais escura para o hover */
+  color: white;
+}
 .card-overlay {
   position: absolute;
   inset: 0;
@@ -159,4 +189,36 @@
     background: linear-gradient(to top, rgba(16, 20, 27, 0.9) 0%, rgba(16, 20, 27, 0.5) 70%, transparent 100%);
     border-right: none;
   }
+}
+
+/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
+
+/* NOVO: Container para agrupar os botões */
+.card-buttons-container {
+  display: flex;
+  flex-direction: column; /* Empilha os botões verticalmente */
+  gap: 1rem; /* Espaço entre os botões */
+  width: 100%;
+  max-width: 250px; /* Limita a largura dos botões */
+}
+
+/* Ajuste no botão existente para funcionar no container */
+.card-button {
+  width: 100%; /* Faz o botão ocupar toda a largura do container */
+  text-align: center; /* Centraliza o texto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* NOVO: Estilo específico para o botão de WhatsApp */
+.whatsapp-button {
+  background-color: #25D366; /* Cor verde do WhatsApp */
+  color: white;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E; /* Cor mais escura para o hover */
+  color: white;
 }
