@@ -3,7 +3,7 @@
   width: 100%;
   background: linear-gradient(180deg, var(--dark-background) 0%, #2D3748 100%);
   padding-bottom: 60px; /* Espaço para a paginação do carrossel */
-  margin-top: -40px;
+  margin-top: -50px;
   margin-bottom: -40px;
 }
 
@@ -48,7 +48,7 @@
 /* 1. O contêiner da imagem com proporção fixa (A CORREÇÃO DEFINITIVA) */
 .card-media-container {
   width: 100%;
-  aspect-ratio: 4 / 3; /* Força uma proporção 4:3. Moderno e à prova de falhas. */
+  aspect-ratio: 5 / 3; /* Força uma proporção 4:3. Moderno e à prova de falhas. */
   overflow: hidden; /* Esconde qualquer parte da imagem que exceda a proporção */
   /* 2. Borda elegante como separador */
   border-bottom: 4px solid #e2e8f0; /* Um cinza claro para separar a imagem do conteúdo */

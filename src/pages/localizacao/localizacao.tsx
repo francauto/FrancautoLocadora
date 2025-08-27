@@ -9,7 +9,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./localizacao.css";
 
-import { FaMapMarkerAlt, FaClock, FaCar, FaSnowflake, FaWifi, FaRoute, FaPhoneAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaClock, FaCar, FaWifi, FaRoute, FaPhoneAlt } from "react-icons/fa";
 
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
@@ -95,7 +95,6 @@ const Localizacao = () => {
               <h4 className="info-title"><FaCar /> Comodidades</h4>
               <ul className="amenities-list">
                 <li className="amenity-item"><FaCar /> Estacionamento no local</li>
-                <li className="amenity-item"><FaSnowflake /> Ambiente climatizado</li>
                 <li className="amenity-item"><FaWifi /> Wi-Fi para clientes</li>
               </ul>
             </div>

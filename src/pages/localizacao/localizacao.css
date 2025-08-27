@@ -3,7 +3,7 @@
 .localizacao-section {
   width: 100%;
   background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
-  padding: 1rem 0;
+  padding: 0rem 0;
   overflow: hidden; /* Previne barras de rolagem horizontais durante a animação */
 }
 
