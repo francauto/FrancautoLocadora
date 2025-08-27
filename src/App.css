@@ -6,11 +6,7 @@
   overflow-x: hidden; /* Previne scroll horizontal */
 }
 
-/* 
-  Container de Seção Padrão 
-  - Cada "página" (Home, Planos, etc.) será uma seção.
-  - Garante padding consistente e centralização.
-*/
+
 .page-section {
   width: 100%;
   padding: 100px 5%; /* Espaçamento vertical e horizontal */
@@ -19,7 +15,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden; /* Essencial para as animações não vazarem */
-  scroll-margin-top: -70px; /* Compensa a altura do menu fixo ao rolar */
+  scroll-margin-top: 0px; /* Compensa a altura do menu fixo ao rolar */
 }
 
 /* Estilos específicos para seções com fundos diferentes */
@@ -33,7 +29,7 @@
 }
 
 #duvidas {
-  background-color: var(--light-background);
+  background-color: var(--dark-background);
 }
 
 /* Ajustes de padding para telas menores */

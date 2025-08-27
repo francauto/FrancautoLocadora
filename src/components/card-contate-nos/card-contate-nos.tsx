@@ -1,7 +1,6 @@
 // card-contate-nos.tsx
 
 import { useState } from "react";
-// NOVO: Importa o tipo Variants para ajudar o TypeScript
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import "./card-contate-nos.css";
 import WolksvagemIcone from "../../assets/icone-volkswagen.svg";
@@ -21,7 +20,6 @@ const cardInfo = [
   { title: "Francauto Peças", description: "Peças originais Volkswagen com garantia de fábrica, assegurando o melhor desempenho.", background: BackgroundFrancautoPecas, icon: WolksvagemIcone, url: "https://pecas.francauto.com.br/" },
 ];
 
-// ADICIONADO: Tipagem explícita para a constante, resolvendo o erro.
 const panelVariants: Variants = {
     hidden: { opacity: 0, x: "-100%" },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
@@ -75,13 +73,19 @@ const CardContatenos = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ amount: 0.2 }}
+        // *** ALTERAÇÃO AQUI ***
+        // Adicionado onMouseLeave ao container pai.
+        // Isso garante que ao sair da área de todos os cards, eles se fecham.
+        onMouseLeave={() => setActiveCard(-1)}
       >
         {cardInfo.map((card, index) => (
           <motion.div
             key={index}
             className="card-item"
+            // O onMouseEnter agora só precisa ativar o card específico
             onMouseEnter={() => setActiveCard(index)}
-            onClick={() => setActiveCard(activeCard === index ? -1 : index)}
+            // O onClick é mantido para a funcionalidade de toque em dispositivos móveis
+            onClick={() => setActiveCard(index)}
             layout
             variants={cardEntryVariants}
             animate={{ flexGrow: activeCard === index ? 10 : 1 }}

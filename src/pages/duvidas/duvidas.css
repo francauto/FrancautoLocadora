@@ -1,7 +1,10 @@
 /* duvidas.css */
+
 .duvidas-section {
   width: 100%;
-  background-color: var(--light-background);
+  /* ALTERADO: Fundo escuro, consistente com a seção de planos */
+  background-color: var(--dark-background);
+  margin-bottom: 3%;
 }
 
 .duvidas-container {
@@ -16,15 +19,17 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 2.5rem;
-  color: var(--text-color-dark);
+  /* ALTERADO: Cor do texto para claro */
+  color: #ffffff;
   text-align: center;
 }
 
 .duvidas-subtitle {
-  color: #4A5568;
+  /* ALTERADO: Cor do texto para claro */
+  color: var(--text-color-light);
   text-align: center;
   margin-top: 0.5rem;
-  margin-bottom: 2rem; /* Reduzido */
+  margin-bottom: 2rem;
   max-width: 500px;
 }
 
@@ -33,41 +38,43 @@
    ========================================================================== */
 .faq-wrapper {
   display: grid;
-  grid-template-columns: 1.5fr 1fr; /* Proporção ajustada para as 2 colunas */
-  gap: 2.5rem; /* Espaçamento entre colunas reduzido */
-  background-color: #ffffff;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5rem;
+  /* ALTERADO: Fundo do painel para um cinza escuro */
+  background-color: #2D3748; 
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  min-height: auto; /* Altura automática, não mais fixa */
+  min-height: auto;
 }
 
 /* ==========================================================================
    COLUNA DE PERGUNTAS (ESQUERDA - AGORA MULTI-COLUNA)
    ========================================================================== */
 .questions-list {
-  /* A MÁGICA: Divide a lista em 2 colunas */
   column-count: 2;
   column-gap: 2rem;
 }
 
 .question-item {
   width: 100%;
-  padding: 0.8rem 0.5rem; /* Padding vertical reduzido */
-  margin-bottom: 0.8rem; /* Espaço entre itens reduzido */
+  padding: 0.8rem 0.5rem;
+  margin-bottom: 0.8rem;
   font-family: var(--font-heading);
-  font-size: 0.9rem; /* Tamanho da fonte reduzido */
+  font-size: 1.1rem;
   font-weight: 600;
   text-align: left;
-  color: #4A5568;
+  /* ALTERADO: Cor do texto para claro */
+  color: #A0AEC0; /* Um cinza claro para as perguntas inativas */
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--border-color);
+  /* ALTERADO: Cor da borda para um tom mais claro */
+  border-bottom: 1px solid #4A5568;
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
-  break-inside: avoid; /* Previne que um item quebre entre colunas */
+  break-inside: avoid;
 }
 
 .question-item:last-child {
@@ -76,7 +83,8 @@
 
 .question-item:hover,
 .question-item.active {
-  color: var(--primary-color);
+  /* ALTERADO: Cor da pergunta ativa para branco */
+  color: #ffffff;
 }
 
 .active-indicator {
@@ -92,32 +100,31 @@
    PAINEL DE RESPOSTAS (DIREITA)
    ========================================================================== */
 .answer-panel {
-  padding-left: 1.5rem; /* Espaçamento reduzido */
-  border-left: 1px solid var(--border-color); /* Divisória movida para cá */
+  padding-left: 1.5rem;
+  /* ALTERADO: Cor da divisória para um tom mais claro */
+  border-left: 1px solid #4A5568;
   overflow: hidden;
-  display: flex; /* Para centralizar o conteúdo verticalmente */
+  display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.answer-header {
-  text-align: center;
-  margin-bottom: 0.5rem; /* Reduzido */
 }
 
 .answer-question {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.25rem; /* Reduzido */
-  color: var(--text-color-dark);
-  margin-bottom: 1rem; /* Reduzido */
+  font-size: 1.25rem;
+  /* ALTERADO: Cor do texto para branco */
+  color: #ffffff;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .answer-text {
-  font-size: 0.95rem; /* Reduzido */
-  line-height: 1.6; /* Reduzido */
-  color: #4A5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  /* ALTERADO: Cor do texto para um cinza claro */
+  color: var(--text-color-light);
+  white-space: pre-line; /* Mantém a formatação de quebra de linha */
 }
 
 /* ==========================================================================
@@ -125,11 +132,11 @@
    ========================================================================== */
 @media (max-width: 992px) {
   .faq-wrapper {
-    grid-template-columns: 1fr; /* Colunas se empilham */
+    grid-template-columns: 1fr;
     padding: 1.5rem;
   }
   .questions-list {
-    column-count: 1; /* Volta para uma única coluna */
+    column-count: 1;
     border-right: none;
     padding-right: 0;
     margin-bottom: 2rem;

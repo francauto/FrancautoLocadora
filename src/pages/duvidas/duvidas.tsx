@@ -1,10 +1,9 @@
-// duvidas.tsx
+// duvidas.tsx (Nenhuma alteração necessária)
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import "./duvidas.css";
 
-// ALTERAÇÃO AQUI: Adicionadas as 3 novas perguntas no final da lista
 const faqs = [
     { question: "O QUE O SEGURO COBRE?", answer: "O seguro cobre casos de roubo, furto, incêndio e perda total. Nesses casos, o cliente é responsável pelo pagamento da franquia do veículo. Em casos de danos de pequeno porte, são cobrados apenas os valores do orçamento." },
     { question: "E SE EU BATER EM OUTRO CARRO?", answer: "Temos seguro contra terceiros. No entanto, a franquia é acionada para cobrir os danos dos dois veículos. Alternativamente, o reparo do carro do terceiro pode ser feito onde ele preferir." },
@@ -112,7 +111,6 @@ const Duvidas = () => {
                 exit="exit"
               >
                 <h3 className="answer-question">{selectedFaq.question}</h3>
-                {/* ALTERAÇÃO AQUI: Usando <div> para que a propriedade CSS 'white-space: pre-line' funcione */}
                 <div className="answer-text">{selectedFaq.answer}</div>
               </motion.div>
             </AnimatePresence>

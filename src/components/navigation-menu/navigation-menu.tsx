@@ -15,7 +15,7 @@ const menuItems = [
 ];
 
 // NOVO: Array com os IDs das seções de fundo claro
-const lightSections = ['localizacao', 'duvidas', 'contate-nos'];
+const lightSections = ['localizacao', , 'contate-nos'];
 
 const NavigationMenu = () => {
   const [activeItem, setActiveItem] = useState("home");

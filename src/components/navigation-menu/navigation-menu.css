@@ -21,20 +21,39 @@
   background: var(--primary-color); border-radius: 2px;
 }
 
-.navigation-menu.scrolled {
-  background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 0.75rem 3rem;
+/* 
+  *** A LÓGICA DO FUNDO BRANCO ESTÁ AQUI ***
+  Tanto .scrolled quanto .force-dark-theme aplicam o fundo branco/claro.
+*/
+.navigation-menu.scrolled,
+.navigation-menu.force-dark-theme {
+  background-color: rgba(255, 255, 255, 0.95); 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
-.navigation-menu.scrolled .desktop-menu-items a { color: var(--text-color-dark); }
-.navigation-menu.scrolled .desktop-menu-items a:not(.active):hover { color: var(--primary-color); }
 
-.navigation-menu.force-dark-theme .desktop-menu-items a { color: var(--text-color-dark); }
-.navigation-menu.force-dark-theme .menu-toggle .menu-toggle-icon div { background: var(--text-color-dark); }
+/* Regras para a cor do texto quando o fundo for claro */
+.navigation-menu.scrolled .desktop-menu-items a,
+.navigation-menu.force-dark-theme .desktop-menu-items a { 
+  color: var(--text-color-dark); 
+}
+.navigation-menu.scrolled .desktop-menu-items a:not(.active):hover,
+.navigation-menu.force-dark-theme .desktop-menu-items a:not(.active):hover { 
+  color: var(--primary-color); 
+}
+
+/* Regras para a cor do ícone do menu quando o fundo for claro */
+.navigation-menu.scrolled .menu-toggle-icon div,
+.navigation-menu.force-dark-theme .menu-toggle-icon div { 
+  background: var(--text-color-dark); 
+}
 
 .navigation-menu .menu-toggle { display: none; background: transparent; border: none; cursor: pointer; z-index: 1002; padding: 8px; margin: -8px; }
 .navigation-menu .menu-toggle-icon { width: 28px; height: 24px; display: flex; flex-direction: column; justify-content: space-around; }
 .navigation-menu .menu-toggle-icon div { width: 28px; height: 3px; border-radius: 10px; transition: all 0.3s ease; transform-origin: 1px; background: var(--text-color-light); }
-.navigation-menu.scrolled .menu-toggle-icon div { background: var(--text-color-dark); }
 .navigation-menu.menu-open .menu-toggle-icon div { background: var(--text-color-dark); }
 
 @media (max-width: 992px) {
@@ -43,14 +62,14 @@
   .navigation-menu, .navigation-menu.scrolled { padding: 1rem 1.5rem; }
 }
 
-/* Estilos do painel mobile, já são específicos e não causam conflito */
-.mobile-menu-overlay, .mobile-menu-items {
-  position: fixed; top: 0; z-index: 998; width: 100vw; height: 100vh;
+/* Estilos do painel mobile */
+.mobile-menu-overlay {
+  position: fixed; top: 0; left: 0; z-index: 998; width: 100vw; height: 100vh;
   background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
 }
 .mobile-menu-items {
-  list-style: none; padding: 8rem 2rem 2rem; margin: 0; left: 0; width: 80%;
-  max-width: 350px; background: white; z-index: 999; display: flex; flex-direction: column;
+  list-style: none; padding: 8rem 2rem 2rem; margin: 0; position: fixed; top: 0; left: 0; width: 80%;
+  max-width: 350px; height: 100vh; background: white; z-index: 999; display: flex; flex-direction: column;
   gap: 1.5rem; box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
 }
 .mobile-menu-items a {
