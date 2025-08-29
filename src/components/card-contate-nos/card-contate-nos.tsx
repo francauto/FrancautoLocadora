@@ -14,8 +14,6 @@ import BackgroundFrancautoPecas from "../../assets/background-card-pecas.svg";
 
 import { FaWhatsapp } from "react-icons/fa";
 
-// *** ALTERAÇÃO PRINCIPAL AQUI ***
-// Adicionada a propriedade 'whatsappNumber' a cada objeto
 const cardInfo = [
   { title: "Francauto Novos", description: "Encontre o Volkswagen 0KM dos seus sonhos com as melhores condições.", background: BackgroundFrancautoNovos, icon: WolksvagemIcone, url: "https://www.francauto.com.br/distrito-industrial", whatsappNumber: "551637115000" },
   { title: "Francauto Locadora", description: "Alugue veículos em Franca/SP com uma frota moderna para suas necessidades.", background: BackgroundFrancautoLocadora, icon: IconeLocadora, url: "https://www.francautolocadora.com.br/", whatsappNumber: "5516999661580" },
@@ -118,10 +116,6 @@ const CardContatenos = () => {
                           <a href={card.url} target="_blank" rel="noopener noreferrer" className="card-button" >
                               Visitar Site
                           </a>
-                          {/* 
-                            *** ALTERAÇÃO AQUI ***
-                            O href agora usa 'card.whatsappNumber' para pegar o número específico de cada card.
-                          */}
                           <a 
                             href={`https://wa.me/${card.whatsappNumber}?text=Olá, gostaria de mais informações sobre ${card.title}.`} 
                             target="_blank" 

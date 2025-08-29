@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTATE-NOS - ESTRUTURA DA PÁGINA
+   ESTRUTURA DA SEÇÃO
    ========================================================================== */
 .contate-nos-section {
   width: 100%;
@@ -31,7 +31,7 @@
   display: flex;
   flex-direction: row;
   gap: 12px;
-  height: 450px;
+  height: 500px;
 }
 
 /* ==========================================================================
@@ -43,7 +43,6 @@
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  /* A animação de flex-grow foi REMOVIDA daqui */
 }
 
 .card-background {
@@ -54,45 +53,12 @@
   height: 100%;
   object-fit: cover;
 }
-a/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
 
-/* NOVO: Container para agrupar os botões */
-.card-buttons-container {
-  display: flex;
-  flex-direction: column; /* Empilha os botões verticalmente */
-  gap: 1rem; /* Espaço entre os botões */
-  width: 100%;
-  max-width: 250px; /* Limita a largura dos botões */
-}
-
-/* Ajuste no botão existente para funcionar no container */
-.card-button {
-  width: 100%; /* Faz o botão ocupar toda a largura do container */
-  text-align: center; /* Centraliza o texto */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-/* NOVO: Estilo específico para o botão de WhatsApp */
-.whatsapp-button {
-  background-color: #25D366; /* Cor verde do WhatsApp */
-  color: white;
-}
-
-.whatsapp-button:hover {
-  background-color: #128C7E; /* Cor mais escura para o hover */
-  color: white;
-}
 .card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.6) 20%, transparent 60%);
   transition: background 0.5s ease;
-}
-.card-item.active .card-overlay {
-  background: transparent;
 }
 
 .card-content-wrapper {
@@ -154,9 +120,23 @@ a/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
   margin-bottom: 2.5rem;
   max-width: 350px;
 }
+
+/* 
+  *** ESTILOS DOS BOTÕES ATUALIZADOS AQUI ***
+*/
+
+/* Container para agrupar os botões */
+.card-buttons-container {
+  display: flex;
+  flex-direction: row; /* Coloca os botões lado a lado */
+  gap: 1rem; /* Espaço entre os botões */
+  width: 100%;
+}
+
+/* Estilo base para ambos os botões */
 .card-button {
-  width: fit-content;
-  padding: 14px 32px;
+  flex: 1; /* Faz os botões dividirem o espaço igualmente */
+  padding: 14px 24px;
   font-family: var(--font-heading);
   font-weight: 600;
   border-radius: 50px;
@@ -164,10 +144,28 @@ a/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
   background-color: var(--primary-color);
   color: white;
   transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap; /* Evita quebra de linha do texto */
 }
 
+/* Estilo específico para o botão de WhatsApp */
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E;
+  color: white;
+}
+
+
 /* ==========================================================================
-   RESPONSIVIDADE (MOBILE-FIRST)
+   RESPONSIVIDADE
    ========================================================================== */
 @media (max-width: 992px) {
   .card-wall-container {
@@ -176,8 +174,7 @@ a/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
     gap: 1rem;
   }
   .card-item {
-    /* REMOVIDO: height e transition: height. Deixa o layout da Framer Motion controlar. */
-    min-height: 120px; /* Altura mínima para o card fechado */
+    min-height: 120px;
   }
   .collapsed-content {
     padding: 1rem 1.5rem;
@@ -189,36 +186,4 @@ a/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
     background: linear-gradient(to top, rgba(16, 20, 27, 0.9) 0%, rgba(16, 20, 27, 0.5) 70%, transparent 100%);
     border-right: none;
   }
-}
-
-/* Adicione estas regras ao final do seu arquivo card-contate-nos.css */
-
-/* NOVO: Container para agrupar os botões */
-.card-buttons-container {
-  display: flex;
-  flex-direction: column; /* Empilha os botões verticalmente */
-  gap: 1rem; /* Espaço entre os botões */
-  width: 100%;
-  max-width: 250px; /* Limita a largura dos botões */
-}
-
-/* Ajuste no botão existente para funcionar no container */
-.card-button {
-  width: 100%; /* Faz o botão ocupar toda a largura do container */
-  text-align: center; /* Centraliza o texto */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-/* NOVO: Estilo específico para o botão de WhatsApp */
-.whatsapp-button {
-  background-color: #25D366; /* Cor verde do WhatsApp */
-  color: white;
-}
-
-.whatsapp-button:hover {
-  background-color: #128C7E; /* Cor mais escura para o hover */
-  color: white;
 }
