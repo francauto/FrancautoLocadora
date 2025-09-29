@@ -19,6 +19,7 @@ html, body, #root {
   overflow: hidden;
   text-align: center;
   box-sizing: border-box;
+  
 }
 
 .background-image {
@@ -29,6 +30,7 @@ html, body, #root {
   height: 100%;
   object-fit: cover;
   z-index: -2;
+  background-color: black;
 }
 
 .background-overlay {
@@ -39,6 +41,7 @@ html, body, #root {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro para contraste */
   z-index: -1;
+  
 }
 
 .home-content {
