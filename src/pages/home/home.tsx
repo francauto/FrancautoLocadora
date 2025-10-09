@@ -1,7 +1,7 @@
 // home.tsx
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import backgroundHome from "../../assets/background-home.svg";
+import backgroundHome from "../../assets/fundo-locadora.png";
 import "./home.css";
 
 const Home = () => {
