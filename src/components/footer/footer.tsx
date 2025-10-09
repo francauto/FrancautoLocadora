@@ -12,7 +12,7 @@ const contactLinks = [
     text: "(16) 99966-1580",
   },
   {
-    href: "francautolocadora@gmail.com", // E-mail de exemplo
+    href: "mailto:francautolocadora@gmail.com", 
     Icon: FaEnvelope,
     text: "francautolocadora@gmail.com",
   },
