@@ -21,8 +21,6 @@ RUN rm -rf ./*
 # Copia arquivos de build do estágio anterior
 COPY --from=build /app/dist .
 
-# Copia configuração customizada do nginx, se existir
-COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
