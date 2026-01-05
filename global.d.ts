@@ -1,6 +1,1 @@
-declare namespace JSX {
-    interface IntrinsicElements {
-      'dotlottie-player': any;
-    }
-  }
-  
+// Arquivo mantido para futuras declarações de tipos globais

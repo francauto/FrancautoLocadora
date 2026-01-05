@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { DotLottiePlayer } from "@dotlottie/react-player";
-import "@dotlottie/player-component";
+import { FaWhatsapp } from "react-icons/fa";
 import "./whatsApp-icon.css";
 
 const WhatsAppIcon = () => {
@@ -31,13 +30,8 @@ const WhatsAppIcon = () => {
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <DotLottiePlayer
-          src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
-          background="transparent"
-          speed={1}
-          style={{ width: "80px", height: "80px" }}
-          loop
-          autoplay
+        <FaWhatsapp
+          style={{ width: "80px", height: "80px", color: "#25D366" }}
         />
       </motion.div>
     </motion.div>

@@ -5,16 +5,15 @@ import Button from "@mui/material/Button";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import CardContatenos from "../../components/card-contate-nos/card-contate-nos";
-import { DotLottiePlayer } from "@dotlottie/react-player";
-import '@dotlottie/player-component';
 import { motion } from "framer-motion";
+import { FaPhone, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const Contatenos = () => {
   return (
     <div className="contate-nos-container">
       <div className="contate-nos-card">
-        <div className="contate-nos-content"> 
-          <motion.div 
+        <div className="contate-nos-content">
+          <motion.div
             className="contate-nos-left"
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -62,26 +61,26 @@ const Contatenos = () => {
               </div>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="contate-nos-right"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             // ALTERAÇÃO AQUI: 'once' removido
             viewport={{ amount: 0.4 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-          > 
+          >
             <h3 className="subtitulo-contatos">Contatos</h3>
             <div className="contate-nos-row">
               <div className="contate-nos-item">
-                <DotLottiePlayer
-                  src="https://lottie.host/c00ab8df-73b8-4f23-8556-fcee37a20bab/US0mU7ZLwv.lottie"
-                  background="transparent"
-                  speed={1}
-                  style={{ width: "30px", height: "30px" }}
-                  loop
-                  autoplay
-                ></DotLottiePlayer>
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <FaPhone
+                    style={{ width: "30px", height: "30px", color: "#ff6b35" }}
+                  />
+                </motion.div>
                 <a
                   href="tel:+5516999661580"
                   className="text no-wrap"
@@ -89,14 +88,15 @@ const Contatenos = () => {
                 >
                   (16) 99966-1580
                 </a>
-                <DotLottiePlayer
-                  src="https://lottie.host/ce0c0e73-a7dc-41c8-8a31-170643570b55/DEaqQ1BKDX.lottie"
-                  background="transparent"
-                  speed={1}
-                  style={{ width: "30px", height: "30px", marginLeft: "8px" }}
-                  loop
-                  autoplay
-                ></DotLottiePlayer>
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                  style={{ marginLeft: "8px" }}
+                >
+                  <FaWhatsapp
+                    style={{ width: "30px", height: "30px", color: "#25D366" }}
+                  />
+                </motion.div>
                 <a
                   href="https://wa.me/5516999661580"
                   className="text no-wrap"
@@ -110,14 +110,14 @@ const Contatenos = () => {
             </div>
             <div className="contate-nos-row">
               <div className="contate-nos-item">
-                <DotLottiePlayer
-                  src="https://lottie.host/22b0ad59-7153-4e78-a3c6-42d0d7ac45c6/Eup1p4J0nJ.lottie"
-                  background="transparent"
-                  speed={1}
-                  style={{ width: "30px", height: "30px" }}
-                  loop
-                  autoplay
-                ></DotLottiePlayer>
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <FaEnvelope
+                    style={{ width: "30px", height: "30px", color: "#ff6b35" }}
+                  />
+                </motion.div>
                 <a
                   href="mailto:francautolocadora@gmail.com"
                   className="text no-wrap"
@@ -132,7 +132,7 @@ const Contatenos = () => {
       </div>
 
       <motion.div
-        style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+        style={{ width: "100%", display: "flex", justifyContent: "center" }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.5 }}
